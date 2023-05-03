@@ -8,8 +8,39 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/jquery-1.11.1.min.js"></script>
+    <!-- <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> -->
+    <!-- <script>
+            window.onload = function(){
+                document.getElementById("address_kakao1").addEventListener("click", function(){ //주소입력칸을 클릭하면
+                    //카카오 지도 발생
+                    new daum.Postcode({
+                        oncomplete: function(data) { //선택시 입력값 세팅
+                            document.getElementById("address_kakao1").value = data.address; // 주소 넣기
+                            document.querySelector("input[name=address_detail1]").focus(); //상세입력 포커싱
+                        }
+                    }).open();
+                });
+
+                document.getElementById("address_kakao2").addEventListener("click", function(){ //주소입력칸을 클릭하면
+                    //카카오 지도 발생
+                    new daum.Postcode({
+                        oncomplete: function(data) { //선택시 입력값 세팅
+                            document.getElementById("address_kakao2").value = data.address; // 주소 넣기
+                            document.querySelector("input[name=address_detail2]").focus(); //상세입력 포커싱
+                        }
+                    }).open();
+                });
+            }
+    </script> -->
+    <script>
+        $("#file1").on('change',function(){
+            $(this).siblings('.upload-name').val("신분증 촬영 완료");
+            $(this).siblings('.upload-name').css('color','#000');
+        });
+    </script>
 </head>
 <body class="formP4">
+    
     <div class="step-wizard">
         <ul class="step-wizard-list">
             <li class="step-wizard-item">
@@ -32,16 +63,13 @@
     </div>
     <h3 class="title">장기요양급여를 받고자하는<br> 보호자의 기본정보를 입력해주세요</h3>
     <div class="content">
-        
         <form action="">
             <p class="inputWrap">
                 이름<br><input type="text" name="이름" size="10" placeholder="이름을 입력해 주세요 (최대 8자)" id="input_text">
             </p>
             <p class="inputWrap">관계
                 <br>
-                <input type="text" size="7" maxlength="6" placeholder="생년월일 6자리">
-                <span>-</span>
-                <input type="text" size="7" maxlength="7" placeholder="뒤 7자리"> 
+                <input type="text" size="7" maxlength="6" placeholder="관계를 선택해 주세요">
             </p>
             <p class="inputWrap">주민등록지<br>
                 <input type="text" id="address_kakao1" name="address" placeholder="주소를 검색하세요" />
@@ -72,39 +100,33 @@
                 </button>
             </div> 
         </form>
-            
-
-        
     </div>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script>
-            window.onload = function(){
-                document.getElementById("address_kakao1").addEventListener("click", function(){ //주소입력칸을 클릭하면
-                    //카카오 지도 발생
-                    new daum.Postcode({
-                        oncomplete: function(data) { //선택시 입력값 세팅
-                            document.getElementById("address_kakao1").value = data.address; // 주소 넣기
-                            document.querySelector("input[name=address_detail1]").focus(); //상세입력 포커싱
-                        }
-                    }).open();
-                });
-
-                document.getElementById("address_kakao2").addEventListener("click", function(){ //주소입력칸을 클릭하면
-                    //카카오 지도 발생
-                    new daum.Postcode({
-                        oncomplete: function(data) { //선택시 입력값 세팅
-                            document.getElementById("address_kakao2").value = data.address; // 주소 넣기
-                            document.querySelector("input[name=address_detail2]").focus(); //상세입력 포커싱
-                        }
-                    }).open();
-                });
-            }
-    </script>
-    <script>
-        $("#file1").on('change',function(){
-            $(this).siblings('.upload-name').val("신분증 촬영 완료");
-            $(this).siblings('.upload-name').css('color','#000');
-        });
-    </script>
+    <div class="cc"></div>
+    <div class="popup_wrap">
+        <div class="popup_content">
+            <div class="header">
+                <span>수급자와의 관계 선택</span>
+                <span class="close">닫기</span>
+            </div>
+            <div class="radioWrap">
+                <div class="form_radio_btn">
+                    <input id="radio-1" type="radio" name="ap" value="1" checked>
+                    <label for="radio-1">자식</label>
+                </div>
+                <div class="form_radio_btn">
+                    <input id="radio-2" type="radio" name="ap" value="2">
+                    <label for="radio-2">부부</label>
+                </div>
+                <div class="form_radio_btn">
+                    <input id="radio-3" type="radio" name="ap" value="2">
+                    <label for="radio-3">손자 / 손녀</label>
+                </div>
+                <div class="form_radio_btn">
+                    <input id="radio-4" type="radio" name="ap" value="2">
+                    <label for="radio-4">기타</label>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
