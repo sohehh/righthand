@@ -20,6 +20,7 @@
             });
         });
     </script>
+    
 </head>
 <body class="formP3">
     <div class="step-wizard">
@@ -43,21 +44,20 @@
         </ul>
     </div>
     <h3 class="title">장기요양급여를 받고자하는<br> 수급자(신청인)의 기본정보를 입력해주세요</h3>
-    <div class="content">
-        
+    <div class="content"> 
         <form action="">
             <p class="inputWrap">
-                이름<br><input type="text" name="이름" size="10" placeholder="이름을 입력해 주세요 (최대 8자)" id="input_text">
+                이름<br><input type="text" name="이름" size="10" placeholder="이름을 입력해 주세요 (최대 8자)" id="name" >
             </p>
             <p class="inputWrap">주민등록번호
                 <br>
-                <input type="text" size="7" maxlength="6" placeholder="생년월일 6자리">
+                <input type="text" size="7" maxlength="6" placeholder="생년월일 6자리" id="id_info1">
                 <span>-</span>
-                <input type="text" size="7" maxlength="7" placeholder="뒤 7자리"> 
+                <input type="text" size="7" maxlength="7" placeholder="뒤 7자리" id="id_info2"> 
             </p>
             <p class="inputWrap">주민등록지<br>
                 <input type="text" id="address_kakao1" name="address" placeholder="주소를 검색하세요" />
-                <input type="text" name="address_detail1" placeholder="상세주소를 입력하세요"/>
+                <input type="text" id="address_kakao1Sub" name="address_detail1" placeholder="상세주소를 입력하세요"/>
             </p>
             <p class="inputWrap">실제거주지<br>
                 <input type="text" id="address_kakao2" name="address" placeholder="주소를 검색하세요" />
@@ -102,13 +102,30 @@
             </div>
             <div class="btn-bottom-wrap">
                 <button disabled="true" class="btn-bottom">
-                    <a href="formpage3.html">다음</a>
+                    <a href="#">다음</a>
                 </button>
             </div> 
         </form>
-            
-
-        
+    </div>
+    <div class="inputCheckWrap">
+        <div class="title">수급자 정보가 제대로 입력 되었는지 확인해 주세요</div>
+        <div class="content"> 
+            <div class="reCheckWrap">
+                이름<br>
+                <p class="text_name"></p>
+            </div>
+            <div class="reCheckWrap">
+                주민등록번호<br>
+                <p class="text_id1"></p>
+                <span>-</span>
+                <p class="text_id2"></p>
+            </div>
+            <div class="reCheckWrap">
+                주민등록지<br>
+                <p class="text_idHome1"></p>
+                <p class="text_idHome2"></p>
+            </div>
+        </div>
     </div>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
@@ -147,6 +164,25 @@
             $(this).siblings('.upload-name').val("파일 업로드 완료");
             $(this).siblings('.upload-name').css('color','#000');
         });
+
+        $('.btn-bottom a').click(function(){
+            $('.inputCheckWrap').css('display', 'block');
+        });
+    </script>
+    <script>
+        $(function(){
+            $('#name, #id_info1, #id_info2,#address_kakao1, #address_kakao1Sub').keyup(function(){
+                $('.text_name').text($('#name').val());
+                $('.text_id1').text($('#id_info1').val());
+                $('.text_id2').text($('#id_info2').val());
+                $('.text_idHome1').text($('#address_kakao1').val());
+                $('.text_idHome2').text($('#address_kakao1Sub').val());
+
+            });
+
+            
+        });
+        // document.getElementsByClassName('text_name').innerText = text_p1;
     </script>
 </body>
 </html>
