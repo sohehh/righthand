@@ -171,14 +171,13 @@ body{
 .formP1{
     background-color: #F5F5F5;
 }
-.f1, .f2{
+.f1{
     background:white url(../img/vector.svg)no-repeat center right 20px;
-    
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
     border-bottom: 1px solid #E3E3E3;
 }
-.f1 a, .f2 a{
+.f1 a{
     padding: 20px 20px;
     display: block;
 }
@@ -187,7 +186,7 @@ body{
 
 
 .formP2 .radioWrap{
-    font-weight: 700;
+    font-weight: 500;
 }
 .formP2 input[type=radio]{
     display: none;
