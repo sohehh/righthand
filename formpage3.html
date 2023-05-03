@@ -61,17 +61,17 @@
             </p>
             <p class="inputWrap">실제거주지<br>
                 <input type="text" id="address_kakao2" name="address" placeholder="주소를 검색하세요" />
-                <input type="text" name="address_detail2" placeholder="상세주소를 입력하세요"/>
+                <input type="text" id="address_kakao2Sub" name="address_detail2" placeholder="상세주소를 입력하세요"/>
             </p>
             <p class="inputWrap">전화번호<br>
-                <input type="text" name="전화번호" maxlength="11" placeholder="연락처를 '-' 없이 입력해 주세요">
+                <input type="text" name="callNumber" id="callNumber" maxlength="11" placeholder="연락처를 '-' 없이 입력해 주세요">
             </p>
         
             <div class="fileWrap">
                 <h3>파일첨부</h3>
                 <div class="fileBox">신분증<br>
                     <div class="fileBtnRight1">
-                        <input class="upload-name" value="사진 촬영을 해주세요" placeholder="사진 촬영을 해주세요">
+                        <input class="upload-name" id="idCard" value="사진 촬영을 해주세요" placeholder="사진 촬영을 해주세요">
                         <label for="file1">촬영하기</label> 
                         <input type="file" id="file1">
                     </div>
@@ -99,6 +99,7 @@
             <div class="check_wrap">
                 <input type="checkbox" id="check_btn">
                 <label for="check_btn"><span>개인 정보 제공 동의</span></label>
+                <p>대리 신청의 경우 반드시 등급을 신청하시는 어르신의 정보 제공 동의를 받으셔야 합니다.</p>
             </div>
             <div class="btn-bottom-wrap">
                 <button disabled="true" class="btn-bottom">
@@ -125,6 +126,30 @@
                 <p class="text_idHome1"></p>
                 <p class="text_idHome2"></p>
             </div>
+            <div class="reCheckWrap">
+                실제거주지<br>
+                <p class="text_realHome1"></p>
+                <p class="text_realHome2"></p>
+            </div>
+            <div class="reCheckWrap">
+                전화번호<br>
+                <p class="text_callNumber"></p>
+            </div>
+            <div class="fileWrap">
+                <h3>파일첨부</h3>
+                <div class="reCheckWrap">신분증<br>
+                    <p class="text_idCard"></p>
+                </div>
+                <div class="reCheckWrap">의사소견서<br>
+                    <p class="text_doctor"></p>
+                </div>
+                <div class="reCheckWrap">노인성 질병을 확인할 수 있는 진단서<br>
+                    <p class="text_sheet"></p>
+                </div>
+            </div>
+
+            <span>개인 정보 제공 동의 완료</span>
+
         </div>
     </div>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -165,22 +190,27 @@
             $(this).siblings('.upload-name').css('color','#000');
         });
 
+        /*다음 버튼 클릭 시*/
         $('.btn-bottom a').click(function(){
             $('.inputCheckWrap').css('display', 'block');
+            $('.formP3>.step-wizard,.formP3>.title, .formP3>.content').css('display','none');
+            $('.text_idCard').text("신분증 촬영 완료");
+            $('.text_doctor, .text_sheet').text("파일 업로드 완료");
         });
     </script>
     <script>
+        /*인풋 value값 할당하는 코드*/
         $(function(){
-            $('#name, #id_info1, #id_info2,#address_kakao1, #address_kakao1Sub').keyup(function(){
+            $('#name, #id_info1, #id_info2,#address_kakao1, #address_kakao1Sub,#address_kakao2, #address_kakao2Sub, #callNumber').keyup(function(){
                 $('.text_name').text($('#name').val());
                 $('.text_id1').text($('#id_info1').val());
                 $('.text_id2').text($('#id_info2').val());
                 $('.text_idHome1').text($('#address_kakao1').val());
                 $('.text_idHome2').text($('#address_kakao1Sub').val());
-
+                $('.text_realHome1').text($('#address_kakao2').val());
+                $('.text_realHome2').text($('#address_kakao2Sub').val());
+                $('.text_callNumber').text($('#callNumber').val());
             });
-
-            
         });
         // document.getElementsByClassName('text_name').innerText = text_p1;
     </script>
