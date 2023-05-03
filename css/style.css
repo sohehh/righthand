@@ -84,14 +84,54 @@ body{
     text-align: center;
     margin: 0 auto;
     border:none;
+    box-sizing: border-box;
+
 }
 
 .btn-bottom a{
     font-size: 16px;
     font-weight: 900;
     display: block;
+    box-sizing: border-box;
 }
 
+/*하단 두개 버튼 style*/
+.btn-bottom-wrap2{
+    position: fixed;
+    background-color: #fff;
+    width: 100%;
+    line-height: 55px;
+    color: white;
+    left:0;
+    bottom: 0;
+    font-weight: 800;
+    padding: 0 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-bottom2{
+    background-color: #2CB7A4;
+    width: calc(50% - 5px);
+    display: block;
+    line-height: 49px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    border:none;
+    box-sizing: border-box;
+}
+.btn-bottom2:nth-child(1){
+    background-color: white;
+    color:#2CB7A4;
+    border: 2px solid #2CB7A4 ;
+}
+.btn-bottom2 a{
+    font-size: 16px;
+    font-weight: 900;
+    display: block;
+}
 /*h3 밑에 컨텐트*/
 .content{
     padding:20px 20px 125px 20px;
@@ -461,7 +501,7 @@ form>.inputWrap:nth-child(5) input[type="text"]{
 .inputCheckWrap .fileWrap .reCheckWrap p{
     width: 100%;
 }
-.inputCheckWrap span{
+.inputCheckWrap .content>span{
     font-weight: 500;
     font-size: 13px;
     text-decoration: underline;
