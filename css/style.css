@@ -80,7 +80,7 @@ body{
     line-height: 55px;
     border-radius: 10px;
     color: white;
-    font-weight: bolder;
+    font-weight: 700;
     text-align: center;
     margin: 0 auto;
     border:none;
@@ -117,7 +117,7 @@ body{
     flex-direction: column;
     text-align: center;
     font-size: 14px;
-    font-weight: 900;
+    font-weight: 700;
     /* z-index: 10; */
     flex-basis: 0;
     -webkit-box-flex: 1;
@@ -227,7 +227,7 @@ body{
 }
 
 form .inputWrap{
-    font-weight: 700;
+    font-weight: 500;
     font-size: 13px;
     padding-bottom: 37px;
 }
@@ -270,9 +270,15 @@ form>.inputWrap:nth-child(5) input[type="text"]{
     font-weight: 700;
     font-size: 13px;
 }
-.fileWrap .fileBox:nth-of-type(2){
+.fileWrap .fileBox .fileBtnRight1{
     display: flex;
 }
+.fileWrap .fileBox .fileBtnRight1 label{
+    height: 30px;
+    margin-top: 15px;
+    margin-left: 1.7%;
+}
+
 
 .fileWrap .fileBox .upload-name{
     font-family:  "NanumSquareRound",sans-serif;
@@ -294,19 +300,22 @@ form>.inputWrap:nth-child(5) input[type="text"]{
 }
 
 /*file 의사소견서 style*/
+.fileWrap .fileBox:nth-of-type(2){
+    display: flex;
+}
 .fileWrap .fileBox .fileLeft{
     width: calc(100% - 95px);
 }
 .fileWrap .fileBox .fileLeft .upload-name{
     width: 100%;
 }
-.fileWrap .fileBtnRight {
+.fileWrap .fileBtnRight2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-left: 7px;
 }
-.fileWrap .fileBtnRight .onlineBtn{
+.fileWrap .fileBtnRight2 .onlineBtn{
     font-size: 13px;
     font-weight: bold;
     border:1px solid #2CB7A4;
@@ -322,7 +331,7 @@ form>.inputWrap:nth-child(5) input[type="text"]{
 .fileWrap .fileBox label {
     display: inline-block;
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 500;
     padding: 0 10px 0 30px;
     color: #fff;
     background: #2CB7A4 url('../img/camera.svg')no-repeat center left 10px / 15px auto;
@@ -348,9 +357,9 @@ form>.inputWrap:nth-child(5) input[type="text"]{
     
 }
 .check_wrap input + label > span{
-    vertical-align: top;
+    vertical-align: middle;
     font-size:13px;
-    font-weight:bold;
+    font-weight:500;
     margin-left:10px;
 }
 /* label:before에 체크하기 전 상태 CSS */
