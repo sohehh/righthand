@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        /* .step-wizard-item+.step-wizard-item::after{
+            background-color: #3A9286;
+        }
+        .step-wizard-item:not(:first-child) .progress-count{
+            border-color: #3A9286;
+        } */
+    </style>
+</head>
+<body class="formP2">
+    <div class="step-wizard">
+        <ul class="step-wizard-list">
+            <li class="step-wizard-item">
+                <span class="progress-count">1</span>
+                <span class="progress-label"> 신청서<br>선택</span>
+            </li>
+            <li class="step-wizard-item current-item">
+                <span class="progress-count">2</span>
+                <span class="progress-label">수급자</span>
+            </li>
+            <li class="step-wizard-item">
+                <span class="progress-count">3</span>
+                <span class="progress-label">보호자</span>
+            </li>
+            <li class="step-wizard-item">
+                <span class="progress-count">4</span>
+                <span class="progress-label">기타<br>항목</span>
+            </li>
+        </ul>
+    </div>
+    <h3 class="title">장기요양 신청서를 선택해 주세요</h3>
+    <div class="content">
+        <div class="radioWrap">
+            <div class="form_radio_btn">
+                <input id="radio-1" type="radio" name="ap" value="1" checked>
+                <label for="radio-1">장기요양인정 신청서</label>
+            </div>
+            <div class="form_radio_btn">
+                <input id="radio-2" type="radio" name="ap" value="2">
+                <label for="radio-2">장기요양등급 변경 신청서</label>
+            </div>
+            <div class="form_radio_btn">
+                <input id="radio-3" type="radio" name="ap" value="2">
+                <label for="radio-3">장기요양인정 갱신 신청서</label>
+            </div>
+            <div class="form_radio_btn">
+                <input id="radio-4" type="radio" name="ap" value="2">
+                <label for="radio-4">장기요양 급여종류·내용 변경신청서</label>
+            </div>
+        </div>
+        <div class="btn-bottom-wrap">
+            <button class="btn-bottom">
+                <a href="formpage3.html">다음</a>
+            </button>
+        </div> 
+    </div>
+    
+</body>
+</html>

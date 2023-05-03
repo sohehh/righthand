@@ -1,0 +1,354 @@
+/* @import url('https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css'); */
+/* @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css); */
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+/* 공통 */
+body{
+    font-family: "NanumSquareRound";
+}
+
+.title{
+    font-family: "NanumSquareRound";
+    padding: 20px 25px;
+    font-size: 15px;
+    font-weight: bold;
+    border-bottom: 3px solid #f5f5f5;
+    line-height: 150%;
+
+}
+
+
+/*checked*/
+.formP2 input[type=radio]:checked + label{
+    border: 2px solid #2CB7A4;
+    background:white url(../img/check-checked.svg)no-repeat center right 29px;
+}
+.formP2 input[type=radio] + label{
+    background:white url(../img/check.svg)no-repeat center right 29px;
+
+}
+
+/*하단 버튼*/
+.btn-bottom-wrap{
+    position: fixed;
+    background-color: #fff;
+    width: 100%;
+    line-height: 55px;
+    color: white;
+    left:0;
+    bottom: 0;
+    font-weight: 800;
+    padding-bottom: 20px;
+}
+.btn-bottom{
+    background-color: #2CB7A4;
+    width: calc(100% - 40px);
+    display: block;
+    line-height: 55px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+    margin: 0 auto;
+    border:none;
+}
+
+.btn-bottom a{
+    font-size: 16px;
+    font-weight: 900;
+    display: block;
+}
+
+/*h3 밑에 컨텐트*/
+.content{
+    padding:20px 20px 125px 20px;
+    position: relative;
+    
+}
+
+/*신청서 작성 progressbar*/
+.step-wizard{
+    width: 100%;
+    background-color: #2CB7A4;
+    height: 85px;
+}
+.step-wizard-list{
+    padding:9px 20px 20px 20px;
+    color:white;
+    display: flex;
+    position: relative;
+    z-index: 10;
+}
+.step-wizard-item{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 900;
+    /* z-index: 10; */
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    /*남은 여백을 동일한 너비로 채운다*/
+    position: relative;
+}
+.step-wizard-item + .step-wizard-item::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    /* border: 1px solid #000; */
+    background-color: #fff;
+    width: 100%;
+    height: 2px;
+    transform: translateX(-50%);
+    /* transform: translateX(-50%) 자기크기의 반만큼 앞으로 이동 */
+    z-index: -10;
+}
+/* 저선택자로 첫번째 step-wizard-item에는 안생김 / 가로줄 css임 */
+.progress-count{
+    width: 17px;
+    height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto;
+    position:relative;
+    z-index: 10;
+    color:transparent;
+}
+.progress-count::after{
+    content:"";
+    width: 17px;
+    height:17px;
+    background-color: white;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: -10;
+}
+.progress-label{
+    margin-top: 6px;
+}
+/*formpage1 style*/
+.formP1{
+    background-color: #F5F5F5;
+}
+.f1, .f2{
+    background:white url(../img/vector.svg)no-repeat center right 20px;
+    
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid #E3E3E3;
+}
+.f1 a, .f2 a{
+    padding: 20px 20px;
+    display: block;
+}
+
+/*formpage2 style*/
+
+
+.formP2 .radioWrap{
+    font-weight: 700;
+}
+.formP2 input[type=radio]{
+    display: none;
+}
+.formP2 .form_radio_btn label{
+    display: block;
+    padding:16px 20px;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+    background:white url(../img/check.svg)no-repeat center right 29px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+/*formpage3 style*/
+
+.formP3 .step-wizard-item:nth-child(3)::after,
+.formP3 .step-wizard-item:nth-child(4)::after{
+    background-color: #3A9286;
+}
+.formP3 .step-wizard-item:nth-child(2) .progress-count::after{
+    background-color: #2CB7A4;
+    width: 15px;
+    height: 15px;
+    border:2px solid #fff;
+}
+.formP3 .step-wizard-item:nth-child(3) .progress-count::after,
+.formP3 .step-wizard-item:nth-child(4) .progress-count::after{
+    background-color: #2CB7A4;
+    width: 15px;
+    height: 15px;
+    border:2px solid #3A9286;
+}
+.formP3 .step-wizard-item:nth-child(3) .progress-label,
+.formP3 .step-wizard-item:nth-child(4) .progress-label{
+    color:#3A9286;
+}
+
+form .inputWrap{
+    font-weight: 700;
+    font-size: 13px;
+    padding-bottom: 37px;
+}
+form .inputWrap input{
+    font-family:  "NanumSquareRound",sans-serif;
+    padding:20px 0 10.5px 0;
+    text-indent: 10px;
+    border:none;
+    border-bottom:1px solid #707070 ;
+    font-size: 13px;
+}
+form .inputWrap input::placeholder{
+    color:#BFBFBF;
+}
+form>.inputWrap:nth-child(1) input{
+    width: 100%;
+}
+form>.inputWrap:nth-child(2) input{
+    width: calc(50% - 16px);
+}
+form>.inputWrap:nth-child(2) span{
+    padding:0 8px;
+}
+form>.inputWrap:nth-child(3) input[type="text"],
+form>.inputWrap:nth-child(4) input[type="text"],
+form>.inputWrap:nth-child(5) input[type="text"]{
+    width: 100%;
+}
+
+/*file style */
+.fileWrap h3{
+    font-size: 17px;
+    padding-bottom: 22px;
+    font-weight: bold;
+    border-bottom: 3px solid #F5F5F5;
+}
+.fileWrap .fileBox{
+    margin-top: 37px;
+    width: 100%;
+    font-weight: 700;
+    font-size: 13px;
+}
+.fileWrap .fileBox:nth-of-type(2){
+    display: flex;
+}
+
+.fileWrap .fileBox .upload-name{
+    font-family:  "NanumSquareRound",sans-serif;
+    padding:20px 0 10.5px 0;
+    text-indent: 10px;
+    border:none;
+    border-bottom:1px solid #707070 ;
+    font-size: 13px;
+    color:#BFBFBF;
+    width: calc(100% - 95px);
+}
+.fileWrap .fileBox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+/*file 의사소견서 style*/
+.fileWrap .fileBox .fileLeft{
+    width: calc(100% - 95px);
+}
+.fileWrap .fileBox .fileLeft .upload-name{
+    width: 100%;
+}
+.fileWrap .fileBtnRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 7px;
+}
+.fileWrap .fileBtnRight .onlineBtn{
+    font-size: 13px;
+    font-weight: bold;
+    border:1px solid #2CB7A4;
+    border-radius: 20px;
+    color:#2CB7A4;
+    line-height: 30px;
+    text-align: center;
+    margin-bottom: 7px;
+}
+
+
+/*file label style*/
+.fileWrap .fileBox label {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0 10px 0 30px;
+    color: #fff;
+    background: #2CB7A4 url('../img/camera.svg')no-repeat center left 10px / 15px auto;
+    border-radius: 20px;
+    cursor: pointer;
+    line-height: 30px;
+}
+.fileWrap .fileBox:nth-of-type(2) label ,
+.fileWrap .fileBox:nth-of-type(3) label {
+    background: #2CB7A4 url('../img/fileAdd.svg')no-repeat center left 10px / 15px auto;
+}
+
+/*checkbox style*/
+.check_wrap{
+    margin-top:30px;
+}
+.check_wrap input{
+    display:none;
+}
+
+.check_wrap input + label{
+    cursor:pointer;
+    
+}
+.check_wrap input + label > span{
+    vertical-align: top;
+    font-size:13px;
+    font-weight:bold;
+    margin-left:10px;
+}
+/* label:before에 체크하기 전 상태 CSS */
+.check_wrap input + label:before{
+    content:"";
+    display:inline-block;
+    width:20px;
+    height: 20px;
+    background-image:url('../img/check-gray.svg');
+    background-color:#EFEFEF;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 4px;
+    vertical-align:middle;
+}
+    
+/* label:before에 체크 된 상태 CSS */  
+.check_wrap input:checked + label:before{
+    content:"";
+    background-color:#2CB7A4;
+    background-image: url('../img/check-white.svg');
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+/*formpage4 style*/
+
