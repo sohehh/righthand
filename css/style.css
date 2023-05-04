@@ -36,7 +36,7 @@
     font-display: block;
 } */
 
-/* 공통 */
+/* ------공통------*/
 body{
     font-family: "NanumSquareRound";
 }
@@ -135,7 +135,6 @@ body{
     display: block;
 }
 /*팝업 하단 한개 버튼 style*/
-
 .pu-btn-bottom{
     background-color: #2CB7A4;
     width: 100vw;
@@ -149,6 +148,7 @@ body{
     border:none;
     box-sizing: border-box;
 }
+
 /*h3 밑에 컨텐트*/
 .content{
     padding:20px 20px 125px 20px;
@@ -156,7 +156,7 @@ body{
     
 }
 
-/*신청서 작성 progressbar*/
+/*신청서 작성 progressbar 기본 style*/
 .step-wizard{
     width: 100%;
     background-color: #2CB7A4;
@@ -224,6 +224,8 @@ body{
 .progress-label{
     margin-top: 6px;
 }
+
+
 /*formpage1 style*/
 .formP1{
     background-color: #F5F5F5;
@@ -346,7 +348,7 @@ form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
     background: url('../img/search.svg')no-repeat right 10px bottom 12px;
 }
 
-/*file style */
+/*filewrap style */
 .fileWrap h3{
     font-size: 17px;
     padding:15px 0 22px 0;
@@ -359,7 +361,6 @@ form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
     font-weight: 500;
     font-size: 13px;
 }
-
 
 .fileWrap .fileBox .upload-name{
     font-family:  "NanumSquareRound",sans-serif;
@@ -382,7 +383,7 @@ form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
 
 /*file wrap > 1,3 번쨰 filBbox style**/
 
-.fileWrap .fileBox .fileBtnRight1{
+.fileWrap .fileBox .fileBoxInner{
     display: flex;
 }
 
@@ -391,20 +392,20 @@ form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
 .fileWrap .fileBox:nth-of-type(2){
     display: flex;
 }
-.fileWrap .fileBox .fileLeft{
+.fileWrap .fileBox .fileBoxLeft{
     width: calc(100% - 95px);
 }
-.fileWrap .fileBox .fileLeft .upload-name{
+.fileWrap .fileBox .fileBoxLeft .upload-name{
     width: 100%;
 }
-.fileWrap .fileBtnRight2 {
+.fileWrap .fileBoxRight {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-left: 1.7%;
     flex-shrink: 0;
 }
-.fileWrap .fileBtnRight2 .onlineBtn{
+.fileWrap .fileBoxRight .onlineBtn{
     font-size: 13px;
     font-weight: bold;
     border:1px solid #2CB7A4;
@@ -434,7 +435,7 @@ form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
     background: #2CB7A4 url('../img/fileAdd.svg')no-repeat center left 10px / 15px auto;
 }
 
-.fileWrap .fileBox .fileBtnRight1 label{
+.fileWrap .fileBox .fileBoxInner label{
     height: 30px;
     margin-top: 15px;
     margin-left: 1.7%;
@@ -488,7 +489,8 @@ form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
     color:#B5B5B5;
     margin-top: 6px;
 }
-/*inputCheckWrap*/
+
+/*inputCheckWrap style*/
 .inputCheckWrap{
     width: 100%;
     background-color: white;
@@ -531,6 +533,7 @@ form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
     font-size: 13px;
     text-decoration: underline;
 }
+
 /*formpage4 style*/
 .formP4 .step-wizard-item:nth-child(4)::after{
     background-color: #3A9286;
@@ -554,6 +557,7 @@ form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
     width: 100%;
     background: url('../img/arrow-down.svg')no-repeat right 10px bottom 12px;
 }
+
 /*formP4 popup style*/
 .popup_wrap{
     width: 100%;
