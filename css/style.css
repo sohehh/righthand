@@ -50,6 +50,8 @@ body{
 
 }
 
+/*스크롤 막기 css*/
+.notScroll {overflow: hidden;width: 100%;height: 100vh;touch-action:none;}
 
 /*checked*/
 .formP2 input[type=radio]:checked + label{
@@ -560,6 +562,7 @@ form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
     right:0;
     top:0;
     bottom: 0;
+    display: none;
     z-index: 200;
     background: rgba(0,0,0,0.7);
     
@@ -591,6 +594,7 @@ form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
     width: 15px;
     height: auto;
     background: url('../img/close.svg')no-repeat;
+    cursor: pointer;
     
 }
 /*formP4 popup radio style*/
@@ -618,3 +622,4 @@ form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
     background:white url(../img/check-grayBig.svg)no-repeat center right 10px / 20px auto;
 
 }
+

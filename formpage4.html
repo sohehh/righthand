@@ -139,6 +139,7 @@
             },300,function(){
                 $('.popup_wrap').fadeOut(200);
             });
+            $("body").removeClass('notScroll');
         });
 
         //팝업창 나오는 코드
@@ -147,8 +148,12 @@
             $('.popup_content').animate({
                 bottom:0+"%"
             });
+            $("body").addClass('notScroll');
+
+
             
         });
+        
 
     </script>
 </body>
