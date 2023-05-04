@@ -96,11 +96,54 @@
                 </div>
                 <div class="btn-bottom-wrap">
                     <button disabled="true" class="btn-bottom">
-                        <a href="formpage3.html">다음</a>
+                        <a href="#">다음</a>
                     </button>
                 </div> 
             </div>
         </form>
+    </div>
+    <div class="inputCheckWrap">
+        <div class="title">보호자 정보가 제대로 입력 되었는지 확인해 주세요</div>
+        <div class="content"> 
+            <div class="reCheckWrap">
+                이름<br>
+                <p class="text_name"></p>
+            </div>
+            <div class="reCheckWrap">
+                관계<br>
+                <p class="text_name"></p>
+            </div>
+            <div class="reCheckWrap">
+                주민등록지<br>
+                <p class="text_idHome1"></p>
+                <p class="text_idHome2"></p>
+            </div>
+            <div class="reCheckWrap">
+                실제거주지<br>
+                <p class="text_realHome1"></p>
+                <p class="text_realHome2"></p>
+            </div>
+            <div class="reCheckWrap">
+                전화번호<br>
+                <p class="text_callNumber"></p>
+            </div>
+            <div class="fileWrap">
+                <h3>파일첨부</h3>
+                <div class="reCheckWrap">신분증<br>
+                    <p class="text_idCard"></p>
+                </div>
+            </div>
+
+            <span>개인 정보 제공 동의 완료</span>
+            <div class="btn-bottom-wrap2">
+                <button disabled="true" class="btn-bottom2">
+                    <a href="#">다시 입력</a>
+                </button>
+                <button disabled="true" class="btn-bottom2">
+                    <a href="./formpage4.html">다음</a>
+                </button>
+            </div>
+        </div>
     </div>
     <div class="popup_wrap">
         <div class="popup_content">
@@ -149,11 +192,15 @@
                 bottom:0+"%"
             });
             $("body").addClass('notScroll');
-
-
-            
         });
-        
+    
+        /*하단 다음 버튼 클릭시 화면 띄우는 코드*/
+        $('.btn-bottom a').click(function(){
+            $('.inputCheckWrap').css('display', 'block');
+            $('.formP4>.step-wizard,.formP4>.title, .formP4>.content').css('display','none');
+            // $('.text_idCard').text("신분증 촬영 완료");
+        });
+
 
     </script>
 </body>
