@@ -65,7 +65,7 @@
     <div class="content">
         <form action="">
             <p class="inputWrap">
-                이름<br><input type="text" name="이름" size="10" placeholder="이름을 입력해 주세요 (최대 8자)" id="input_text">
+                이름<br><input type="text" name="이름" size="10" placeholder="이름을 입력해 주세요 (최대 8자)" id="name">
             </p>
             <p class="inputWrap">관계
                 <br>
@@ -73,20 +73,20 @@
             </p>
             <p class="inputWrap">주민등록지<br>
                 <input type="text" id="address_kakao1" name="address" placeholder="주소를 검색하세요" />
-                <input type="text" name="address_detail1" placeholder="상세주소를 입력하세요"/>
+                <input type="text" id="address_kakao1Sub" name="address_detail1" placeholder="상세주소를 입력하세요"/>
             </p>
             <p class="inputWrap">실제거주지<br>
                 <input type="text" id="address_kakao2" name="address" placeholder="주소를 검색하세요" />
-                <input type="text" name="address_detail2" placeholder="상세주소를 입력하세요"/>
+                <input type="text" id="address_kakao2Sub" name="address_detail2" placeholder="상세주소를 입력하세요"/>
             </p>
             <p class="inputWrap">전화번호<br>
-                <input type="text" name="전화번호" maxlength="11" placeholder="연락처를 '-' 없이 입력해 주세요">
+                <input type="text" name="전화번호" id="callNumber" maxlength="11" placeholder="연락처를 '-' 없이 입력해 주세요">
             </p>
         
             <div class="fileWrap">
                 <h3>파일첨부</h3>
                 <div class="fileBox">신분증<br>
-                    <input class="upload-name" value="사진 촬영을 해주세요" placeholder="사진 촬영을 해주세요" inputmode="none" onfocus="this.blur()">
+                    <input class="upload-name" id="idCard" value="사진 촬영을 해주세요" placeholder="사진 촬영을 해주세요" inputmode="none" onfocus="this.blur()">
                     <label for="file1">촬영하기</label> 
                     <input type="file" id="file1">
                 </div>
@@ -111,7 +111,7 @@
             </div>
             <div class="reCheckWrap">
                 관계<br>
-                <p class="text_name"></p>
+                <p class="text_rel"></p>
             </div>
             <div class="reCheckWrap">
                 주민등록지<br>
@@ -153,19 +153,19 @@
             </div>
             <div class="radioWrap">
                 <div class="form_radio_btn">
-                    <input id="radio-1" type="radio" name="ap" value="1" checked>
+                    <input id="radio-1" type="radio" name="rel" value="자식" checked>
                     <label for="radio-1">자식</label>
                 </div>
                 <div class="form_radio_btn">
-                    <input id="radio-2" type="radio" name="ap" value="2">
+                    <input id="radio-2" type="radio" name="rel" value="부부">
                     <label for="radio-2">부부</label>
                 </div>
                 <div class="form_radio_btn">
-                    <input id="radio-3" type="radio" name="ap" value="2">
+                    <input id="radio-3" type="radio" name="rel" value="손자 / 손녀">
                     <label for="radio-3">손자 / 손녀</label>
                 </div>
                 <div class="form_radio_btn">
-                    <input id="radio-4" type="radio" name="ap" value="2">
+                    <input id="radio-4" type="radio" name="rel" value="기타">
                     <label for="radio-4">기타</label>
                 </div>
             </div>
@@ -177,12 +177,7 @@
     <script>
         //팝업창 사라지는 코드
         $('.close').on('click', function(){
-            $('.popup_content').animate({
-                bottom:-100 + '%'
-            },300,function(){
-                $('.popup_wrap').fadeOut(200);
-            });
-            $("body").removeClass('notScroll');
+            popclose();
         });
 
         //팝업창 나오는 코드
@@ -194,11 +189,41 @@
             $("body").addClass('notScroll');
         });
     
+        /*팝업 하단 버튼 클릭시 관계 목록에서 선택된 값을 관계인풋에 할당하는 코드*/
+        $('.pu-btn-bottom').click(function(){
+            var radiovalue = $('input[name=rel]:checked').val();
+            $('#relation').val(radiovalue);
+            popclose();
+        });
+
         /*하단 다음 버튼 클릭시 화면 띄우는 코드*/
         $('.btn-bottom a').click(function(){
             $('.inputCheckWrap').css('display', 'block');
             $('.formP4>.step-wizard,.formP4>.title, .formP4>.content').css('display','none');
             // $('.text_idCard').text("신분증 촬영 완료");
+        });
+
+        /*팝업창 사라지는 코드 | 함수 선언*/
+        function popclose(){
+            $('.popup_content').animate({
+                bottom:-100 + '%'
+            },300,function(){
+                $('.popup_wrap').fadeOut(200);
+            });
+            $("body").removeClass('notScroll');
+        }
+
+        /*인풋 value값 할당하는 코드*/
+        $(function(){
+            $('#name, #relation ,#address_kakao1, #address_kakao1Sub,#address_kakao2, #address_kakao2Sub, #callNumber').keyup(function(){
+                $('.text_name').text($('#name').val());
+                $('.text_rel').text($('#relation').val());
+                $('.text_idHome1').text($('#address_kakao1').val());
+                $('.text_idHome2').text($('#address_kakao1Sub').val());
+                $('.text_realHome1').text($('#address_kakao2').val());
+                $('.text_realHome2').text($('#address_kakao2Sub').val());
+                $('.text_callNumber').text($('#callNumber').val());
+            });
         });
 
 
