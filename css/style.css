@@ -409,6 +409,7 @@ form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
     border-radius: 20px;
     cursor: pointer;
     line-height: 30px;
+    flex-shrink: 0;
 }
 .fileWrap .fileBox:nth-of-type(2) label ,
 .fileWrap .fileBox:nth-of-type(3) label {
