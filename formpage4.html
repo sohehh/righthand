@@ -69,7 +69,7 @@
             </p>
             <p class="inputWrap">관계
                 <br>
-                <input type="text" size="7" maxlength="6" placeholder="관계를 선택해 주세요">
+                <input type="text" size="7" maxlength="6" id="relation" placeholder="관계를 선택해 주세요">
             </p>
             <p class="inputWrap">주민등록지<br>
                 <input type="text" id="address_kakao1" name="address" placeholder="주소를 검색하세요" />
@@ -126,7 +126,30 @@
                     <label for="radio-4">기타</label>
                 </div>
             </div>
+            <button class="pu-btn-bottom">
+                <a href="#">선택하기</a>
+            </button>
         </div>
     </div>
+    <script>
+        //팝업창 사라지는 코드
+        $('.close').on('click', function(){
+            $('.popup_content').animate({
+                bottom:-100 + '%'
+            },300,function(){
+                $('.popup_wrap').fadeOut(200);
+            });
+        });
+
+        //팝업창 나오는 코드
+        $('#relation').click(function(){
+            $('.popup_wrap').fadeIn(200);
+            $('.popup_content').animate({
+                bottom:0+"%"
+            });
+            
+        });
+
+    </script>
 </body>
 </html>
