@@ -70,12 +70,14 @@ body{
 .hospitalWrap li{
     padding: 23px 0;
     display: flex;
+    justify-content:space-between;
     border-bottom: 1px solid #E9E9E9;
 }
 
 .hospitalWrap li figure{
     width: 72px;
     height: 72px;
+    max-width: 80px;
     
 }
 .hospitalWrap li figure img{
@@ -84,8 +86,8 @@ body{
     border-radius: 8px;
 }
 .hospitalWrap li .textWrap{
-    padding-left:8px;
-    
+    width: calc(100% - 80px);
+    margin-top: 3px;
 }
 .hospitalWrap li .textWrap h4{
     margin-top: 3px;
@@ -98,6 +100,7 @@ body{
     font-weight: 500;
 }
 .hospitalWrap li .textWrap .text2Wrap{
+    width: 100%;
     display: flex;
     justify-content:space-between;
     font-weight: 500;
@@ -164,27 +167,38 @@ body{
 }
 
 /*formP4 popup radio style*/
-.onlineP .radioWrap{
+.popup_content .cityList{
     font-weight: 500;
+}            
+.popup_content .cityList ul{
+    height:288px;
+    overflow-y: auto;
 }
-.onlineP input[type=radio]{
-    display: none;
-}
-.onlineP .form_radio_btn label{
-    display: block;
-    padding:25px 20px 25px 0;
-    border-radius: 10px;
-    background:white url(../img/check.svg)no-repeat center right 29px;
-    margin-bottom: 10px;
+.popup_content .cityList ul li{
+    padding: 20px 0 20px 0;
+    font-weight: 500;
     font-size: 15px;
-    font-weight: 500;
+    border-bottom: 2px solid #F5F5F5;
+    background: url('../img/check-grayBig.svg')no-repeat center right 15px / 18px auto;
 }
-.onlineP input[type=radio]:checked + label{
-    border-bottom:2px solid #F5F5F5 ;
-    background:white url(../img/check-orange.svg)no-repeat center right 10px / 20px auto;
-}
-.onlineP input[type=radio] + label{
-    border-bottom:2px solid #F5F5F5 ;
-    background:white url(../img/check-grayBig.svg)no-repeat center right 10px / 20px auto;
 
+.popup_content .cityList ul li.cActive{
+    background: black;
+    background: url('../img/check-orange.svg')no-repeat center right 15px / 18px auto;
+    
+}
+/*팝업 하단 한개 버튼 style*/
+.pu-btn-bottom{
+    background-color: #2CB7A4;
+    width: 100vw;
+    display: block;
+    line-height: 55px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: -20px;
+    border:none;
+    box-sizing: border-box;
 }
