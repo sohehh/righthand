@@ -103,8 +103,8 @@
                 <p>대리 신청의 경우 반드시 등급을 신청하시는 어르신의 정보 제공 동의를 받으셔야 합니다.</p>
             </div>
             <div class="btn-bottom-wrap">
-                <button disabled="true" class="btn-bottom">
-                    <a href="#">다음</a>
+                <button disabled="true" class="btn-bottom" type="button">
+                    다음
                 </button>
             </div> 
         </form>
@@ -201,11 +201,11 @@
         });
 
         /*하단 다음 버튼 1개 클릭 시*/
-        $('.btn-bottom a').click(function(){
+        $('.btn-bottom').click(function(){
             $('.inputCheckWrap').css('display', 'block');
             $('.formP3>.step-wizard,.formP3>.title, .formP3>.content').css('display','none');
-            $('.text_idCard').text("신분증 촬영 완료");
-            $('.text_doctor, .text_sheet').text("파일 업로드 완료");
+            // $('.text_idCard').text("신분증 촬영 완료");
+            // $('.text_doctor, .text_sheet').text("파일 업로드 완료");
         });
 
         /*하단 이전 버튼 클릭 시*/
@@ -217,18 +217,64 @@
     </script>
     <script>
         /*인풋 value값 할당하는 코드*/
-        $(function(){
-            $('#name, #id_info1, #id_info2,#address_kakao1, #address_kakao1Sub,#address_kakao2, #address_kakao2Sub, #callNumber').keyup(function(){
-                $('.text_name').text($('#name').val());
-                $('.text_id1').text($('#id_info1').val());
-                $('.text_id2').text($('#id_info2').val());
-                $('.text_idHome1').text($('#address_kakao1').val());
-                $('.text_idHome2').text($('#address_kakao1Sub').val());
-                $('.text_realHome1').text($('#address_kakao2').val());
-                $('.text_realHome2').text($('#address_kakao2Sub').val());
-                $('.text_callNumber').text($('#callNumber').val());
-            });
+        $('#name, #id_info1, #id_info2,#address_kakao1, #address_kakao1Sub,#address_kakao2, #address_kakao2Sub, #callNumber').keyup(function(){
+            $('.text_name').text($('#name').val());
+            $('.text_id1').text($('#id_info1').val());
+            $('.text_id2').text($('#id_info2').val());
+            $('.text_idHome1').text($('#address_kakao1').val());
+            $('.text_idHome2').text($('#address_kakao1Sub').val());
+            $('.text_realHome1').text($('#address_kakao2').val());
+            $('.text_realHome2').text($('#address_kakao2Sub').val());
+            $('.text_callNumber').text($('#callNumber').val());
         });
+
+        let nameForm = document.getElementById('name');
+        let idInfo1Form = document.getElementById('id_info1');
+        let idInfo2Form = document.getElementById('id_info2');
+        let adrForm = document.getElementById('address_kakao1');
+        let adrSubForm = document.getElementById('address_kakao1Sub');
+        let adr2Form = document.getElementById('address_kakao2');
+        let adr2SubForm = document.getElementById('address_kakao2Sub');
+        let callForm = document.getElementById('callNumber');
+        var btnButton = document.getElementsByClassName('btn-bottom')[0];
+        //클래스 선택자는 뒤에 []붙여줘야 함
+
+        nameForm.addEventListener('keyup',activeEvent);
+        idInfo1Form.addEventListener('keyup',activeEvent);
+        idInfo2Form.addEventListener('keyup',activeEvent);
+        adrSubForm.addEventListener('keyup', activeEvent);
+        adr2SubForm.addEventListener('keyup', activeEvent);
+        callForm.addEventListener('keyup', activeEvent);
+
+        function disabledBtn() {
+            btnButton.disabled = true;
+            console.log("No"); 
+            btnButton.style.color='#B7B7B7';
+            btnButton.style.backgroundColor='#EFEFEF';
+        }
+
+        function activeEvent() {
+                switch(!((nameForm.value && idInfo1Form.value) && (idInfo2Form.value && adrForm.value))){
+                    case true : //입력값이 없을 때
+                        disabledBtn();
+                        break;
+                    
+                    case false : //모두 입력값이 있을 때
+                        switch(!((adrSubForm.value && adr2Form.value)&& (adr2SubForm.value && callForm.value))){
+                            case true : // 입력값이 없을 때
+                                disabledBtn();
+                            break;
+                            case false : //모두 입력값이 있을 때
+                                btnButton.disabled = false;
+                                btnButton.removeAttribute( 'disabled' );
+                                console.log("Yes");
+                                btnButton.style.color='white';
+                                btnButton.style.backgroundColor='#2CB7A4';
+                            break;
+                        }
+                }
+        }
+        
     </script>
 </body>
 </html>
