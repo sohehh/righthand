@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/jquery-1.11.1.min.js"></script>
-    <!-- <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> -->
-    <!-- <script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
             window.onload = function(){
                 document.getElementById("address_kakao1").addEventListener("click", function(){ //주소입력칸을 클릭하면
                     //카카오 지도 발생
                     new daum.Postcode({
                         oncomplete: function(data) { //선택시 입력값 세팅
                             document.getElementById("address_kakao1").value = data.address; // 주소 넣기
+                            activeEvent();
                             document.querySelector("input[name=address_detail1]").focus(); //상세입력 포커싱
                         }
                     }).open();
@@ -26,12 +27,13 @@
                     new daum.Postcode({
                         oncomplete: function(data) { //선택시 입력값 세팅
                             document.getElementById("address_kakao2").value = data.address; // 주소 넣기
+                            activeEvent();
                             document.querySelector("input[name=address_detail2]").focus(); //상세입력 포커싱
                         }
                     }).open();
                 });
             }
-    </script> -->
+    </script>
     <script>
         $("#file1").on('change',function(){
             $(this).siblings('.upload-name').val("신분증 촬영 완료");
@@ -95,8 +97,8 @@
                     <label for="check_btn"><span>개인 정보 제공 동의</span></label>
                 </div>
                 <div class="btn-bottom-wrap">
-                    <button disabled="true" class="btn-bottom">
-                        <a href="#">다음</a>
+                    <button class="btn-bottom" disabled="true"  type="button">
+                        다음
                     </button>
                 </div> 
             </div>
@@ -139,8 +141,7 @@
                 <button disabled="true" class="btn-bottom2">
                     <a href="#">다시 입력</a>
                 </button>
-                <button disabled="true" class="btn-bottom2">
-                    <a href="./formpage4.html">다음</a>
+                <button  type="button" class="btn-bottom2"  onclick="location.href='./formpage5.html'">다음
                 </button>
             </div>
         </div>
@@ -189,19 +190,30 @@
             $("body").addClass('notScroll');
         });
     
+        
+
+        /*하단 다음 버튼 클릭시 화면 띄우는 코드*/
+        $('.btn-bottom').click(function(){
+            $('.inputCheckWrap').css('display', 'block');
+            $('html').scrollTop(0);
+            $('.formP4>.step-wizard,.formP4>.title, .formP4>.content').css('display','none');
+            // $('.text_idCard').text("신분증 촬영 완료");
+        });
+
+
         /*팝업 하단 버튼 클릭시 관계 목록에서 선택된 값을 관계인풋에 할당하는 코드*/
         $('.pu-btn-bottom').click(function(){
             var radiovalue = $('input[name=rel]:checked').val();
             $('#relation').val(radiovalue);
+            $('.text_rel').text($('#relation').val());
+            //인위적으로 val로 할당을 해줬기에 keyup 메소드가 먹히지 않음
+
+            relForm= true;
+            activeEvent();
             popclose();
         });
 
-        /*하단 다음 버튼 클릭시 화면 띄우는 코드*/
-        $('.btn-bottom a').click(function(){
-            $('.inputCheckWrap').css('display', 'block');
-            $('.formP4>.step-wizard,.formP4>.title, .formP4>.content').css('display','none');
-            // $('.text_idCard').text("신분증 촬영 완료");
-        });
+        
 
         /*팝업창 사라지는 코드 | 함수 선언*/
         function popclose(){
@@ -231,6 +243,52 @@
             $('.inputCheckWrap').css('display', 'none');
             $('.formP4>.step-wizard,.formP4>.title, .formP4>.content').css('display','block');
         });
+
+        let nameForm = document.getElementById('name');
+        let relForm;
+        let adrForm = document.getElementById('address_kakao1');
+        let adrSubForm = document.getElementById('address_kakao1Sub');
+        let adr2Form = document.getElementById('address_kakao2');
+        let adr2SubForm = document.getElementById('address_kakao2Sub');
+        let callForm = document.getElementById('callNumber');
+        var btnButton = document.getElementsByClassName('btn-bottom')[0];
+        //클래스 선택자는 뒤에 []붙여줘야 함
+
+        nameForm.addEventListener('keyup',activeEvent);
+        adrSubForm.addEventListener('keyup', activeEvent);
+        adr2SubForm.addEventListener('keyup', activeEvent);
+        callForm.addEventListener('keyup', activeEvent);
+
+        function disabledBtn() {
+            btnButton.disabled = true;
+            console.log("No"); 
+            btnButton.style.color='#B7B7B7';
+            btnButton.style.backgroundColor='#EFEFEF';
+        }
+
+        function activeEvent() {
+                switch(!((nameForm.value && relForm) && (adrForm.value && adrSubForm.value))){
+                    case true : //입력값이 없을 때
+                        disabledBtn();
+                        break;
+                    
+                    case false : //모두 입력값이 있을 때
+                        switch(!((adr2Form.value && adr2SubForm.value)&& callForm.value)){
+                            case true : // 입력값이 없을 때
+                                disabledBtn();
+                            break;
+                            case false : //모두 입력값이 있을 때
+                                btnButton.disabled = false;
+                                btnButton.removeAttribute( 'disabled' );
+                                console.log("Yes");
+                                btnButton.style.color='white';
+                                btnButton.style.backgroundColor='#2CB7A4';
+                            break;
+                        }
+                }
+        }
+
+        
 
     </script>
 </body>

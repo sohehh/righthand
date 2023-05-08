@@ -76,17 +76,19 @@ body{
     padding-bottom: 20px;
 }
 .btn-bottom{
-    background-color: #2CB7A4;
+    background-color: #EFEFEF;
     width: calc(100% - 40px);
     display: block;
     line-height: 55px;
     border-radius: 10px;
-    color: white;
+    color: #B7B7B7;
     font-weight: 700;
+    font-size: 16px;
     text-align: center;
     margin: 0 auto;
     border:none;
     box-sizing: border-box;
+    cursor: pointer;
 
 }
 
@@ -121,6 +123,7 @@ body{
     color: white;
     font-weight: 700;
     text-align: center;
+    font-size: 16px;
     border:none;
     box-sizing: border-box;
 }
@@ -632,3 +635,97 @@ form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
 
 }
 
+
+/*formpsge5 style*/
+
+
+/*formP5 progressbar style*/
+.formP5 .step-wizard-item:nth-child(4) .progress-count::after{
+    background-color: #2CB7A4;
+    width: 15px;
+    height: 15px;
+    border:2px solid white;
+}
+.formP5 .step-wizard-item:nth-child(4) .progress-label{
+    color:white;
+}
+
+
+.formP5 form h4{
+    padding-bottom: 15px;
+    border-bottom: 2px solid #F5F5F5;
+    font-size: 14px;
+    font-weight: 500;
+}
+.formP5 form>div:nth-child(1){
+    padding-bottom: 25px;
+    border-bottom: 2px solid #F5F5F5;
+}
+.formP5 form>div:nth-child(2){
+    margin-top: 25px;
+    padding-bottom: 40px;
+}
+.formP5 form>p{
+    font-size: 12px;
+    font-weight: 500;
+    color:#B3B3B3;
+}
+
+.formP5 form .labelRadioWrap{
+    margin-top: 25px;
+    font-size: 13px;
+    font-weight: 500;
+}
+.formP5 form .labelRadioWrap:nth-of-type(2){
+    margin-top :33px;
+}
+.formP5 label+label{
+    margin-left:10px;
+}
+.formP5 label span{
+    vertical-align: middle;
+    margin-left: -3px;
+    
+}
+.formP5 label input{
+    vertical-align: middle;
+    margin:0 5px 0 0;
+
+}
+.formP5 .radioWrap{
+    margin-top:15px;
+    font-weight: 400;
+}
+/*radio style*/
+.formP5 input[type="radio"] {
+    appearance: none;
+    background-color: #F2F2F2;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    position: relative;
+}
+
+.formP5 input[type="radio"]:checked {
+    border:1px solid #2CB7A4;
+    background-color: white;
+}
+.formP5 input[type="radio"]:checked::after {
+    content: "";
+    width: 10px;
+    height:10px;
+    background-color: #2CB7A4;
+    position: absolute;
+    border-radius: 50%;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    
+}
+.formP5 .inputWrap{
+    padding-bottom: 0;
+}
+.formP5 .inputWrap input{
+    width: 100%;
+}
