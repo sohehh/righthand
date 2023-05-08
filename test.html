@@ -1,50 +1,56 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <style>
-    .filebox .upload-name {
-    display: inline-block;
-    height: 40px;
-    padding: 0 10px;
-    vertical-align: middle;
-    border: 1px solid #dddddd;
-    width: 78%;
-    color: #999999;
-}
-.filebox label {
-    display: inline-block;
-    padding: 10px 20px;
-    color: #fff;
-    vertical-align: middle;
-    background-color: #999999;
-    cursor: pointer;
-    height: 40px;
-    margin-left: 10px;
-}
-.filebox input[type="file"] {
-    position: absolute;
-    width: 0;
-    height: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-}
+.group { border:1px solid gray; }
 </style>
-<script>
-    $("#file").on('change',function(){
-    var fileName = $("#file").val();
-    $(".upload-name").val(fileName);
-});
-</script>
 </head>
 <body>
-    <div class="filebox">
-        <input class="upload-name" value="첨부파일" placeholder="첨부파일">
-        <label for="file">파일찾기</label> 
-        <input type="file" id="file">
+    <div class="group">
+        <pre>
+            $(":radio[name='r1'][value='N']").attr('checked', true);
+        </pre>
+        <input type="radio" name="r1" value="Y"/> 예
+        <input type="radio" name="r1" value="N"/> 아니오    
     </div>
+    <div class="group">
+        <pre>
+            $(":radio[name='r2']").each(function() {
+                var $this = $(this);
+                if($this.val() == 'N')
+                $this.attr('checked', true);
+            });        
+        </pre>
+        <input type="radio" name="r2" value="Y"/> 예
+        <input type="radio" name="r2" value="N"/> 아니오    
+    </div>
+    <div class="group">
+        <pre>
+    $(":radio[name='r3']").radioSelect('N');
+        </pre>
+        <input type="radio" name="r3" value="Y"/> 예
+        <input type="radio" name="r3" value="N"/> 아니오    
+    </div>
+<script>
+var radioVal = 'N';
+$(":radio[name='r1'][value='" + radioVal + "']").attr('checked', true);
+$(":radio[name='r2']").each(function() {
+    var $this = $(this);
+    if($this.val() == radioVal)
+    $this.attr('checked', true);
+});
+$.fn.radioSelect = function(val) {
+    this.each(function() {
+    var $this = $(this);
+    if($this.val() == val)
+        $this.attr('checked', true);
+    });
+    return this;
+};
+$(":radio[name='r3']").radioSelect(radioVal);  //파라미터에 해당하는 값을 가진 라디오버튼이 선택됨
+</script>
 </body>
-
 </html>
