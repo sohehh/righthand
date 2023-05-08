@@ -7,16 +7,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
-    <style>
-        /* .step-wizard-item+.step-wizard-item::after{
-            background-color: #3A9286;
-        }
-        .step-wizard-item:not(:first-child) .progress-count{
-            border-color: #3A9286;
-        } */
-    </style>
+
 </head>
 <body class="formP2">
+    <div class="appBar">
+        <ul>
+            <li class="prev"></li>
+            <li>신청서작성</li>
+            <li class="home"></li>
+        </ul>
+    </div>
     <div class="step-wizard">
         <ul class="step-wizard-list">
             <li class="step-wizard-item">
@@ -63,6 +63,10 @@
             </button>
         </div> 
     </div>
-    
+    <script>
+        let btnButton = document.getElementsByClassName('btn-bottom')[0];
+        btnButton.style.backgroundColor="#2CB7A4";
+        btnButton.style.color="#fff";
+    </script>
 </body>
 </html>

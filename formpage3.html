@@ -24,6 +24,13 @@
     
 </head>
 <body class="formP3">
+    <div class="appBar">
+        <ul>
+            <li class="prev"></li>
+            <li>신청서 작성</li>
+            <li class="home"></li>
+        </ul>
+    </div>
     <div class="step-wizard">
         <ul class="step-wizard-list">
             <li class="step-wizard-item">
@@ -110,6 +117,13 @@
         </form>
     </div>
     <div class="inputCheckWrap">
+        <div class="appBar">
+            <ul>
+                <li class="prev"></li>
+                <li>입력 정보 확인</li>
+                <li class="home"></li>
+            </ul>
+        </div>
         <div class="title">수급자 정보가 제대로 입력 되었는지 확인해 주세요</div>
         <div class="content"> 
             <div class="reCheckWrap">
@@ -203,7 +217,9 @@
         /*하단 다음 버튼 1개 클릭 시*/
         $('.btn-bottom').click(function(){
             $('.inputCheckWrap').css('display', 'block');
+            $('html').scrollTop(0);
             $('.formP3>.step-wizard,.formP3>.title, .formP3>.content').css('display','none');
+            $('body>.appBar').css('display','none');
             // $('.text_idCard').text("신분증 촬영 완료");
             // $('.text_doctor, .text_sheet').text("파일 업로드 완료");
         });

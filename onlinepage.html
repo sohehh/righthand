@@ -5,8 +5,136 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style2.css">
+    <script src="./js/jquery-1.11.1.min.js"></script>
 </head>
-<body>
-    
+<body class="onlineP">
+    <h3 class="title">기타 항목을 입력(선택) 해주세요</h3>
+    <div class="content">
+        <ul class="selectWrap">
+            <li class="sel1">시·도</li>
+            <li class="sel2">시·군·구</li>
+        </ul>
+        <ul class="hospitalWrap">
+            <li>
+                <figure>
+                    <img src="./img/hos.png" alt="병원이미지">
+                </figure>
+                <div class="textWrap">
+                    <h4>오른손 병원</h4>
+                    <h5>서울특별시 강서구 개화동로 11길 3-12</h5>
+                    <div class="text2Wrap">
+                        <span>02-1234-5678</span>
+                        <span>안내받기</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <figure>
+                    <img src="./img/hos.png" alt="병원이미지">
+                </figure>
+                <div class="textWrap">
+                    <h4>오른손 병원</h4>
+                    <h5>서울특별시 강서구 개화동로 11길 3-12</h5>
+                    <div class="text2Wrap">
+                        <span>02-1234-5678</span>
+                        <span>안내받기</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <figure>
+                    <img src="./img/hos.png" alt="병원이미지">
+                </figure>
+                <div class="textWrap">
+                    <h4>오른손 병원</h4>
+                    <h5>서울특별시 강서구 개화동로 11길 3-12</h5>
+                    <div class="text2Wrap">
+                        <span>02-1234-5678</span>
+                        <span>안내받기</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <figure>
+                    <img src="./img/hos.png" alt="병원이미지">
+                </figure>
+                <div class="textWrap">
+                    <h4>오른손 병원</h4>
+                    <h5>서울특별시 강서구 개화동로 11길 3-12</h5>
+                    <div class="text2Wrap">
+                        <span>02-1234-5678</span>
+                        <span>안내받기</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <figure>
+                    <img src="./img/hos.png" alt="병원이미지">
+                </figure>
+                <div class="textWrap">
+                    <h4>오른손 병원</h4>
+                    <h5>서울특별시 강서구 개화동로 11길 3-12</h5>
+                    <div class="text2Wrap">
+                        <span>02-1234-5678</span>
+                        <span>안내받기</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <figure>
+                    <img src="./img/hos.png" alt="병원이미지">
+                </figure>
+                <div class="textWrap">
+                    <h4>오른손 병원</h4>
+                    <h5>서울특별시 강서구 개화동로 11길 3-12</h5>
+                    <div class="text2Wrap">
+                        <span>02-1234-5678</span>
+                        <span>안내받기</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="popup_wrap">
+        <div class="popup_content">
+            <div class="header">
+                <span>수급자와의 관계 선택</span>
+                <span class="close"></span>
+            </div>
+            <div class="radioWrap">
+                <div class="form_radio_btn">
+                    <input id="radio-1" type="radio" name="rel" value="자식" checked>
+                    <label for="radio-1">자식</label>
+                </div>
+                <div class="form_radio_btn">
+                    <input id="radio-2" type="radio" name="rel" value="부부">
+                    <label for="radio-2">부부</label>
+                </div>
+                <div class="form_radio_btn">
+                    <input id="radio-3" type="radio" name="rel" value="손자 / 손녀">
+                    <label for="radio-3">손자 / 손녀</label>
+                </div>
+                <div class="form_radio_btn">
+                    <input id="radio-4" type="radio" name="rel" value="기타">
+                    <label for="radio-4">기타</label>
+                </div>
+            </div>
+            <button class="pu-btn-bottom">
+                <a href="#">선택하기</a>
+            </button>
+        </div>
+    </div>
+    <script>
+        //팝업창 나오는 코드
+        $('.sel1').click(function(){
+            $('.popup_wrap').fadeIn(200);
+            $('.popup_content').animate({
+                bottom:0+"%"
+            });
+            $("body").addClass('notScroll');
+        });
+    </script>
 </body>
 </html>

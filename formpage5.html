@@ -8,10 +8,16 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/jquery-1.11.1.min.js"></script>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     
 </head>
 <body class="formP5">
+    <div class="appBar">
+        <ul>
+            <li class="prev"></li>
+            <li>신청서 작성</li>
+            <li class="home"></li>
+        </ul>
+    </div>
     <div class="step-wizard">
         <ul class="step-wizard-list">
             <li class="step-wizard-item">
@@ -111,6 +117,13 @@
         </form>
     </div>
     <div class="inputCheckWrap">
+        <div class="appBar">
+            <ul>
+                <li class="prev"></li>
+                <li>입력 정보 확인</li>
+                <li class="home"></li>
+            </ul>
+        </div>
         <div class="title">기타 항목이 제대로 입력(선택) 되었는지 확인해 주세요</div>
         <div class="content"> 
             <div class="reCheckWrap">
@@ -199,8 +212,8 @@
             $('.inputCheckWrap').css('display', 'block');
             $('html').scrollTop(0);
             $('.formP5>.step-wizard,.formP5>.title, .formP5>.content').css('display','none');
+            $('body>.appBar').css('display','none');
         });
-
 
         /*인풋 value값 할당하는 코드*/
         $('input:radio[name=person]').change(function(){
@@ -229,6 +242,11 @@
             console.log(radioValue4);
             $('input:radio[name=reDisease2][value='+radioValue4+']').prop('checked', true);
         });
+
+        let btnButton = document.getElementsByClassName('btn-bottom')[0];
+        btnButton.style.backgroundColor="#2CB7A4";
+        btnButton.style.color="#fff";
+    
     </script>
 </body>
 </html>

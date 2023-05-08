@@ -42,7 +42,13 @@
     </script>
 </head>
 <body class="formP4">
-    
+    <div class="appBar">
+        <ul>
+            <li class="prev"></li>
+            <li>신청서 작성</li>
+            <li class="home"></li>
+        </ul>
+    </div>
     <div class="step-wizard">
         <ul class="step-wizard-list">
             <li class="step-wizard-item">
@@ -105,6 +111,13 @@
         </form>
     </div>
     <div class="inputCheckWrap">
+        <div class="appBar">
+            <ul>
+                <li class="prev"></li>
+                <li>입력 정보 확인</li>
+                <li class="home"></li>
+            </ul>
+        </div>
         <div class="title">보호자 정보가 제대로 입력 되었는지 확인해 주세요</div>
         <div class="content"> 
             <div class="reCheckWrap">
@@ -197,6 +210,7 @@
             $('.inputCheckWrap').css('display', 'block');
             $('html').scrollTop(0);
             $('.formP4>.step-wizard,.formP4>.title, .formP4>.content').css('display','none');
+            $('body>.appBar').css('display','none');
             // $('.text_idCard').text("신분증 촬영 완료");
         });
 
@@ -287,8 +301,6 @@
                         }
                 }
         }
-
-        
 
     </script>
 </body>
