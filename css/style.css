@@ -74,7 +74,12 @@ body{
     line-height: 150%;
 
 }
-
+.fileOption{
+    color:#959595;
+}
+.fileEssential{
+    color:#F68282;
+}
 /*스크롤 막기 css*/
 .notScroll {overflow: hidden;width: 100%;height: 100vh;touch-action:none;}
 
@@ -372,8 +377,8 @@ form>.inputWrap:nth-child(4) input[type="text"],
 form>.inputWrap:nth-child(5) input[type="text"]{
     width: 100%;
 }
-form>.inputWrap:nth-child(3) input[type="text"]:nth-of-type(1),
-form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
+form>.inputWrap:nth-child(3) input:nth-of-type(1),
+form>.inputWrap:nth-child(4) input:nth-of-type(1){
     background: url('../img/search.svg')no-repeat right 10px bottom 12px;
 }
 
@@ -511,12 +516,19 @@ form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
     background-repeat: no-repeat;
     background-position: 50%;
 }
-.check_wrap p{
+.check_wrap ul{
     font-weight: 500;
     font-size: 12px;
     line-height: 135%;
     color:#B5B5B5;
     margin-top: 6px;
+    padding-left: 0;
+}
+.check_wrap ul li::before{
+    content: "· ";
+    display: inline-block;
+    vertical-align: middle;
+
 }
 
 /*inputCheckWrap style*/
@@ -586,7 +598,7 @@ form>.inputWrap:nth-child(4) input[type="text"]:nth-of-type(1){
 .formP4 .step-wizard-item:nth-child(4) .progress-label{
     color:#3A9286;
 }
-.formP4 form>.inputWrap:nth-child(2) input{
+.formP4 form>.inputWrap:nth-child(3) input{
     width: 100%;
     background: url('../img/arrow-down.svg')no-repeat right 10px bottom 12px;
 }
