@@ -4,26 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>신청서 작성 - 수급자 정보 입력</title>
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/form03.css">
     <script src="./js/jquery-1.11.1.min.js"></script>
-    <script>
-        /*인풋값 모두 입력시 활성회 되는 코드*/
-        $(function(){
-            $("#input_text").on('input',function(){
-                if($('#input_text').val()==""){
-                    $('.btn-bottom').attr('disabled',true);
-                    $('.btn-bottom').css('background-color','#000');
-                }else{
-                    $('.btn-bottom').attr('disabled',false);
-                }
-            });
-        });
-    </script>
     
 </head>
 <body class="formP3">
+    <!-- 앱바(툴바) -->
     <div class="appBar">
         <ul>
             <li class="prev"></li>
@@ -31,6 +20,7 @@
             <li class="home"></li>
         </ul>
     </div>
+    <!-- 진행단계를 알 수 있는 ui -->
     <div class="step-wizard">
         <ul class="step-wizard-list">
             <li class="step-wizard-item">
@@ -52,77 +42,111 @@
         </ul>
     </div>
     <h3 class="title">장기요양급여를 받고자하는<br> 수급자(신청인)의 기본정보를 입력해주세요</h3>
-    <div class="content"> 
-        <form action="">
-            <p class="inputWrap">
-                이름<br><input type="text" name="이름" size="10" placeholder="이름을 입력해 주세요 (최대 8자)" id="name" >
-            </p>
-            <p class="inputWrap">주민등록번호
-                <br>
-                <input type="text" size="7" maxlength="6" placeholder="생년월일 6자리" id="id_info1">
-                <span>-</span>
-                <input type="text" size="7" maxlength="7" placeholder="뒤 7자리" id="id_info2"> 
-            </p>
-            <p class="inputWrap">주민등록지<br>
-                <input type="text" id="address_kakao1" name="address" placeholder="주소를 검색하세요" />
-                <input type="text" id="address_kakao1Sub" name="address_detail1" placeholder="상세주소를 입력하세요"/>
-            </p>
-            <p class="inputWrap">실제거주지<br>
-                <input type="text" id="address_kakao2" name="address" placeholder="주소를 검색하세요" />
-                <input type="text" id="address_kakao2Sub" name="address_detail2" placeholder="상세주소를 입력하세요"/>
-            </p>
-            <p class="inputWrap">전화번호<br>
-                <input type="text" name="callNumber" id="callNumber" maxlength="11" placeholder="연락처를 '-' 없이 입력해 주세요">
-            </p>
-        
-            <div class="fileWrap">
-                <h3>파일첨부</h3>
-                <div class="fileBox">신분증<span class="fileEssential"> (필수)</span><br>
-                    <div class="fileBoxInner">
-                        <input class="upload-name" id="idCard" value="사진 촬영을 해주세요" placeholder="사진 촬영을 해주세요" inputmode="none" onfocus="this.blur()">
-                        <label for="file1">촬영하기</label> 
-                        <input type="file" id="file1">
+    <div class="content">
+        <div class="user1-input-wrap">
+            <form action="">
+                <ul class="user1-input-list">
+                    <li class="user1-input-cpnt">
+                        <h4 class="user1-input-label essential">이름</h4>
+                        <div class="user1-input-inner">
+                            <label for="name" class="skip">이름</label>
+                            <input id="name" type="text" name="이름" size="10" placeholder="이름을 입력해 주세요 (최대 8자)">
+                        </div>
+                    </li>
+                    <li class="user1-input-cpnt">
+                        <h4 class="user1-input-label essential">주민등록번호</h4>
+                        <div class="user1-input-inner">
+                            <label class="skip" for="id-info1">주민등록번호 앞자리</label>
+                            <input type="text" size="7" maxlength="6" placeholder="생년월일 6자리" id="id-info1" class="id">
+                            <p>-</p>
+                            <label class="skip" for="id-info2">주민등록번호 뒷자리</label>
+                            <input type="text" size="7" maxlength="7" placeholder="뒤 7자리" id="id-info2" class="id">
+                        </div>
+                    </li>
+                    <li class="user1-input-cpnt">
+                        <h4 class="user1-input-label essential">주민등록지</h4>
+                        <div class="user1-input-inner">
+                            <label class="skip" for="address-kakao1">주소 검색</label>
+                            <input type="text" id="address-kakao1" class="address1" name="address" placeholder="주소를 검색하세요"/>
+                            <label class="skip" for="address-kakao1-sub">주소 입력</label>
+                            <input type="text" id="address-kakao1-sub"  class="address1"name="address-detail1" placeholder="상세주소를 입력하세요"/>
+                        </div>
+                    </li>
+                    <li class="user1-input-cpnt">
+                        <h4 class="user1-input-label essential">실제거주지</h4>
+                        <div class="user1-input-inner">
+                            <label class="skip" for="address-kakao2">주소 검색</label>
+                            <input type="text" id="address-kakao2" class="address2" name="address" placeholder="주소를 검색하세요" />
+                            <label class="skip" for="address-kakao2-sub">주소 입력</label>
+                            <input type="text" id="address-kakao2-sub" class="address2"name="address-detail2" placeholder="상세주소를 입력하세요"/>
+                        </div>
+                    </li>
+                    <li class="user1-input-cpnt">
+                        <h4 class="user1-input-label essential">전화번호</h4>
+                        <div class="user1-input-inner">
+                            <label class="skip" for="call-number">전화번호</label>
+                            <input type="text" name="call-number" id="call-number" maxlength="11" placeholder="연락처를 '-' 없이 입력해 주세요">
+                        </div>
+                    </li>
+                </ul>
+                <h3 class="file-title">파일 첨부</h3>
+                <ul class="user1-input-list">
+                    <li class="user1-input-cpnt">
+                        <h4 class="user1-input-label essential">신분증</h4>
+                        <div class="user1-input-inner">
+                            <p class="input-file-text">사진 촬영을 해주세요</p>
+                            <div class="id-card-popup-btn">
+                                촬영하기
+                            </div>
+                        </div>
+                    </li>
+                    <li class="user1-input-cpnt">
+                        <h4 class="user1-input-label option">의사소견서</h4>
+                        <div class="user1-input-inner">
+                            <p class="input-file-text">의사소견서 파일을 업로드 해주세요</p>
+                            <div class="doc-btn-wrap">
+                                <div class="hosp-list-btn"><a href="./onlinepage.html">병원 리스트</a></div>
+                                <label for="doc-file">첨부하기</label>
+                                <input type="file" class="skip" id="doc-file">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="user1-input-cpnt">
+                        <h4 class="user1-input-label option">노인성 질병을 확인할 수 있는 진단서</h4>
+                        <div class="user1-input-inner">
+                            <p class="input-file-text">증명서류 파일을 업로드 해주세요</p>
+                            <div class="mdc-btn-wrap">
+                                <label for="mdc-file">첨부하기</label>
+                                <input type="file" class="skip" id="mdc-file">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="check-agree-wrap">
+                    <div class="check-btn-wrap">
+                        <input type="checkbox" class="skip" id="check-agree-btn">
+                        <label for="check-agree-btn">동의</label>
+                        <p>개인 정보 제공 동의</p>
                     </div>
-                    
-                </div>
-                <div class="fileBox">
-                    <div class="fileBoxLeft">
-                        의사소견서<span class="fileOption"> (옵션)</span><br>
-                        <input class="upload-name" value="의사소견서 파일을 업로드 해주세요" placeholder="의사소견서 파일을 업로드 해주세요" inputmode="none" onfocus="this.blur()">
-                    </div>
-                    <div class="fileBoxRight">
-                        <div class="onlineBtn">온라인 신청</div>
-                        <label for="file2">첨부하기</label> 
-                        <input type="file" id="file2">
-                    </div>
-                </div>
-                <div class="fileBox">노인성 질병을 확인할 수 있는 진단서<span class="fileOption"> (옵션)</span>
-                    <div class="fileBoxInner">
-                        <input class="upload-name" value="의사소견서 파일을 업로드 해주세요" placeholder="의사소견서 파일을 업로드 해주세요" inputmode="none" onfocus="this.blur()">
-                        <label for="file3">첨부하기</label> 
-                        <input type="file" id="file3">
-                    </div>
-                </div>
-            </div>
-            <div class="check_wrap">
-                <input type="checkbox" id="check_btn">
-                <label for="check_btn"><span>개인 정보 제공 동의</span></label>
-                <ul> 
-                    <li>대리 신청의 경우 반드시 등급을 신청하시는 어르신의 정보 제공 동의를 받으셔야 합니다.</li>
-                    <li>보호자 또는 수급자가 입력 및 확인하며 보호자 또는 수급자가 직접 오른손의 웹팩스 기능을 활용하여 발송합니다. 오른손은 신청시 입력된 개인 정보를 저장 또는 사용하지 않으며, 웹팩스 발송 후 자동 폐기 됩니다.</li>
-                    <li>신청인 회원이 수급자의 개인정보를 입력하는 경우 수급자로부터 명시적으로 위임받았거나 정보의 입력에 대한 정당한 대리권을 보유하고 있어야 하며 이에 따라 본 약관의 동의는 수급자의 개인 정보 이용에 대한 동의를 신청인 회원이 대리 동의하는 것으로 간주합니다.</li>
-                    
-                    
+                    <ul class="agree-exp-list"> 
+                        <li>대리 신청의 경우 반드시 등급을 신청하시는 어르신의 정보 제공 동의를 받으셔야 합니다.</li>
+                        <li>보호자 또는 수급자가 입력 및 확인하며 보호자 또는 수급자가 직접 오른손의 웹팩스 기능을 활용하여 발송합니다. 오른손은 신청시 입력된 개인 정보를 저장 또는 사용하지 않으며, 웹팩스 발송 후 자동 폐기 됩니다.</li>
+                        <li>신청인 회원이 수급자의 개인정보를 입력하는 경우 수급자로부터 명시적으로 위임받았거나 정보의 입력에 대한 정당한 대리권을 보유하고 있어야 하며 이에 따라 본 약관의 동의는 수급자의 개인 정보 이용에 대한 동의를 신청인 회원이 대리 동의하는 것으로 간주합니다.</li>
+                        
+                        
                     </ul>
-            </div>
-            <div class="btn-bottom-wrap">
-                <button disabled="true" class="btn-bottom" type="button">
-                    다음
-                </button>
-            </div> 
-        </form>
+                </div>
+                <div class="bottom-btn-wrap">
+                    <button class="type1-bottom-btn" type="button">
+                        다음
+                    </button>
+                </div> 
+            </form>
+        </div>
+        
     </div>
-    <div class="inputCheckWrap">
+    <!-- 다음 버튼 클릭시 보여질 화면 (입력 확인 화면) -->
+    <div class="re-check-wrap">
         <div class="appBar">
             <ul>
                 <li class="prev"></li>
@@ -130,136 +154,234 @@
                 <li class="home"></li>
             </ul>
         </div>
-        <div class="title">수급자 정보가 제대로 입력 되었는지 확인해 주세요</div>
-        <div class="content"> 
-            <div class="reCheckWrap">
-                이름<br>
-                <p class="text_name"></p>
+        <h3 class="title">수급자 정보가 제대로 입력되었는지 확인해 주세요</h3>
+        <div class="content">
+            <div class="re-check-list-wrap">
+                <ul class="re-check-list">
+                    <li class="re-check-cpnt">
+                        <h4 class="user1-input-label">이름</h4>
+                        <div class="user1-input-inner">
+                            <p class="input-text-name"></p>
+                        </div>
+                    </li>
+                    <li class="re-check-cpnt">
+                        <h4 class="user1-input-label">주민등록번호</h4>
+                        <div class="user1-input-inner">
+                            <p class="input-text-id input-text-id01"></p>
+                            <p>-</p>
+                            <p class="input-text-id input-text-id02"></p>
+                        </div>
+                    </li>
+                    <li class="re-check-cpnt">
+                        <h4 class="user1-input-label">주민등록지</h4>
+                        <div class="user1-input-inner">
+                            <p class="input-text-address01"></p>
+                            <p class="input-text-address01-sub"></p>
+                        </div>
+                    </li>
+                    <li class="re-check-cpnt">
+                        <h4 class="user1-input-label">실제거주지</h4>
+                        <div class="user1-input-inner">
+                            <p class="input-text-address02"></p>
+                            <p class="input-text-address02-sub"></p>
+                        </div>
+                    </li>
+                    <li class="re-check-cpnt">
+                        <h4 class="user1-input-label">전화번호</h4>
+                        <div class="user1-input-inner">
+                            <p class="input-text-call"></p>
+                        </div>
+                    </li>
+                </ul>
+                <h3 class="file-title">파일첨부</h3>
+                <ul class="re-check-list">
+                    <li class="re-check-cpnt">
+                        <h4 class="user1-input-label">신분증</h4>
+                        <div class="user1-input-inner">
+                            <p class="input-text-idcard"></p>
+                        </div>
+                    </li>
+                    
+                    <li class="re-check-cpnt">
+                        <h4 class="user1-input-label">의사소견서</h4>
+                        <div class="user1-input-inner">
+                            <p class="input-text-doc">미 등록</p>
+                        </div>
+                    </li>
+                    
+                    <li class="re-check-cpnt">
+                        <h4 class="user1-input-label">노인성 질병을 확인할 수 있는 진단서</h4>
+                        <div class="user1-input-inner">
+                            <p class="input-text-mdc">미 등록</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <div class="reCheckWrap">
-                주민등록번호<br>
-                <p class="text_id1"></p>
-                <span>-</span>
-                <p class="text_id2"></p>
+            <div class="re-agree-text-wrap">
+                <p class="re-agree-text">개인 정보 제공 동의 완료</p>
+                <ul class="agree-exp-list"> 
+                    <li>대리 신청의 경우 반드시 등급을 신청하시는 어르신의 정보 제공 동의를 받으셔야 합니다.</li>
+                    <li>보호자 또는 수급자가 입력 및 확인하며 보호자 또는 수급자가 직접 오른손의 웹팩스 기능을 활용하여 발송합니다. 오른손은 신청시 입력된 개인 정보를 저장 또는 사용하지 않으며, 웹팩스 발송 후 자동 폐기 됩니다.</li>
+                    <li>신청인 회원이 수급자의 개인정보를 입력하는 경우 수급자로부터 명시적으로 위임받았거나 정보의 입력에 대한 정당한 대리권을 보유하고 있어야 하며 이에 따라 본 약관의 동의는 수급자의 개인 정보 이용에 대한 동의를 신청인 회원이 대리 동의하는 것으로 간주합니다.</li>
+                </ul>
             </div>
-            <div class="reCheckWrap">
-                주민등록지<br>
-                <p class="text_idHome1"></p>
-                <p class="text_idHome2"></p>
-            </div>
-            <div class="reCheckWrap">
-                실제거주지<br>
-                <p class="text_realHome1"></p>
-                <p class="text_realHome2"></p>
-            </div>
-            <div class="reCheckWrap">
-                전화번호<br>
-                <p class="text_callNumber"></p>
-            </div>
-            <div class="fileWrap">
-                <h3>파일첨부</h3>
-                <div class="reCheckWrap">신분증<br>
-                    <p class="text_idCard"></p>
-                </div>
-                <div class="reCheckWrap">의사소견서<br>
-                    <p class="text_doctor"></p>
-                </div>
-                <div class="reCheckWrap">노인성 질병을 확인할 수 있는 진단서<br>
-                    <p class="text_sheet"></p>
-                </div>
-            </div>
-
-            <span>개인 정보 제공 동의 완료</span>
-            <div class="btn-bottom-wrap2">
-                <button disabled="true" class="btn-bottom2">
-                    <a href="#">다시 입력</a>
+            <div class="bottom-btn-wrap">
+                <button class="type2-bottom-btn" type="button">다시 입력
                 </button>
-                <button disabled="true" class="btn-bottom2">
-                    <a href="./formpage4.html">다음</a>
+                <button class="type2-bottom-btn" type="button">다음
                 </button>
+            </div> 
+        </div>
+    </div>
+    <!--신분증>촬영하기 눌렀을 때 보여질 화면-->
+    <div class="idcard-wrap">
+        <div class="appBar">
+            <ul>
+                <li class="prev"></li>
+                <li>신분증 촬영</li>
+                <li class="home"></li>
+            </ul>
+        </div>
+        <h3 class="title">주민등록증 또는 운전면허증을 준비해주세요</h3>
+        <div class="content">
+            <div class="id-background-wrap">
+                <img class="id-backgorund" src="./img/id-background.svg" alt="신분증예시이미지">
             </div>
+            <div class="id-photo-exp-wrap">
+                <ul class="id-photo-exp-list">
+                    <li class="id-photo-exp-cpnt">
+                        <img src="./img/id-sub-01.svg" alt="가로로 촬영 아이콘">
+                        <p>가로로<br> 촬영하세요</p>
+                    </li>
+                    <li class="id-photo-exp-cpnt">
+                        <img src="./img/id-sub-02.svg" alt="어두운 배경 촬영 아이콘">
+                        <p>어두운 배경에서 <br>촬영하세요</p>
+                    </li>
+                    <li class="id-photo-exp-cpnt">
+                        <img src="./img/id-sub-03.svg" alt="빛 반사 주의 아이콘">
+                        <p>빛 반사에 <br>주의하세요</p>
+                    </li>
+                </ul>
+                <ul class="id-photo-caution-list">
+                    <li class="id-photo-caution-cpnt">ㆍ정보 확인이 어렵거나 훼손된 신분증은 거래가 거절 될 수 있습니다</li>
+                    <li class="id-photo-caution-cpnt">ㆍ주민등록번호 뒤 5자리를 가려서 올려주세요</li>
+                </ul>
+            </div>
+            <div class="id-upload-btn-wrap">
+                <form action="">
+                    <input type="file" id="id-file">
+                    <label for="id-file">사진 촬영 또는 파일 첨부하기</label>
+                </form>
+                
+            </div>
+    
         </div>
     </div>
     <!-- 카카오 지도 api 연동 -->
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
             window.onload = function(){
-                document.getElementById("address_kakao1").addEventListener("click", function(){ //주소입력칸을 클릭하면
+                document.getElementById("address-kakao1").addEventListener("click", function(){ //주소입력칸을 클릭하면
                     //카카오 지도 발생
                     new daum.Postcode({
                         oncomplete: function(data) { //선택시 입력값 세팅
-                            document.getElementById("address_kakao1").value = data.address; // 주소 넣기
-                            document.querySelector("input[name=address_detail1]").focus(); //상세입력 포커싱
+                            document.getElementById("address-kakao1").value = data.address; // 주소 넣기
+                            document.querySelector("input[name=address-detail1]").focus(); //상세입력 포커싱
                         }
                     }).open();
                 });
 
-                document.getElementById("address_kakao2").addEventListener("click", function(){ //주소입력칸을 클릭하면
+                document.getElementById("address-kakao2").addEventListener("click", function(){ //주소입력칸을 클릭하면
                     //카카오 지도 발생
                     new daum.Postcode({
                         oncomplete: function(data) { //선택시 입력값 세팅
-                            document.getElementById("address_kakao2").value = data.address; // 주소 넣기
-                            document.querySelector("input[name=address_detail2]").focus(); //상세입력 포커싱
+                            document.getElementById("address-kakao2").value = data.address; // 주소 넣기
+                            document.querySelector("input[name=address-detail2]").focus(); //상세입력 포커싱
                         }
                     }).open();
                 });
             }
     </script>
     <script>
-        /*파일 업로드시 인풋 value, css style 변경*/
-        $("#file1").on('change',function(){
-            $(this).siblings('.upload-name').val("신분증 촬영 완료");
-            $(this).siblings('.upload-name').css('color','#000');
+        /*파일 업로드시 text,css style 변경*/
+        $("#doc-file").on('change',function(){
+            $(this).parent().siblings('.input-file-text').text("파일 업로드 완료");
+            $('.input-text-doc').text("파일 업로드 완료");
+            $(this).parent().siblings('.input-file-text').css('color','#000');
         });
-        $("#file2").on('change',function(){
-            $(this).parent().siblings().children('.upload-name').val("파일 업로드 완료");
-            $(this).parent().siblings().children('.upload-name').css('color','#000');
+        $("#mdc-file").on('change',function(){
+            $(this).parent().siblings('.input-file-text').text("파일 업로드 완료");
+            $('.input-text-mdc').text("파일 업로드 완료");
+            $(this).parent().siblings('.input-file-text').css('color','#000');
         });
-        $("#file3").on('change',function(){
-            $(this).siblings('.upload-name').val("파일 업로드 완료");
-            $(this).siblings('.upload-name').css('color','#000');
+
+        // 신분증 촬영하기 버튼 클릭시
+        $('.id-card-popup-btn').click(function(){
+            $('.idcard-wrap').css('display', 'block');
+            $('.formP3>.appBar,.formP3>.step-wizard,.formP3>.title, .formP3>.content').css('display','none');
+        });
+
+        // 신분증 파일 업로드시 text,css style 변경
+        $('#id-file').change(function(){
+            $('.idcard-wrap').css('display', 'none');
+            $('.formP3>.appBar,.formP3>.step-wizard,.formP3>.title, .formP3>.content').css('display','block');
+
+            $('.id-card-popup-btn').siblings('.input-file-text').css('color','#000').text('신분증 업로드 완료');
         });
 
         /*하단 다음 버튼 1개 클릭 시*/
-        $('.btn-bottom').click(function(){
-            $('.inputCheckWrap').css('display', 'block');
-            $('html').scrollTop(0);
-            $('.formP3>.step-wizard,.formP3>.title, .formP3>.content').css('display','none');
-            $('body>.appBar').css('display','none');
-            // $('.text_idCard').text("신분증 촬영 완료");
-            // $('.text_doctor, .text_sheet').text("파일 업로드 완료");
+        $('.type1-bottom-btn').click(function(){
+            if( ($('#name').val().length > 0) && ($('#id-info1').val().length >0) 
+            && ($('#id-info2').val().length >0) && ($('#address-kakao1').val().length >0)
+            && ($('#address-kakao1-sub').val().length >0)&& ($('#address-kakao2').val().length >0)
+            && ($('#address-kakao2-sub').val().length >0)&& ($('#call-number').val().length >0)&&($('#id-file').val().length >0)){
+                // alert("모두 입력 완료");
+                $('html').scrollTop(0);
+                $('.re-check-wrap').css('display', 'block');
+            $('.formP3>.appBar,.formP3>.step-wizard,.formP3>.title, .formP3>.content').css('display','none');
+            }else{
+                btn_popup();
+            }
+            
         });
 
         /*하단 이전 버튼 클릭 시*/
-        $('.btn-bottom-wrap2 .btn-bottom2:nth-child(1) a').click(function(){
-            $('.inputCheckWrap').css('display', 'none');
-            $('.formP3>.step-wizard,.formP3>.title, .formP3>.content').css('display','block');
+        $('.type2-bottom-btn:nth-child(1)').click(function(){
+            $('.re-check-wrap').css('display', 'none');
+            $('.formP3>.appBar,.formP3>.step-wizard,.formP3>.title, .formP3>.content').css('display','block');
         });
 
+        /*인풋 value값 할당하는 코드*/
+        $('#name, #id-info1, #id-info2,#address-kakao1, #address-kakao1-sub,#address-kakao2, #address-kakao2-sub, #call-number, #id-file').change(function(){
+            $('.input-text-name').text($('#name').val());
+            $('.input-text-id01').text($('#id-info1').val());
+            $('.input-text-id02').text($('#id-info2').val());
+            $('.input-text-address01').text($('#address-kakao1').val());
+            $('.input-text-address01-sub').text($('#address-kakao1-sub').val());
+            $('.input-text-address02').text($('#address-kakao2').val());
+            $('.input-text-address02-sub').text($('#address-kakao2-sub').val());
+            $('.input-text-call').text($('#call-number').val());
+            $('.input-text-idcard').text('신분증 업로드 완료');
+        });
+
+        function btn_popup(){
+            alert('필수값을 모두 다 입력 해주세요');
+        }
     </script>
     <script>
-        /*인풋 value값 할당하는 코드*/
-        $('#name, #id_info1, #id_info2,#address_kakao1, #address_kakao1Sub,#address_kakao2, #address_kakao2Sub, #callNumber').keyup(function(){
-            $('.text_name').text($('#name').val());
-            $('.text_id1').text($('#id_info1').val());
-            $('.text_id2').text($('#id_info2').val());
-            $('.text_idHome1').text($('#address_kakao1').val());
-            $('.text_idHome2').text($('#address_kakao1Sub').val());
-            $('.text_realHome1').text($('#address_kakao2').val());
-            $('.text_realHome2').text($('#address_kakao2Sub').val());
-            $('.text_callNumber').text($('#callNumber').val());
-        });
+        
 
         let nameForm = document.getElementById('name');
-        let idInfo1Form = document.getElementById('id_info1');
-        let idInfo2Form = document.getElementById('id_info2');
-        let adrForm = document.getElementById('address_kakao1');
-        let adrSubForm = document.getElementById('address_kakao1Sub');
-        let adr2Form = document.getElementById('address_kakao2');
-        let adr2SubForm = document.getElementById('address_kakao2Sub');
-        let callForm = document.getElementById('callNumber');
-        var btnButton = document.getElementsByClassName('btn-bottom')[0];
+        let idInfo1Form = document.getElementById('id-info1');
+        let idInfo2Form = document.getElementById('id-info2');
+        let adrForm = document.getElementById('address-kakao1');
+        let adrSubForm = document.getElementById('address-kakao1-sub');
+        let adr2Form = document.getElementById('address-kakao2');
+        let adr2SubForm = document.getElementById('address-kakao2-sub');
+        let callForm = document.getElementById('call-number');
+        let bottomBtn = document.getElementsByClassName('type1-bottom-btn')[0];
         //클래스 선택자는 뒤에 []붙여줘야 함
+        let idcardForm = document.getElementById('id-file');
 
         nameForm.addEventListener('keyup',activeEvent);
         idInfo1Form.addEventListener('keyup',activeEvent);
@@ -267,35 +389,23 @@
         adrSubForm.addEventListener('keyup', activeEvent);
         adr2SubForm.addEventListener('keyup', activeEvent);
         callForm.addEventListener('keyup', activeEvent);
-
-        function disabledBtn() {
-            btnButton.disabled = true;
-            console.log("No"); 
-            btnButton.style.color='#B7B7B7';
-            btnButton.style.backgroundColor='#EFEFEF';
-        }
+        idcardForm.addEventListener('change', activeEvent);
 
         function activeEvent() {
-                switch(!((nameForm.value && idInfo1Form.value) && (idInfo2Form.value && adrForm.value))){
-                    case true : //입력값이 없을 때
-                        disabledBtn();
-                        break;
-                    
-                    case false : //모두 입력값이 있을 때
-                        switch(!((adrSubForm.value && adr2Form.value)&& (adr2SubForm.value && callForm.value))){
-                            case true : // 입력값이 없을 때
-                                disabledBtn();
-                            break;
-                            case false : //모두 입력값이 있을 때
-                                btnButton.disabled = false;
-                                btnButton.removeAttribute( 'disabled' );
-                                console.log("Yes");
-                                btnButton.style.color='white';
-                                btnButton.style.backgroundColor='#2CB7A4';
-                            break;
-                        }
-                }
+            if( (nameForm.value.length > 0) && (idInfo1Form.value.length >0) 
+            && (idInfo2Form.value.length >0) && (adrForm.value.length >0)
+            && (adrSubForm.value.length >0)&& (adr2Form.value.length >0)
+            && (adr2SubForm.value.length >0)&& (callForm.value.length >0)&&(idcardForm.value.length >0)){
+                bottomBtn.style.color='white';
+                bottomBtn.style.backgroundColor='#2CB7A4';
+            }else{
+                bottomBtn.style.backgroundColor='#EFEFEF';
+                bottomBtn.style.color='#B7B7B7';
+                
+            }
         }
+
+        
         
     </script>
 </body>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>센터 매칭 신청</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/centerMatching.css">
+</head>
+<body>
+    <div class="appBar">
+        <ul>
+            <li class="prev"></li>
+            <li>신분증 촬영</li>
+            <li class="home"></li>
+        </ul>
+    </div>
+    <h3 class="title">이용하고 싶은 서비스(시설)를 선택해주세요</h3>
+    <div class="content">
+        <div class="matching-radio-wrap">
+            <form action="">
+                <ul class="matching-radio-list">
+                    <li class="matching-radio-cpnt">
+                        <input id="matching-radio-1" type="radio" name="service" value="방문요양" checked>
+                        <label for="matching-radio-1">방문요양</label>
+                    </li>
+                    <li class="matching-radio-cpnt">
+                        <input id="matching-radio-2" type="radio" name="service" value="방문간호">
+                        <label for="matching-radio-2">방문간호</label>
+                    </li>
+                    <li class="matching-radio-cpnt">
+                        <input id="matching-radio-3" type="radio" name="service" value="방문목욕">
+                        <label for="matching-radio-3">방문목욕</label>
+                    </li>
+                    <li class="matching-radio-cpnt">
+                        <input id="matching-radio-4" type="radio" name="service" value="복지용구">
+                        <label for="matching-radio-4">복지용구</label>
+                    </li>
+                    <li class="matching-radio-cpnt">
+                        <input id="matching-radio-5" type="radio" name="service" value="주야간보호">
+                        <label for="matching-radio-5">주야간보호</label>
+                    </li>
+                    <li class="matching-radio-cpnt">
+                        <input id="matching-radio-6" type="radio" name="service" value="단기보호">
+                        <label for="matching-radio-6">단기보호</label>
+                    </li>
+                    <li class="matching-radio-cpnt">
+                        <input id="matching-radio-7" type="radio" name="service" value="요양원">
+                        <label for="matching-radio-7">요양원</label>
+                    </li>
+                </ul>
+                <div class="matching-exp-wrap">
+                    <p>*정보 저장 동의 여부에 따라 최종 선택하시는 센터에 수급자 정보가 보여집니다.</p>
+                    <p>수급자 정보 : 이름, 전화번호, 주민등록 (앞7자리), 주소(거주지)</p>
+                </div>
+                <div class="bottom-btn-wrap-ver02">
+                    <button class="bottom-btn-ver02" type="button">센터 매칭 신청 하기
+                    </button>
+                </div> 
+            </form>
+        </div>
+        
+    </div>
+</body>
+</html>

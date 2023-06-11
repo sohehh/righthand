@@ -1,0 +1,20 @@
+/*formpage2 style*/
+/* step~ 진행단계 ui style */
+.formP2 .step-wizard-item:nth-child(n+2):nth-child(-n+4)::after{
+    background-color: #3A9286;
+}
+.formP2 .step-wizard-item:nth-child(1) .progress-count::after{
+    background-color: #2CB7A4;
+    width: 15px;
+    height: 15px;
+    border:2px solid #fff;
+}
+.formP2 .step-wizard-item:nth-child(n+2):nth-child(-n+4) .progress-count::after{
+    background-color: #2CB7A4;
+    width: 15px;
+    height: 15px;
+    border:2px solid #3A9286;
+}
+.formP2 .step-wizard-item:nth-child(n+2):nth-child(-n+4) .progress-label{
+    color:#3A9286;
+}

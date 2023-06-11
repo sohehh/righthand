@@ -1,0 +1,51 @@
+
+.matching-radio-cpnt input[type=radio]{
+    display: none;
+}
+.matching-radio-cpnt label{
+    display: block;
+    padding:16px 20px;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+    background:white url(../img/check-grayBig.svg)no-repeat center right 19px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.matching-radio-cpnt input[name='service']:checked + label{
+    background:white url(../img/check-checked.svg)no-repeat center right 19px;
+    border:2px solid #2CB7A4;
+}
+.matching-exp-wrap{
+    margin-top: 20px;
+}
+.matching-exp-wrap p{
+    font-size: 14px;
+    color:#A2A2A2;
+    line-height: 145%;
+}
+.bottom-btn-wrap-ver02{
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    line-height: 55px;
+    color: white;
+    left: 0px;
+    bottom: 0px;
+    padding-bottom: 20px;
+}
+.bottom-btn-ver02{
+    display: block;
+    text-align: center;
+    border-radius: 10px;
+    width: calc(100% - 40px);
+    margin:0 auto;
+    background-color: #fff;
+    font-family: "NanumSquareRound";
+    color:#2CB7A4;
+    border:none;
+    border:1.5px solid #2CB7A4;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 55px;
+}

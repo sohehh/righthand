@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>신청서 작성 - 신청서 선택</title>
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/form02.css">
 
 </head>
 <body class="formP2">
+    <!--앱바(툴바)-->
     <div class="appBar">
         <ul>
             <li class="prev"></li>
@@ -17,6 +19,7 @@
             <li class="home"></li>
         </ul>
     </div>
+    <!--진행단계를 볼 수 있는 ui-->
     <div class="step-wizard">
         <ul class="step-wizard-list">
             <li class="step-wizard-item">
@@ -39,34 +42,29 @@
     </div>
     <h3 class="title">장기요양 신청서를 선택해 주세요</h3>
     <div class="content">
-        <div class="radioWrap">
-            <div class="form_radio_btn">
-                <input id="radio-1" type="radio" name="ap" value="1" checked>
-                <label for="radio-1">장기요양인정 신청서</label>
-            </div>
-            <div class="form_radio_btn">
-                <input id="radio-2" type="radio" name="ap" value="2">
-                <label for="radio-2">장기요양등급 변경 신청서</label>
-            </div>
-            <div class="form_radio_btn">
-                <input id="radio-3" type="radio" name="ap" value="2">
-                <label for="radio-3">장기요양인정 갱신 신청서</label>
-            </div>
-            <div class="form_radio_btn">
-                <input id="radio-4" type="radio" name="ap" value="2">
-                <label for="radio-4">장기요양 급여종류·내용 변경신청서</label>
-            </div>
+        <div class="type1-radio-wrap">
+            <form action="">
+                <ul class="type1-radio-list">
+                    <li class="type1-radio-cpnt">
+                        <input id="appli-radio-1" type="radio" name="application" value="장기요양인정" checked>
+                        <label for="appli-radio-1">장기요양인정 신청서</label>
+                    </li>
+                    <li class="type1-radio-cpnt">
+                        <input id="appli-radio-2" type="radio" name="application" value="장기요양등급">
+                        <label for="appli-radio-2">장기요양등급 변경 신청서</label>
+                    </li>
+                    <li class="type1-radio-cpnt">
+                        <input id="appli-radio-3" type="radio" name="application" value="장기요양인정">
+                        <label for="appli-radio-3">장기요양인정 갱신 신청서</label>
+                    </li>
+                </ul>
+                <div class="bottom-btn-wrap">
+                    <button class="type1-bottom-btn type1-btn-active" type="button" onclick="location.href='formpage3.html'">다음
+                    </button>
+                </div> 
+            </form>
         </div>
-        <div class="btn-bottom-wrap">
-            <button class="btn-bottom">
-                <a href="formpage3.html">다음</a>
-            </button>
-        </div> 
+        
     </div>
-    <script>
-        let btnButton = document.getElementsByClassName('btn-bottom')[0];
-        btnButton.style.backgroundColor="#2CB7A4";
-        btnButton.style.color="#fff";
-    </script>
 </body>
 </html>

@@ -1,0 +1,377 @@
+@font-face {
+    font-family: 'NanumSquareRound';
+    font-weight: 300; 
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquareRoundL.woff2) format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'NanumSquareRound';
+    font-weight: 400; 
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquareRoundR.woff2) format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'NanumSquareRound';
+    font-weight: 500; 
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquareRoundB.woff2) format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'NanumSquareRound';
+    font-weight: 700; 
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquareRoundEB.woff2) format('woff2');
+    font-display: swap;
+}
+
+
+/* ------공통------*/
+body{
+    font-family: "NanumSquareRound";
+}
+.appBar{
+    width: 100%;
+    height:48px;
+    background-color: #2CB7A4;
+    padding:15px 20px;
+}
+.appBar ul{
+    position: relative;
+}
+.appBar ul .prev{
+    position: absolute;
+    top:0;
+    left:0;
+    background: url('../img/prev.svg')no-repeat;
+    background-size: 9px;
+    width: 9px;
+    height: 18px;
+}
+.appBar ul .home{
+    position: absolute;
+    top:0;
+    right:0;
+    background: url('../img/home.svg')no-repeat;
+    background-size: 18px;
+    width: 18px;
+    height:18px;
+}
+.appBar ul li:nth-child(2){
+    color:white;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 1.3px;
+}
+.title{
+    font-family: "NanumSquareRound";
+    padding:20px 45px 20px 25px;
+    font-size: 15px;
+    font-weight: 500;
+    border-bottom: 3px solid #f5f5f5;
+    line-height: 150%;
+
+}
+input, button{
+    font-family: "NanumSquareRound,sans-serif";
+}
+.skip{
+    position:absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height:1px;
+    margin:-1px;
+    overflow: hidden;
+}
+/*h3 밑에 컨텐트*/
+.content{
+    padding:20px 20px 125px 20px;
+    position: relative;
+    
+}
+
+/*신청서 작성 progressbar 기본 style*/
+.step-wizard{
+    width: 100%;
+    background-color: #2CB7A4;
+    height: 85px;
+}
+.step-wizard-list{
+    padding:9px 20px 20px 20px;
+    color:white;
+    display: flex;
+    position: relative;
+    z-index: 10;
+}
+.step-wizard-item{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    /* z-index: 10; */
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    /*남은 여백을 동일한 너비로 채운다*/
+    position: relative;
+}
+.step-wizard-item + .step-wizard-item::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    /* border: 1px solid #000; */
+    background-color: #fff;
+    width: 100%;
+    height: 2px;
+    transform: translateX(-50%);
+    /* transform: translateX(-50%) 자기크기의 반만큼 앞으로 이동 */
+    z-index: -10;
+}
+/* 저선택자로 첫번째 step-wizard-item에는 안생김 / 가로줄 css임 */
+.progress-count{
+    width: 17px;
+    height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto;
+    position:relative;
+    z-index: 10;
+    color:transparent;
+}
+.progress-count::after{
+    content:"";
+    width: 17px;
+    height:17px;
+    background-color: white;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: -10;
+}
+.progress-label{
+    margin-top: 6px;
+}
+/*type1-radio style*/
+.type1-radio-cpnt input[type=radio]{
+    display: none;
+}
+.type1-radio-cpnt label{
+    font-weight: 500;
+    display: block;
+    padding:16px 20px;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+    background:white url(../img/check.svg)no-repeat center right 29px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+.type1-radio-cpnt input[type=radio]:checked + label{
+    border: 2px solid #2CB7A4;
+    background:white url(../img/check-checked.svg)no-repeat center right 29px;
+}
+.type1-radio-cpnt input[type=radio] + label{
+    background:white url(../img/check-grayBig.svg)no-repeat center right 29px;
+
+}
+
+/*하단 버튼 배경*/
+.bottom-btn-wrap{
+    position: fixed;
+    background-color: #fff;
+    width: 100%;
+    line-height: 55px;
+    color: white;
+    left:0;
+    bottom: 0;
+    font-weight: 800;
+    padding: 0 20px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* type1-버튼 기본 style */
+.type1-bottom-btn{
+    background-color: #EFEFEF;
+    width:100%;
+    display: block;
+    line-height: 55px;
+    border-radius: 10px;
+    color: #B7B7B7;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    border:none;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+/* type2-버튼 기본 style */
+.type2-bottom-btn{
+    background-color: #fff;
+    width: calc(50% - 5px);
+    display: inline-block;
+    line-height: 49px;
+    border-radius: 10px;
+    color: #B7B7B7;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+    border:none;
+    border:2px solid #2CB7A4;
+    color:#2CB7A4;
+    box-sizing: border-box;
+    cursor: pointer;
+
+}
+.type2-bottom-btn + .type2-bottom-btn{
+    background-color: #2CB7A4;
+    color:white;
+    border:none;
+}
+
+
+/* type1-버튼 활성화 style */
+.type1-btn-active{
+    background-color: #2CB7A4;
+    color:white;
+}
+
+/*필수, 옵션 표기 style*/
+.essential::after{
+    content:" (필수)";
+    color:#F68282;
+}
+
+.option::after{
+    content:" (옵션)";
+    color:#959595;
+}   
+
+/* label:before에 체크하기 전 상태 CSS */
+label[for=check-agree-btn]{
+    color:transparent;
+}
+.check-btn-wrap input[type=checkbox] + label[for=check-agree-btn]:before{
+    content:"";
+    display:inline-block;
+    width:20px;
+    height: 20px;
+    background-image:url('../img/check-gray.svg');
+    background-color:#EFEFEF;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 4px;
+    vertical-align:middle;
+}
+
+/* label:before에 체크 된 상태 CSS */  
+.check-btn-wrap input[type=checkbox]:checked + label[for=check-agree-btn]:before{
+    content:"";
+    background-color:#2CB7A4;
+    background-image: url('../img/check-white.svg');
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+/*photoIdCard style*/
+.idcard-wrap{
+    display: none;
+}
+.id-background-wrap{
+    position:relative;
+    width: 100%;
+    height:186px;
+    background-color: #000000bc;
+    border-radius: 8px;
+}
+.id-backgorund{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+}
+.id-photo-exp-wrap{
+    margin-top: 28px;
+    width: 100%;
+}
+
+.id-photo-exp-list{
+    width: calc(100% - 10px);
+    margin:auto auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.id-photo-exp-cpnt{
+    width: calc(100% / 3 - 10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.id-photo-exp-cpnt img{
+    display: flex;
+    width: 45px;
+    height: 30px;
+    align-items: center;
+    flex-shrink: 0;
+}
+.id-photo-exp-cpnt p{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+}
+.id-photo-caution-list{
+    width: calc(100% - 50px);
+    margin:auto auto;
+    margin-top:34px;
+}
+.id-photo-caution-cpnt{
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+}
+.id-photo-caution-cpnt:nth-child(1){
+    margin-bottom: 20px;
+}
+.id-upload-btn-wrap{
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    line-height: 55px;
+    color: white;
+    left: 0px;
+    bottom: 0px;
+    font-weight: 800;
+    padding-bottom: 20px;
+}
+#id-file{
+    display: none;
+}
+label[for=id-file]{
+    display: block;
+    text-align: center;
+    border-radius: 10px;
+    width: calc(100% - 40px);
+    margin:0 auto;
+    border: 1.5px solid #2CB7A4;
+    background-color: #fff;
+    color:#2CB7A4;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 55px;
+}

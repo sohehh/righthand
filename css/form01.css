@@ -1,0 +1,21 @@
+/*formpage1 style*/
+.formP1{
+    background-color: #F5F5F5;
+}
+.apply-list{
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    /* 100vw으로 인한 왼쪽 여백제거 */
+    margin-top: -20px;
+}
+.apply-cpnt{
+    background:white url(../img/vector.svg)no-repeat center right 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid #E3E3E3;
+}
+.apply-cpnt a{
+    padding: 20px 20px;
+    display: block;
+}
+

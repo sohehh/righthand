@@ -1,0 +1,71 @@
+.exp-wrap{
+    padding-bottom: 28px;
+}
+.exp-title{
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 145%;
+}
+.exp-list{
+    margin-top: 23px;
+}
+.exp-cpnt:nth-child(1){
+    padding-bottom: 23px;
+}
+.exp-order-wrap{
+    display: flex;
+    padding-bottom: 12px;
+}
+.exp-order{
+    color:white;
+    background-color: #F68282;
+    width: 20px;
+    height:20px;
+    line-height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 5px;
+}
+.exp-order-title{
+    color:#F68282;
+    font-size: 14px;
+    font-weight: 500;
+}
+.exp-text{
+    font-size: 14px;
+    line-height: 150%;
+}
+.line{
+    width: 100%;
+    height: 3px;
+    background-color: #F5F5F5;
+}
+.service-wrap{
+    margin-top: 22px;
+}
+.service-sub-title{
+    font-size: 13px;
+    color:#8F8F8F;
+    margin-top:3px;
+}
+.service-radio-wrap{
+    margin-top: 30px;
+}
+
+.service-radio-cpnt input[type=radio]{
+    display: none;
+}
+.service-radio-cpnt label{
+    display: block;
+    padding:16px 20px;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+    background:white url(../img/check-grayBig.svg)no-repeat center right 19px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.service-radio-cpnt input[name='righthand-service']:checked + label{
+    background:white url(../img/check-checked.svg)no-repeat center right 19px;
+    border:2px solid #2CB7A4;
+}

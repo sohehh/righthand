@@ -1,0 +1,121 @@
+.caution-title{
+    font-size: 17px;
+    color:#F68282;
+    font-weight: 700;
+}
+.caution-list{
+    margin-top: 17px;
+}
+.caution-cpnt{
+    padding-bottom: 17px;
+    display: flex;
+}
+
+.order{
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 50%;
+    background-color: #F68282;
+    width: 20px;
+    height:20px;
+    color:white;
+    flex-shrink: 0;
+    line-height: 20px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.order-text{
+    display: inline-block;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 145%;
+}
+.order-text-sub{
+    color:#A2A2A2;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+.line{
+    width: 100%;
+    height:3px;
+    background-color: #F5F5F5;
+}
+.ctfText{
+    margin-top: 18px;
+    padding:15px;
+    border:1px solid #C7C7C7;
+    border-radius: 15px;
+}
+.ctfText::after{
+    content: "";
+    clear: both;
+    width: 100%;
+    height: 1px;
+}
+.ctfText img{
+    vertical-align: middle;
+}
+.ctfText-img-2{
+    float: right;
+}
+.ctfText p{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 13px;
+}
+.file-upload-wrap{
+    margin-top: 17px;
+    width: 100%;   
+}
+.file-upload-inner{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.file-upload-box{
+    width: calc(100% - 60px);
+    height:80px;
+    border:1px solid #ccc;
+    border-radius: 15px;
+}
+.file-upload-name{
+    margin:10px;
+    line-height: 145%;
+}
+.delete-btn{
+    padding:9px 12px;
+    background-color: #F68282;
+    border-radius: 15px;
+    color:white;
+    font-size: 14px;
+    font-weight: 700;
+}
+#ctf-file{
+    display: none;
+}
+.regis-btn-wrap{
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    line-height: 55px;
+    color: white;
+    left: 0px;
+    bottom: 0px;
+    font-weight: 800;
+    padding-bottom: 20px;
+}
+label[for=ctf-file]{
+    display: block;
+    text-align: center;
+    border-radius: 10px;
+    width: calc(100% - 40px);
+    margin:0 auto;
+    background-color: #2CB7A4;
+    color:white;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 55px;
+}

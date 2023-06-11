@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오른손 도우미 신청</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/righthandHelper.css">
+</head>
+<body>
+    <div class="appBar">
+        <ul>
+            <li class="prev"></li>
+            <li>신분증 촬영</li>
+            <li class="home"></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="exp-wrap">
+            <h4 class="exp-title">신청한 공단에서 담당자가 배정되고 연락이 옵니다. 연락이 온 뒤에 2가지 준비를 해야 합니다</h4>
+            <ul class="exp-list">
+                <li class="exp-cpnt">
+                    <h5 class="exp-order-wrap">
+                        <span class="exp-order">1</span>
+                        <p class="exp-order-title">방문 실사 준비</p>
+                    </h5>
+                    <p class="exp-text">배정받은 공단직원이 어르신의 댁에 방문하여 어르신의 상태를 직접 눈으로 보고 평가합니다.</p>
+                </li>
+                <li class="exp-cpnt">
+                    <h5 class="exp-order-wrap">
+                        <span class="exp-order">2</span>
+                        <p class="exp-order-title">의사 소견서 준비</p>
+                    </h5>
+                    <p class="exp-text">어르신은 장기요양보험 등록에 필요한 소견서를 작성해 주는 병원에 방문하여 소견서를 받아 공단에 제출해야합니다.</p>
+                </li>
+            </ul>
+        </div>
+        <div class="line"></div>
+        <div class="service-wrap">
+            <h4 class="exp-title">이 모든 과정이 어렵게만 느껴지신다구요?<br>오른손 서비스를 신청해 보세요!</h4>
+            <p class="service-sub-title">-이용하고 싶은 항목을 선택해주세요</p>
+            <div class="service-radio-wrap">
+                <form action="">
+                    <ul class="service-radio-list">
+                        <li class="service-radio-cpnt">
+                            <input id="service-radio-1" type="radio" name="righthand-service" value="등급신청 설명" checked>
+                            <label for="service-radio-1">등급신청 설명</label>
+                        </li>
+                        <li class="service-radio-cpnt">
+                            <input id="service-radio-2" type="radio" name="righthand-service" value="방문 실사 동행" >
+                            <label for="service-radio-2">방문 실사 동행</label>
+                        </li>
+                        <li class="service-radio-cpnt">
+                            <input id="service-radio-3" type="radio" name="righthand-service" value="의사 소견서 발급" >
+                            <label for="service-radio-3">의사 소견서 발급</label>
+                        </li>
+                        <li class="service-radio-cpnt">
+                            <input id="service-radio-4" type="radio" name="righthand-service" value="재가요양 서비스 안내" >
+                            <label for="service-radio-4">재가요양 서비스 안내</label>
+                        </li>
+                        <li class="service-radio-cpnt">
+                            <input id="service-radio-5" type="radio" name="righthand-service" value="복지용구안내" >
+                            <label for="service-radio-5">복지용구안내</label>
+                        </li>
+                    </ul>
+                    <div class="service-check-wrap">
+                        <input type="checkbox" id="service-check">
+                        <label for="service-check">
+                            <span>기타</span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

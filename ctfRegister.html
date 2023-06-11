@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인정서 등록</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/ctfRegister.css">
+    <script src="./js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <div class="appBar">
+        <ul>
+            <li class="prev"></li>
+            <li>인정서 등록</li>
+            <li class="home"></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="caution-wrap">
+            <h4 class="caution-title">인증서 등록시 주의사항</h4>
+            <ul class="caution-list">
+                <li class="caution-cpnt">
+                    <span class="order">1</span>
+                    <p class="order-text">PDF 또는 사진을 찍어 인정서를 업로드 해주세요</p>
+                </li>
+                <li class="caution-cpnt">
+                    <span class="order">2</span>
+                    <div class="order-text-wrap">
+                        <p class="order-text">인정서의 글자가 잘 보이도록 PDF 인쇄 또는 사진을 찍어 업로드 해주시기 바랍니다</p>
+                        <p class="order-text-sub">*사진 촬영 시 글자 식별이 가능하도록 촬영해주세요</p>
+                    </div>
+                </li>
+                <li class="caution-cpnt">
+                    <span class="order">3</span>
+                    <p class="order-text">단, 고유식별번호인 주민등록번호 뒷자리는 포스트잇이나 종이로 가리고 촬영해주시기 바랍니다</p>
+                </li>
+            </ul>
+        </div>
+        <div class="line"></div>
+        <div class="ctfText">
+            <img class="ctfText-img-1" src="./img/ctf-gray.svg" alt="인정서아이콘">
+            <p>인정서가 등록되지 않았습니다</p>
+            <img class="ctfText-img-2" src="./img/regisX.svg" alt="미등록">
+        </div>
+        <div class="file-upload-wrap">
+            <form action="">
+                <div class="file-upload-inner">
+                    <div class="file-upload-box">
+                        <p class="file-upload-name"></p>
+                    </div>
+                    <span class="delete-btn">삭제</span>
+                </div>
+                <div class="regis-btn-wrap">
+                    <input type="file" id="ctf-file">
+                    <label for="ctf-file">인정서 파일 등록 하기</label>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        $('#ctf-file').change(function(){
+            var fileName = $(this).val().split('/').pop().split('\\').pop();
+            $('.file-upload-name').text(fileName);
+            $('.ctfText').children('p').text('인정서가 등록되었습니다');
+            $('.ctfText-img-2').attr('src','./img/regisO.svg');
+            $('label[for="ctf-file"]').text("인정서 파일 재 등록 하기");
+        });
+
+        $('.delete-btn').click(function(){
+            $('#ctf-file').val("");
+            $('.file-upload-name').text("");
+            $('.ctfText').children('p').text('인정서가 등록되지 않았습니다');
+            $('.ctfText-img-2').attr('src','./img/regisX.svg');
+            $('label[for="ctf-file"]').text("인정서 파일 등록 하기");
+        });
+    </script>
+</body>
+</html>
