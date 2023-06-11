@@ -260,10 +260,10 @@ input, button{
 }   
 
 /* label:before에 체크하기 전 상태 CSS */
-label[for=check-agree-btn]{
+.check-btn-wrap input[type=checkbox] + label{
     color:transparent;
 }
-.check-btn-wrap input[type=checkbox] + label[for=check-agree-btn]:before{
+.check-btn-wrap input[type=checkbox] + label:before{
     content:"";
     display:inline-block;
     width:20px;
@@ -277,7 +277,7 @@ label[for=check-agree-btn]{
 }
 
 /* label:before에 체크 된 상태 CSS */  
-.check-btn-wrap input[type=checkbox]:checked + label[for=check-agree-btn]:before{
+.check-btn-wrap input[type=checkbox]:checked + label:before{
     content:"";
     background-color:#2CB7A4;
     background-image: url('../img/check-white.svg');

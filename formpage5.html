@@ -7,7 +7,7 @@
     <title>신청서 작성 - 기타 정보 입력</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/master.css">
-    <link rel="stylesheet" href="./css/formpage.css">
+    <link rel="stylesheet" href="./css/form05.css">
     <script src="./js/jquery-1.11.1.min.js"></script>
     
 </head>
@@ -41,83 +41,113 @@
     </div>
     <h3 class="title">기타 항목을 입력(선택) 해주세요</h3>
     <div class="content">
-        <form action="">
-            <div>
-                <h4>우편물 수령지</h4>
-                <div class="labelRadioWrap">
-                    수령인<br>
-                    <div class="radioWrap">
-                        <label>
-                            <input type="radio" name="person" value="수급자(신청인)" checked>
-                            <span>수급자(신청인)</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="person" value="보호자">
-                            <span>보호자</span>
-                        </label>
+        <div class="user3-input-wrap">
+            <form action="">
+                <h3 class="mail-title">우편물 수령지</h3>
+                <ul class="user3-input-list">
+                    <li class="user3-input-cpnt">
+                        <h4 class="user3-input-label ">수령인</h4>
+                        <div class="user3-input-inner">
+                            <label>
+                                <input type="radio" name="person" value="수급자(신청인)" checked>
+                                <span>수급자(신청인)</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="person" value="보호자">
+                                <span>보호자</span>
+                            </label>
+                            
+                        </div>
+                    </li>
+                    <li class="user3-input-cpnt">
+                        <h4 class="user3-input-label ">수령지</h4>
+                        <div class="user3-input-inner">
+                            <label>
+                                <input type="radio" name="receiveAddr" value="주민등록지" checked>
+                                <span>주민 등록지</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="receiveAddr" value="실제거주지">
+                                <span>실제 거주지</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="receiveAddr" value="보호자주소지">
+                                <span>보호자 주소지</span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="user3-input-list">
+                    <li class="user3-input-cpnt">
+                        <h4 class="user3-input-label ">변경신청시 사유 ( 장기요양등급 변경 신청서 작성 시 )</h4>
+                        <div class="user3-input-inner">
+                            <input type="text" id="change-text" placeholder="변경 사유를 적어주세요">
+                        </div>
+                    </li>
+                    <li class="user3-input-cpnt">
+                        <h4 class="user3-input-label ">수급자(신청인) 전염성 질환 보유 여부</h4>
+                        <div class="user3-input-inner">
+                            <label>
+                                <input type="radio" name="disease" value="예" >
+                                <span>예</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="disease" value="아니오" checked>
+                                <span>아니오</span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="user3-input-cpnt">
+                        <h4 class="user3-input-label ">정신 질환 보유 여부</h4>
+                        <div class="user3-input-inner">
+                            <label>
+                                <input type="radio" name="disease2" value="예" >
+                                <span>예</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="disease2" value="아니오" checked>
+                                <span>아니오</span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+                <div class="check-agree-wrap">
+                    <div class="check-btn-wrap">
+                        <input type="checkbox" class="skip" id="check-agree-all-btn">
+                        <label for="check-agree-all-btn">동의</label>
+                        <p>전체 동의</p>
+                        <ul class="check-btn-list">
+                            <li class="check-btn-cpnt">
+                                <input type="checkbox" class="skip" id="check-agree-1-btn">
+                                <label for="check-agree-1-btn">동의</label>
+                                <p class="essential">정보 위임 동의</p>
+                            </li>
+                            <li class="check-btn-cpnt">
+                                <input type="checkbox" class="skip" id="check-agree-2-btn">
+                                <label for="check-agree-2-btn">동의</label>
+                                <p class="option">정보 저장 동의</p>
+                            </li>
+                        </ul>
                     </div>
+                    <ul class="agree-exp-list">
+                        <li>노인장기요양보험법 제 13조, 제20조부터 제22조까지 및 같은 법 시행규칙 제 2조, 제8조부터 제10조까지의 규정에 따라 위와 같이 신청합니다.</li> 
+                        <li>대리 신청의 경우 반드시 등급을 신청하시는 어르신의 정보 제공 동의를 받으셔야 합니다.</li>
+                        <li>보호자 또는 수급자가 입력 및 확인하며 보호자 또는 수급자가 직접 오른손의 웹팩스 기능을 활용하여 발송합니다. 오른손은 신청시 입력된 개인 정보를 저장 또는 사용하지 않으며, 웹팩스 발송 후 자동 폐기 됩니다.</li>
+                        <li>신청인 회원이 수급자의 개인정보를 입력하는 경우 수급자로부터 명시적으로 위임받았거나 정보의 입력에 대한 정당한 대리권을 보유하고 있어야 하며 이에 따라 본 약관의 동의는 수급자의 개인 정보 이용에 대한 동의를 신청인 회원이 대리 동의하는 것으로 간주합니다.</li>
+                        
+                        
+                    </ul>
                 </div>
-                <div class="labelRadioWrap">
-                    수령지<br>
-                    <div class="radioWrap">
-                        <label>
-                            <input type="radio" name="receiveAddr" value="주민등록지" checked>
-                            <span>주민 등록지</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="receiveAddr" value="실제거주지">
-                            <span>실제 거주지</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="receiveAddr" value="보호자주소지">
-                            <span>보호자 주소지</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="inputWrap">
-                    <label>
-                        변경신청시 사유 (장기요양등급 변경 신청서 작성 시)<br>
-                        <input type="text" placeholder="변경 사유를 적어주세요">
-                    </label>
-                </div>
-                <div class="labelRadioWrap">
-                    수급자(신청인) 전염성 질환 보유 여부<br>
-                    <div class="radioWrap">
-                        <label>
-                            <input type="radio" name="disease" value="예" checked>
-                            <span>예</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="disease" value="아니오">
-                            <span>아니오</span>
-                        </label>
-                    </div>
-                </div>
-                <div class="labelRadioWrap">
-                    정신 질환 보유 여부<br>
-                    <div class="radioWrap">
-                        <label>
-                            <input type="radio" name="disease2" value="예" checked>
-                            <span>예</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="disease2" value="아니오">
-                            <span>아니오</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <p>노인장기요양보험법 제 13조, 제20조부터 제22조까지 및 같은 법 시행규칙 제 2조, 제8조부터 제10조까지의 규정에 따라 위와 같이 신청합니다.</p>
-            <div class="bottom-btn-wrap">
-                <button class="bottom-btn"  type="button">
-                    다음
-                </button>
-            </div>
-        </form>
+                <div class="bottom-btn-wrap">
+                    <button class="type1-bottom-btn" type="button">
+                        다음
+                    </button>
+                </div> 
+            </form>
+        </div>
     </div>
-    <div class="inputCheckWrap">
+    <!-- 다음 버튼 클릭시 보여질 화면 (입력 확인 화면) -->
+    <div class="re-check-wrap">
         <div class="appBar">
             <ul>
                 <li class="prev"></li>
@@ -125,95 +155,146 @@
                 <li class="home"></li>
             </ul>
         </div>
-        <div class="title">기타 항목이 제대로 입력(선택) 되었는지 확인해 주세요</div>
-        <div class="content"> 
-            <div class="reCheckWrap">
-                <div>
-                    <h4>우편물 수령지</h4>
-                    <div class="labelRadioWrap">
-                        수령인<br>
-                        <div class="radioWrap">
+        <h3 class="title">기타 항목이 제대로 입력(선택) 되었는지 확인해주세요</h3>
+        <div class="content">
+            <div class="re-check-list-wrap">
+                <ul class="re-check-list">
+                    <li class="re-check-cpnt">
+                        <h4 class="user3-input-label">수령인</h4>
+                        <div class="user3-input-inner">
                             <label>
-                                <input type="radio" name="rePerson" value="수급자(신청인)" checked  onclick="return(false);" >
+                                <input type="radio" name="rePerson" value="수급자(신청인)" checked onclick="return false">
                                 <span>수급자(신청인)</span>
                             </label>
                             <label>
-                                <input type="radio" name="rePerson" value="보호자" onclick="return(false);">
+                                <input type="radio" name="rePerson" value="보호자" onclick="return false">
                                 <span>보호자</span>
                             </label>
                         </div>
-                    </div>
-                    <div class="labelRadioWrap">
-                        수령지<br>
-                        <div class="radioWrap">
+                    </li>
+                    <li class="re-check-cpnt">
+                        <h4 class="user3-input-label">수령지</h4>
+                        <div class="user3-input-inner">
                             <label>
-                                <input type="radio" name="reAdr" value="주민등록지"  checked onclick="return(false);">
+                                <input type="radio" name="reAdr" value="주민등록지" checked onclick="return false">
                                 <span>주민 등록지</span>
                             </label>
                             <label>
-                                <input type="radio" name="reAdr" value="실제거주지" onclick="return(false);">
+                                <input type="radio" name="reAdr" value="실제거주지" onclick="return false">
                                 <span>실제 거주지</span>
                             </label>
                             <label>
-                                <input type="radio" name="reAdr" value="보호자주소지" onclick="return(false);">
+                                <input type="radio" name="reAdr" value="보호자주소지" onclick="return false">
                                 <span>보호자 주소지</span>
                             </label>
-                            
                         </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="inputWrap">
-                        <label>
-                            변경신청시 사유 (장기요양등급 변경 신청서 작성 시)<br>
-                            <input type="text" placeholder="변경 사유를 적어주세요"  onfocus="this.blur()">
-                        </label>
-                    </div>
-                    <div class="labelRadioWrap">
-                        수급자(신청인) 전염성 질환 보유 여부<br>
-                        <div class="radioWrap">
+                    </li>
+                </ul>
+                <ul class="re-check-list">
+                    <li class="re-check-cpnt">
+                        <h4 class="user3-input-label">변경신청시 사유 ( 장기요양등급 변경 신청서 작성 시 )</h4>
+                        <div class="user3-input-inner">
+                            <p class="input-text-change">미 기재</p>
+                        </div>
+                    </li>
+                    
+                    <li class="re-check-cpnt">
+                        <h4 class="user3-input-label">수급자(신청인) 전염성 질환 보유 여부</h4>
+                        <div class="user3-input-inner">
                             <label>
-                                <input type="radio" name="reDisease" value="예" checked onclick="return(false);">
+                                <input type="radio" name="reDisease" value="예" onclick="return false">
                                 <span>예</span>
                             </label>
                             <label>
-                                <input type="radio" name="reDisease" value="아니오" onclick="return(false);">
+                                <input type="radio" name="reDisease" value="아니오" checked onclick="return false">
                                 <span>아니오</span>
                             </label>
                         </div>
-                    </div>
-                    <div class="labelRadioWrap">
-                        정신 질환 보유 여부<br>
-                        <div class="radioWrap">
+                    </li>
+                    
+                    <li class="re-check-cpnt">
+                        <h4 class="user3-input-label">정신 질환 보유 여부</h4>
+                        <div class="user3-input-inner">
                             <label>
-                                <input type="radio" name="reDisease2" value="예" checked onclick="return(false);">
+                                <input type="radio" name="reDisease2" value="예" onclick="return false">
                                 <span>예</span>
                             </label>
                             <label>
-                                <input type="radio" name="reDisease2" value="아니오" onclick="return(false);">
+                                <input type="radio" name="reDisease2" value="아니오" checked onclick="return false">
                                 <span>아니오</span>
                             </label>
                         </div>
-                    </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="re-agree-text-wrap">
+                <div class="check-btn-wrap">
+                    <ul class="check-btn-list">
+                        <li class="check-btn-cpnt">
+                            <input type="checkbox" class="skip" id="check-agree-1ex-btn">
+                            <label for="check-agree-1ex-btn" onclick="return false">동의</label>
+                            <p class="essential">정보 위임 동의</p>
+                        </li>
+                        <li class="check-btn-cpnt">
+                            <input type="checkbox" class="skip" id="check-agree-2ex-btn">
+                            <label for="check-agree-2ex-btn" onclick="return false">동의</label>
+                            <p class="option">정보 저장 동의</p>
+                        </li>
+                    </ul>
                 </div>
+                <ul class="agree-exp-list"> 
+                    <li>노인장기요양보험법 제 13조, 제20조부터 제22조까지 및 같은 법 시행규칙 제 2조, 제8조부터 제10조까지의 규정에 따라 위와 같이 신청합니다.</li>
+                    <li>대리 신청의 경우 반드시 등급을 신청하시는 어르신의 정보 제공 동의를 받으셔야 합니다.</li>
+                    <li>보호자 또는 수급자가 입력 및 확인하며 보호자 또는 수급자가 직접 오른손의 웹팩스 기능을 활용하여 발송합니다. 오른손은 신청시 입력된 개인 정보를 저장 또는 사용하지 않으며, 웹팩스 발송 후 자동 폐기 됩니다.</li>
+                    <li>신청인 회원이 수급자의 개인정보를 입력하는 경우 수급자로부터 명시적으로 위임받았거나 정보의 입력에 대한 정당한 대리권을 보유하고 있어야 하며 이에 따라 본 약관의 동의는 수급자의 개인 정보 이용에 대한 동의를 신청인 회원이 대리 동의하는 것으로 간주합니다.</li>
+                </ul>
             </div>
-            
-            <div class="btn-bottom-wrap2">
-                <button disabled="true" class="btn-bottom2">
-                    <a href="#">다시 입력</a>
+            <div class="bottom-btn-wrap">
+                <button class="type2-bottom-btn" type="button">다시 입력
                 </button>
-                <button  type="button" class="btn-bottom2"  onclick="location.href='./formpage5.html'">다음
+                <button class="type2-bottom-btn" type="button">다음
                 </button>
-            </div>
+            </div> 
         </div>
     </div>
     <script>
+        // 전체동의 클릭시 밑에 2개 체크박스 체크
+        $('#check-agree-all-btn').change(function(){
+            if($(this).is(':checked')){
+                $('input[type=checkbox]').prop( "checked", true );
+            }else{
+                $('input[type=checkbox]').prop( "checked", false );
+            }
+        });
+
+        //위임동의 체크
+        $('#check-agree-1-btn').change(function(){
+            if($(this).is(':checked')){
+                $('#check-agree-1ex-btn').prop( "checked", true );
+            }else{
+                $('#check-agree-1ex-btn').prop( "checked", false );
+            }
+        });
+
+        //정보저장동의 체크
+        $('#check-agree-2-btn').change(function(){
+            if($(this).is(':checked')){
+                $('#check-agree-2ex-btn').prop( "checked", true );
+            }else{
+                $('#check-agree-2ex-btn').prop( "checked", false );
+            }
+        });
         /*하단 다음 버튼 클릭시 화면 띄우는 코드*/
-        $('.btn-bottom').click(function(){
-            $('.inputCheckWrap').css('display', 'block');
+        $('.type1-bottom-btn').click(function(){
+            $('.re-check-wrap').css('display', 'block');
             $('html').scrollTop(0);
-            $('.formP5>.step-wizard,.formP5>.title, .formP5>.content').css('display','none');
-            $('body>.appBar').css('display','none');
+            $('.formP5>.step-wizard,.formP5>.appBar,.formP5>.title, .formP5>.content').css('display','none');
+        });
+
+        /*하단 이전 버튼 클릭 시*/
+        $('.type2-bottom-btn:nth-child(1)').click(function(){
+            $('.re-check-wrap').css('display', 'none');
+            $('.formP5>.appBar,.formP5>.step-wizard,.formP5>.title, .formP5>.content').css('display','block');
         });
 
         /*인풋 value값 할당하는 코드*/
@@ -228,19 +309,16 @@
         });
         $('input[type=text]').keyup(function(){
             var textValue = $('form input[type=text]').val();
-            console.log(textValue);
-            $('.reCheckWrap input[type=text]').val(textValue);
+            $('.input-text-change').text(textValue);
         });
 
         $('input:radio[name=disease]').change(function(){
             var radioValue3 = $('input:radio[name=disease]:checked').val();
-            console.log(radioValue3);
             $('input:radio[name=reDisease][value='+radioValue3+']').prop('checked', true);
         });
         
         $('input:radio[name=disease2]').change(function(){
             var radioValue4 = $('input:radio[name=disease2]:checked').val();
-            console.log(radioValue4);
             $('input:radio[name=reDisease2][value='+radioValue4+']').prop('checked', true);
         });
 
