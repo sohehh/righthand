@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요양비용계산</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/calc.css">
+    <script src="./js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function(){
+             //모달창 바깥영역클릭시 사라지게
+            $(document).on("click",function(e){
+                if($(".popup_wrap").is(e.target)){
+                    popclose();
+                }
+            });
+        })
+
+    </script>
+</head>
+<body>
+    <div class="appBar">
+        <ul>
+            <li class="prev"></li>
+            <li>요양비용 계산</li>
+            <li class="home"></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="calc-wrap">
+            <form action="">
+                <ul class="calc-select-list">
+                    <!-- 등급 선택 -->
+                    <li class="calc-select-cpnt">
+                        <h4 class="calc-title">1. 등급을 선택해 주세요</h4>
+                        <ul class="calc-list">
+                            <li class="calc-cpnt">
+                                <input type="radio" name="rating" value="1등급" id="rating-1" checked>
+                                <label for="rating-1">1등급</label>
+                            </li>
+                            <li class="calc-cpnt">
+                                <input type="radio" name="rating" value="2등급" id="rating-2">
+                                <label for="rating-2">2등급</label>
+                            </li>
+                            <li class="calc-cpnt">
+                                <input type="radio" name="rating" value="3등급" id="rating-3">
+                                <label for="rating-3">3등급</label>
+                            </li>
+                            <li class="calc-cpnt">
+                                <input type="radio" name="rating" value="4등급" id="rating-4">
+                                <label for="rating-4">4등급</label>
+                            </li>
+                            <li class="calc-cpnt">
+                                <input type="radio" name="rating" value="5등급" id="rating-5">
+                                <label for="rating-5">5등급</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 본인부담률 선택 -->
+                    <li class="calc-select-cpnt">
+                        <h4 class="calc-title">2. 본인부담률을 선택해 주세요</h4>
+                        <ul class="calc-list">
+                            <li class="calc-cpnt">
+                                <input type="radio" name="burden" value="1등급" id="burden-1" checked>
+                                <label for="burden-1">15%</label>
+                            </li>
+                            <li class="calc-cpnt">
+                                <input type="radio" name="burden" value="2등급" id="burden-2">
+                                <label for="burden-2">9%</label>
+                            </li>
+                            <li class="calc-cpnt">
+                                <input type="radio" name="burden" value="3등급" id="burden-3">
+                                <label for="burden-3">0%</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 이용하고자 하는 서비스 선택 -->
+                    <li class="calc-select-cpnt">
+                        <h4 class="calc-title">3. 이용하고자 하는 서비스를 선택하세요</h4>
+                        <p class="calc-sub-tile">* 중복선택이 가능합니다</p>
+                        <div class="check-btn-wrap">
+                            <ul class="calc-service-list">
+                                <!-- 방문요양 체크박스 -->
+                                <li class="calc-service-cpnt">
+                                    <input type="checkbox" id="service-check-1">
+                                    <label for="service-check-1">방문요양</label>
+                                    <p>방문요양</p>
+                                    <!-- 돌봄시간 이용일수 선택 박스 -->
+                                    <div class="service-content-wrap">
+                                        <ul class="service-content-list">
+                                            <!-- 돌봄시간 선택 -->
+                                            <li class="service-content-cpnt">
+                                                <h5 class="service-content-tile">1. 방문요양 돌봄 시간</h5>
+                                                <p class="service-select-text">돌봄 시간을 선택해 주세요</p>
+                                                <div class="popup_wrap">
+                                                    <div class="popup_content">
+                                                        <div class="header">
+                                                            <span>돌봄시간을 선택해 주세요</span>
+                                                            <span class="close"></span>
+                                                        </div>
+                                                        <div class="timeday-List">
+                                                            <ul>
+                                                                <li>30분 이상</li>
+                                                                <li>60분 이상</li>
+                                                                <li>90분 이상</li>
+                                                                <li>120분 이상</li>
+                                                                <li>150분 이상</li>
+                                                                <li>180분 이상</li>
+                                                                <li>210분 이상</li>
+                                                                <li>240분 이상</li>
+                                                            </ul>
+                                                        </div>
+                                                        <button class="timeday-btn-bottom" type="button">
+                                                            선택하기
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <!-- 이용일수 선택 -->
+                                            <li class="service-content-cpnt">
+                                                <h5 class="service-content-tile">2. 방문요양 이용 일수</h5>
+                                                <p class="service-select-text">이용 일수를 선택해 주세요</p>
+                                                <div class="popup_wrap">
+                                                    <div class="popup_content">
+                                                        <div class="header">
+                                                            <span>이용 일수를 선택해 주세요</span>
+                                                            <span class="close"></span>
+                                                        </div>
+                                                        <div class="timeday-List">
+                                                            <ul>
+                                                                <li>0일</li>
+                                                                <li>1일</li>
+                                                                <li>2일</li>
+                                                                <li>3일</li>
+                                                                <li>4일</li>
+                                                                <li>5일</li>
+                                                                <li>6일</li>
+                                                                <li>7일</li>
+                                                                <li>8일</li>
+                                                                <li>9일</li>
+                                                                <li>10일</li>
+                                                                <li>11일</li>
+                                                                <li>12일</li>
+                                                                <li>13일</li>
+                                                                <li>14일</li>
+                                                                <li>15일</li>
+                                                                <li>16일</li>
+                                                                <li>17일</li>
+                                                                <li>18일</li>
+                                                                <li>19일</li>
+                                                                <li>20일</li>
+                                                                <li>21일</li>
+                                                                <li>22일</li>
+                                                                <li>23일</li>
+                                                                <li>24일</li>
+                                                                <li>25일</li>
+                                                                <li>26일</li>
+                                                                <li>27일</li>
+                                                                <li>28일</li>
+                                                                <li>29일</li>
+                                                                <li>30일</li>
+                                                                <li>31일</li>
+                                                            </ul>
+                                                        </div>
+                                                        <button class="timeday-btn-bottom" type="button">
+                                                            선택하기
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- 가족요양 체크박스 -->
+                                <li class="calc-service-cpnt">
+                                    <input type="checkbox" id="service-check-2">
+                                    <label for="service-check-2">가족요양</label>
+                                    <p>가족요양</p>
+                                    <span class="check-sub-text">(가족요양 60분은 최대 20일만 이용가능)</span>
+                                    <div class="service-content-wrap">
+                                        <ul class="service-content-list">
+                                            <!-- 돌봄시간 선택 -->
+                                            <li class="service-content-cpnt">
+                                                <h5 class="service-content-tile">1. 가족요양 돌봄 시간</h5>
+                                                <ul class="time-list">
+                                                    <li class="time-cpnt">
+                                                        <input type="radio" name="serv1-time" value="60분" id="serv1-time-1" checked>
+                                                        <label for="serv1-time-1">60분</label>
+                                                    </li>
+                                                    <li class="time-cpnt">
+                                                        <input type="radio" name="serv1-time" value="90분" id="serv1-time-2">
+                                                        <label for="serv1-time-2">90분</label>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <!-- 이용일수 선택 -->
+                                            <li class="service-content-cpnt">
+                                                <h5 class="service-content-tile">2. 가족요양 이용 일수</h5>
+                                                <p class="service-select-text">이용 일수를 선택해 주세요</p>
+                                                <div class="popup_wrap">
+                                                    <div class="popup_content">
+                                                        <div class="header">
+                                                            <span>이용 일수를 선택해 주세요</span>
+                                                            <span class="close"></span>
+                                                        </div>
+                                                        <div class="timeday-List">
+                                                            <ul>
+                                                                <li>0일</li>
+                                                                <li>1일</li>
+                                                                <li>2일</li>
+                                                                <li>3일</li>
+                                                                <li>4일</li>
+                                                                <li>5일</li>
+                                                                <li>6일</li>
+                                                                <li>7일</li>
+                                                                <li>8일</li>
+                                                                <li>9일</li>
+                                                                <li>10일</li>
+                                                                <li>11일</li>
+                                                                <li>12일</li>
+                                                                <li>13일</li>
+                                                                <li>14일</li>
+                                                                <li>15일</li>
+                                                                <li>16일</li>
+                                                                <li>17일</li>
+                                                                <li>18일</li>
+                                                                <li>19일</li>
+                                                                <li>20일</li>
+                                                                <li>21일</li>
+                                                                <li>22일</li>
+                                                                <li>23일</li>
+                                                                <li>24일</li>
+                                                                <li>25일</li>
+                                                                <li>26일</li>
+                                                                <li>27일</li>
+                                                                <li>28일</li>
+                                                                <li>29일</li>
+                                                                <li>30일</li>
+                                                                <li>31일</li>
+                                                            </ul>
+                                                        </div>
+                                                        <button class="timeday-btn-bottom" type="button">
+                                                            선택하기
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    
+                                </li>
+                                <!-- 방문목욕 체크박스 -->
+                                <li class="calc-service-cpnt">
+                                    <input type="checkbox" id="service-check-3">
+                                    <label for="service-check-3">방문목욕</label>
+                                    <p>방문목욕</p>
+                                    <div class="service-content-wrap">
+                                        <ul class="service-content-list">
+                                            <!-- 돌봄시간 선택 -->
+                                            <li class="service-content-cpnt">
+                                                <h5 class="service-content-tile">1. 방문목욕 돌봄 시간</h5>
+                                                <ul class="time-list">
+                                                    <li class="time-cpnt">
+                                                        <input type="radio" name="serv3-time" value="차량 미이용" id="serv3-time-1" checked>
+                                                        <label for="serv3-time-1">차량 미이용</label>
+                                                    </li>
+                                                    <li class="time-cpnt">
+                                                        <input type="radio" name="serv3-time" value="목욕차 (차량)" id="serv3-time-2">
+                                                        <label for="serv3-time-2">목욕차 (차량)</label>
+                                                    </li>
+                                                    <li class="time-cpnt">
+                                                        <input type="radio" name="serv3-time" value="목욕차 (가정)" id="serv3-time-3">
+                                                        <label for="serv3-time-3">목욕차 (가정)</label>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <!-- 이용일수 선택 -->
+                                            <li class="service-content-cpnt">
+                                                <h5 class="service-content-tile">2. 방문목욕 이용 일수</h5>
+                                                <p class="service-select-text">이용 일수를 선택해 주세요</p>
+                                                <div class="popup_wrap">
+                                                    <div class="popup_content">
+                                                        <div class="header">
+                                                            <span>이용 일수를 선택해 주세요</span>
+                                                            <span class="close"></span>
+                                                        </div>
+                                                        <div class="timeday-List">
+                                                            <ul>
+                                                                <li>0일</li>
+                                                                <li>1일</li>
+                                                                <li>2일</li>
+                                                                <li>3일</li>
+                                                                <li>4일</li>
+                                                                <li>5일</li>
+                                                                <li>6일</li>
+                                                                <li>7일</li>
+                                                                <li>8일</li>
+                                                                <li>9일</li>
+                                                                <li>10일</li>
+                                                                <li>11일</li>
+                                                                <li>12일</li>
+                                                                <li>13일</li>
+                                                                <li>14일</li>
+                                                                <li>15일</li>
+                                                                <li>16일</li>
+                                                                <li>17일</li>
+                                                                <li>18일</li>
+                                                                <li>19일</li>
+                                                                <li>20일</li>
+                                                                <li>21일</li>
+                                                                <li>22일</li>
+                                                                <li>23일</li>
+                                                                <li>24일</li>
+                                                                <li>25일</li>
+                                                                <li>26일</li>
+                                                                <li>27일</li>
+                                                                <li>28일</li>
+                                                                <li>29일</li>
+                                                                <li>30일</li>
+                                                                <li>31일</li>
+                                                            </ul>
+                                                        </div>
+                                                        <button class="timeday-btn-bottom" type="button">
+                                                            선택하기
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                </li>
+                                <!-- 방문간호 체크박스 -->
+                                <li class="calc-service-cpnt">
+                                    <input type="checkbox" id="service-check-4">
+                                    <label for="service-check-4">방문간호</label>
+                                    <p>방문간호</p>
+                                    <div class="service-content-wrap">
+                                        <ul class="service-content-list">
+                                            <!-- 돌봄시간 선택 -->
+                                            <li class="service-content-cpnt">
+                                                <h5 class="service-content-tile">1. 방문간호 돌봄 시간</h5>
+                                                <ul class="time-list">
+                                                    <li class="time-cpnt">
+                                                        <input type="radio" name="serv4-time" value="30분 미만" id="serv4-time-1" checked>
+                                                        <label for="serv4-time-1">30분 미만</label>
+                                                    </li>
+                                                    <li class="time-cpnt">
+                                                        <input type="radio" name="serv4-time" value="30분 이상" id="serv4-time-2">
+                                                        <label for="serv4-time-2">30분 이상</label>
+                                                    </li>
+                                                    <li class="time-cpnt">
+                                                        <input type="radio" name="serv4-time" value="60분 이상" id="serv4-time-3">
+                                                        <label for="serv4-time-3">60분 이상</label>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <!-- 이용일수 선택 -->
+                                            <li class="service-content-cpnt">
+                                                <h5 class="service-content-tile">2. 방문간호 이용 일수</h5>
+                                                <p class="service-select-text">이용 일수를 선택해 주세요</p>
+                                                <div class="popup_wrap">
+                                                    <div class="popup_content">
+                                                        <div class="header">
+                                                            <span>이용 일수를 선택해 주세요</span>
+                                                            <span class="close"></span>
+                                                        </div>
+                                                        <div class="timeday-List">
+                                                            <ul>
+                                                                <li>0일</li>
+                                                                <li>1일</li>
+                                                                <li>2일</li>
+                                                                <li>3일</li>
+                                                                <li>4일</li>
+                                                                <li>5일</li>
+                                                                <li>6일</li>
+                                                                <li>7일</li>
+                                                                <li>8일</li>
+                                                                <li>9일</li>
+                                                                <li>10일</li>
+                                                                <li>11일</li>
+                                                                <li>12일</li>
+                                                                <li>13일</li>
+                                                                <li>14일</li>
+                                                                <li>15일</li>
+                                                                <li>16일</li>
+                                                                <li>17일</li>
+                                                                <li>18일</li>
+                                                                <li>19일</li>
+                                                                <li>20일</li>
+                                                                <li>21일</li>
+                                                                <li>22일</li>
+                                                                <li>23일</li>
+                                                                <li>24일</li>
+                                                                <li>25일</li>
+                                                                <li>26일</li>
+                                                                <li>27일</li>
+                                                                <li>28일</li>
+                                                                <li>29일</li>
+                                                                <li>30일</li>
+                                                                <li>31일</li>
+                                                            </ul>
+                                                        </div>
+                                                        <button class="timeday-btn-bottom" type="button">
+                                                            선택하기
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                </li>
+                                <!-- 주야간보호 체크박스 -->
+                                <li class="calc-service-cpnt">
+                                    <input type="checkbox" id="service-check-5">
+                                    <label for="service-check-5">주야간보호</label>
+                                    <p>주야간보호</p>
+                                    <span class="check-sub-text">(8시간 기준)</span>
+                                    <div class="service-content-wrap">
+                                        <ul class="service-content-list">
+                                            <!-- 돌봄시간 선택 -->
+                                            <li class="service-content-cpnt">
+                                                <h5 class="service-content-tile">1. 주야간보호 돌봄 시간</h5>
+                                                <ul class="time-list">
+                                                    <li class="time-cpnt">
+                                                        <input type="radio" name="serv5-time" value="8시간 이상" id="serv5-time-1" checked>
+                                                        <label for="serv5-time-1">8시간 이상</label>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <!-- 이용일수 선택 -->
+                                            <li class="service-content-cpnt">
+                                                <h5 class="service-content-tile">2. 주야간보호 이용 일수</h5>
+                                                <p class="service-select-text">이용 일수를 선택해 주세요</p>
+                                                <div class="popup_wrap">
+                                                    <div class="popup_content">
+                                                        <div class="header">
+                                                            <span>이용 일수를 선택해 주세요</span>
+                                                            <span class="close"></span>
+                                                        </div>
+                                                        <div class="timeday-List">
+                                                            <ul>
+                                                                <li>0일</li>
+                                                                <li>1일</li>
+                                                                <li>2일</li>
+                                                                <li>3일</li>
+                                                                <li>4일</li>
+                                                                <li>5일</li>
+                                                                <li>6일</li>
+                                                                <li>7일</li>
+                                                                <li>8일</li>
+                                                                <li>9일</li>
+                                                                <li>10일</li>
+                                                                <li>11일</li>
+                                                                <li>12일</li>
+                                                                <li>13일</li>
+                                                                <li>14일</li>
+                                                                <li>15일</li>
+                                                                <li>16일</li>
+                                                                <li>17일</li>
+                                                                <li>18일</li>
+                                                                <li>19일</li>
+                                                                <li>20일</li>
+                                                                <li>21일</li>
+                                                                <li>22일</li>
+                                                                <li>23일</li>
+                                                                <li>24일</li>
+                                                                <li>25일</li>
+                                                                <li>26일</li>
+                                                                <li>27일</li>
+                                                                <li>28일</li>
+                                                                <li>29일</li>
+                                                                <li>30일</li>
+                                                                <li>31일</li>
+                                                            </ul>
+                                                        </div>
+                                                        <button class="timeday-btn-bottom" type="button">
+                                                            선택하기
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </li>
+                </ul>
+                <div class="bottom-btn-wrap">
+                    <button class="type4-bottom-btn" type="button">계산 결과 보러가기
+                    </button>
+                </div> 
+            </form>
+        </div>
+    </div>
+    <script>
+        //팝업창 나오는 코드
+        $('.service-select-text').click(function(){
+            $(this).next('.popup_wrap').fadeIn(200);
+            $(this).next('.popup_wrap').children('.popup_content').animate({
+                bottom:0+"%"
+            });
+            $("body").addClass('notScroll');
+        });
+        $('.close').click(function(){
+            popclose();
+        });
+
+        //돌봄시간 리스트 선택 코드
+        $('.timeday-List ul li').click(function(){
+            $('.timeday-List ul li').removeClass('cActive');
+            $(this).addClass('cActive');
+        });
+
+        // 선택하기 클릭시 cActive에 해당하는 텍스트를 .service-select-text에 할당
+        $('.timeday-btn-bottom').click(function(){
+            var avtive = $(this).siblings('.timeday-List').children().children('.cActive').text();
+            $(this).parent().parent().siblings('.service-select-text').text(avtive);
+            popclose();
+        });
+
+        //체크박스 체크시 컨텐트 박스 슬라이드하는 코드
+        $('#service-check-1, #service-check-2,#service-check-3, #service-check-4, #service-check-5').each(function(){
+            $(this).change(function(){
+                if($(this).is(':checked')){
+                    $(this).siblings('.service-content-wrap').slideDown();
+                }else{
+                    $(this).siblings('.service-content-wrap').slideUp();
+                }
+            });
+        });
+
+        //입력정보 확인화면에 있는 체크박스에 정보저장동의 체크여부 할당하는 코드
+        $('#check-agree-2-btn').change(function(){
+            if($(this).is(':checked')){
+                $('#check-agree-2ex-btn').prop( "checked", true );
+            }else{
+                $('#check-agree-2ex-btn').prop( "checked", false );
+            }
+        });
+
+        /*팝업창 사라지는 코드 | 함수 선언*/
+        function popclose(){
+            $('.popup_content').animate({
+                bottom:-100 + '%'
+            },300,function(){
+                $('.popup_wrap').fadeOut(200);
+            });
+            $("body").removeClass('notScroll');
+        }
+    </script>
+</body>
+</html>

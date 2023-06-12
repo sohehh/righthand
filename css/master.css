@@ -75,7 +75,7 @@ body{
     line-height: 150%;
 
 }
-input, button{
+input, button, textarea{
     font-family: "NanumSquareRound,sans-serif";
 }
 .skip{
@@ -197,6 +197,7 @@ input, button{
     padding: 0 20px 20px 20px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 /* type1-버튼 기본 style */
@@ -240,7 +241,45 @@ input, button{
     color:white;
     border:none;
 }
+/* type3-버튼 기본 style */
+.type3-bottom-btn{
+    background-color: #fff;
+    width: 100%;
+    display: inline-block;
+    line-height: 49px;
+    border-radius: 10px;
+    color: #B7B7B7;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+    border:none;
+    border:2px solid #2CB7A4;
+    color:#2CB7A4;
+    box-sizing: border-box;
+    cursor: pointer;
+    flex-shrink: 0;
+    
+}
+/* type4-버튼 기본 style */
+.type4-bottom-btn{
+    background-color: #2CB7A4;
+    width: 100%;
+    display: inline-block;
+    line-height: 49px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+    margin-top: 8px;
+    border:none;
+    box-sizing: border-box;
+    cursor: pointer;
+    flex-shrink: 0;
 
+}
 
 /* type1-버튼 활성화 style */
 .type1-btn-active{

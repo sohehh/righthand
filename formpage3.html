@@ -126,7 +126,7 @@
                     <div class="check-btn-wrap">
                         <input type="checkbox" class="skip" id="check-agree-btn">
                         <label for="check-agree-btn">동의</label>
-                        <p>개인 정보 제공 동의</p>
+                        <p class="essential">개인 정보 제공 동의</p>
                     </div>
                     <ul class="agree-exp-list"> 
                         <li>대리 신청의 경우 반드시 등급을 신청하시는 어르신의 정보 제공 동의를 받으셔야 합니다.</li>
@@ -303,6 +303,48 @@
             }
     </script>
     <script>
+
+        // 필수값 모두 입력, 선택시 버튼 활성화 되는 코드
+        let nameForm = document.getElementById('name');
+        let idInfo1Form = document.getElementById('id-info1');
+        let idInfo2Form = document.getElementById('id-info2');
+        let adrForm = document.getElementById('address-kakao1');
+        let adrSubForm = document.getElementById('address-kakao1-sub');
+        let adr2Form = document.getElementById('address-kakao2');
+        let adr2SubForm = document.getElementById('address-kakao2-sub');
+        let callForm = document.getElementById('call-number');
+        let bottomBtn = document.getElementsByClassName('type1-bottom-btn')[0];
+        //클래스 선택자는 뒤에 []붙여줘야 함
+        let idcardForm = document.getElementById('id-file');
+        let agreeForm = document.getElementById('check-agree-btn');
+
+        nameForm.addEventListener('keyup',activeEvent);
+        idInfo1Form.addEventListener('keyup',activeEvent);
+        idInfo2Form.addEventListener('keyup',activeEvent);
+        adrSubForm.addEventListener('keyup', activeEvent);
+        adr2SubForm.addEventListener('keyup', activeEvent);
+        callForm.addEventListener('keyup', activeEvent);
+        idcardForm.addEventListener('change', activeEvent);
+        agreeForm.addEventListener('change', activeEvent);
+
+        function activeEvent() {
+            if( (nameForm.value.length > 0) && (idInfo1Form.value.length >0) 
+            && (idInfo2Form.value.length >0) &&  (adrForm.value.length >0)
+            && (adrSubForm.value.length >0)&& (adr2Form.value.length >0)
+            && (adr2SubForm.value.length >0)&& (callForm.value.length >0)&&(idcardForm.value.length >0)&&(agreeForm.checked)){
+                bottomBtn.style.color='white';
+                bottomBtn.style.backgroundColor='#2CB7A4';
+            }else{
+                bottomBtn.style.backgroundColor='#EFEFEF';
+                bottomBtn.style.color='#B7B7B7';
+                
+            }
+        }
+
+        
+        
+    </script>
+    <script>
         /*파일 업로드시 text,css style 변경*/
         $("#doc-file").on('change',function(){
             $(this).parent().siblings('.input-file-text').text("파일 업로드 완료");
@@ -334,7 +376,7 @@
             if( ($('#name').val().length > 0) && ($('#id-info1').val().length >0) 
             && ($('#id-info2').val().length >0) && ($('#address-kakao1').val().length >0)
             && ($('#address-kakao1-sub').val().length >0)&& ($('#address-kakao2').val().length >0)
-            && ($('#address-kakao2-sub').val().length >0)&& ($('#call-number').val().length >0)&&($('#id-file').val().length >0)){
+            && ($('#address-kakao2-sub').val().length >0)&& ($('#call-number').val().length >0)&&($('#id-file').val().length >0) && $('#check-agree-btn').is(':checked')){
                 // alert("모두 입력 완료");
                 $('html').scrollTop(0);
                 $('.re-check-wrap').css('display', 'block');
@@ -342,8 +384,8 @@
             }else{
                 btn_popup();
             }
-            
         });
+
 
         /*하단 이전 버튼 클릭 시*/
         $('.type2-bottom-btn:nth-child(1)').click(function(){
@@ -368,45 +410,6 @@
             alert('필수값을 모두 다 입력 해주세요');
         }
     </script>
-    <script>
-        
-
-        let nameForm = document.getElementById('name');
-        let idInfo1Form = document.getElementById('id-info1');
-        let idInfo2Form = document.getElementById('id-info2');
-        let adrForm = document.getElementById('address-kakao1');
-        let adrSubForm = document.getElementById('address-kakao1-sub');
-        let adr2Form = document.getElementById('address-kakao2');
-        let adr2SubForm = document.getElementById('address-kakao2-sub');
-        let callForm = document.getElementById('call-number');
-        let bottomBtn = document.getElementsByClassName('type1-bottom-btn')[0];
-        //클래스 선택자는 뒤에 []붙여줘야 함
-        let idcardForm = document.getElementById('id-file');
-
-        nameForm.addEventListener('keyup',activeEvent);
-        idInfo1Form.addEventListener('keyup',activeEvent);
-        idInfo2Form.addEventListener('keyup',activeEvent);
-        adrSubForm.addEventListener('keyup', activeEvent);
-        adr2SubForm.addEventListener('keyup', activeEvent);
-        callForm.addEventListener('keyup', activeEvent);
-        idcardForm.addEventListener('change', activeEvent);
-
-        function activeEvent() {
-            if( (nameForm.value.length > 0) && (idInfo1Form.value.length >0) 
-            && (idInfo2Form.value.length >0) && (adrForm.value.length >0)
-            && (adrSubForm.value.length >0)&& (adr2Form.value.length >0)
-            && (adr2SubForm.value.length >0)&& (callForm.value.length >0)&&(idcardForm.value.length >0)){
-                bottomBtn.style.color='white';
-                bottomBtn.style.backgroundColor='#2CB7A4';
-            }else{
-                bottomBtn.style.backgroundColor='#EFEFEF';
-                bottomBtn.style.color='#B7B7B7';
-                
-            }
-        }
-
-        
-        
-    </script>
+    
 </body>
 </html>

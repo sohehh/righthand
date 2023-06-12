@@ -1,0 +1,288 @@
+.calc-select-cpnt{
+    padding-bottom: 20px;
+}
+.calc-title{
+    font-weight: 700;
+    font-size: 15px;
+}
+.calc-sub-tile{
+    color:#8B8B8B;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 6px;
+}
+.calc-list{
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.calc-cpnt{
+    width: calc(100% / 3 - 6.66666px);
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+.calc-cpnt:nth-child(3n+1){
+    margin-left: 0;
+}
+.calc-cpnt input[type=radio]{
+    display: none;
+}
+.calc-cpnt input[type=radio]:checked + label{
+    border:2px solid #2CB7A4;
+}
+.calc-cpnt input[type=radio] + label{
+    display: inline-block;
+    width: 100%;
+    padding:16px 0;
+    margin:0;
+    text-align: center;
+    border:2px solid #D9D9D9;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.check-btn-wrap{
+    margin-top: 23px;
+}
+.calc-service-cpnt{
+    padding-bottom: 20px;
+}
+.calc-service-cpnt input[type=checkbox]{
+    display: none;
+}
+.calc-service-cpnt input[type=checkbox] ~ p{
+    display: inline-block;
+    margin-left: -55px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.calc-service-cpnt label[for=service-check-5] ~ p{
+    margin-left: -71px;
+}
+.check-sub-text{
+    color:#B7B7B7;
+    font-size: 13px;
+    font-weight: 500;
+}
+.service-content-wrap{
+    display: none;
+    margin-top: 17px;
+    border:1px solid #BCBCBC;
+    border-radius: 0 20px 20px 20px;
+    padding: 25px 15px;
+}
+.service-content-cpnt:nth-child(1){
+    padding-bottom: 22px;
+}
+.service-content-tile{
+    color:#656565;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom:10px;       
+}
+.service-select-text{
+    border-radius: 10px;
+    padding: 10px 10px;
+    background:#EFF5F5 url('../img/arrow-down.svg')no-repeat right 10px bottom 12px;
+    color:#8B8B8B;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.time-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.time-cpnt{
+    width: calc(100% / 2 - 5px);
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+.time-cpnt:nth-child(2n+1){
+    margin-left: 0;
+}
+.time-cpnt input[type=radio]{
+    display: none;
+}
+.time-cpnt input[type=radio]:checked + label{
+    border:2px solid #2CB7A4;
+}
+.time-cpnt input[type=radio] + label{
+    display: inline-block;
+    width: 100%;
+    padding:11px 0;
+    margin:0;
+    text-align: center;
+    border:2px solid #D9D9D9;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+
+}
+
+
+/*onlinepage popup style*/
+.popup_wrap{
+    width: 100%;
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom: 0;
+    display: none;
+    z-index: 200;
+    background: rgba(0,0,0,0.7);
+    
+}
+.popup_content{
+    
+    padding:0 20px;
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:-100%;
+    background-color: white;
+    border-radius: 30px 30px 0 0;
+}
+
+.popup_content .header{
+    padding:25px 0 22px 0;
+    width: 100vw;
+    margin-left: -20px;
+    text-indent: 20px;
+    border-bottom: 3px solid #F5F5F5;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+.popup_content .header .close{
+    margin-right: 35px;
+    width: 15px;
+    height: auto;
+    background: url('../img/close.svg')no-repeat;
+    cursor: pointer;
+    
+}
+
+/* calc popup radio style*/
+.popup_content .timeday-List{
+    font-weight: 500;
+}            
+.popup_content .timeday-List ul{
+    height:288px;
+    overflow-y: auto;
+}
+.popup_content .timeday-List ul li{
+    padding: 20px 0 20px 0;
+    font-weight: 500;
+    font-size: 15px;
+    border-bottom: 2px solid #F5F5F5;
+    background: url('../img/check-grayBig.svg')no-repeat center right 15px / 18px auto;
+}
+
+.popup_content .timeday-List ul li.cActive{
+    background: black;
+    background: url('../img/check-orange.svg')no-repeat center right 15px / 18px auto;
+    
+}
+
+/*팝업 하단 한개 버튼 style*/
+.timeday-btn-bottom{
+    background-color: #2CB7A4;
+    width: 100vw;
+    display: block;
+    line-height: 55px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: -20px;
+    border:none;
+    box-sizing: border-box;
+}
+
+
+/* 요양비용계산 결과 stlye */
+.calc-sum-wrap{
+    border-radius: 15px;
+    border:2px solid #FBAF17;
+}
+.calc-sum-title{
+    background: #FBAF17;
+    color:white;
+    padding: 15px 23px;
+    text-align: left;
+    border-radius: 11px 11px 0 0 ;
+}
+.calc-sum-list{
+    padding: 16px 26px;
+}
+.calc-sum-cpnt:not(:nth-child(1)){
+    margin-top:15px;
+}
+.sum-title{
+    display: inline-block;
+    font-size:13px;
+    color:#717171;
+    font-weight:500;
+    /* float: left; */
+}
+.sum-num{
+    float:right;
+    font-size:13px;
+    color:#717171;
+    font-weight:500;
+}
+.sum-title-last, .sum-title-last + p{
+    font-size:14px;
+    color:#000;
+}
+.calc-serv-result-wrap{
+    margin-top: 30px;
+    padding:0 7px;
+}
+.calc-serv-result-cpnt:not(:nth-child(1)){
+    margin-top: 35px;
+}
+.calc-result-title{
+    font-size: 15px;
+    font-weight: 500;
+}
+.calc-result-list{
+    margin-top: 10px;
+}
+.calc-result-cpnt:not(:nth-child(1)){
+    margin-top: 7px;
+}
+.result-title{
+    font-size: 13px;
+    color:#939393;
+    display: inline-block;
+    position:relative;
+    padding-left: 8px;
+}
+.result-title::before{
+    content: "";
+    position:absolute;
+    display: inline-block;
+    left:0;
+    top:50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: #939393;
+    border-radius: 50%;
+}
+.result-num{
+    display: inline-block;
+    font-size: 13px;
+    color:#939393;
+}
+.notice{
+    margin-top: 20px;
+    color:#EE7B7B;
+    font-size: 15px;
+    font-weight: 500;
+}

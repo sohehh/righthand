@@ -258,16 +258,35 @@
         </div>
     </div>
     <script>
+        // 필수값 모두 입력, 선택시 버튼 활성화 되는 코드
+        let bottomBtn = document.getElementsByClassName('type1-bottom-btn')[0];
+        let agreeForm = document.getElementById('check-agree-1-btn');
+        agreeForm.addEventListener('change', activeEvent);
+
+        function activeEvent() {
+            if((agreeForm.checked)){
+                bottomBtn.style.color='white';
+                bottomBtn.style.backgroundColor='#2CB7A4';
+            }else{
+                bottomBtn.style.backgroundColor='#EFEFEF';
+                bottomBtn.style.color='#B7B7B7';
+                
+            }
+        }
+    </script>
+    <script>
         // 전체동의 클릭시 밑에 2개 체크박스 체크
         $('#check-agree-all-btn').change(function(){
             if($(this).is(':checked')){
                 $('input[type=checkbox]').prop( "checked", true );
+                activeEvent();
             }else{
                 $('input[type=checkbox]').prop( "checked", false );
+                activeEvent();
             }
         });
 
-        //위임동의 체크
+        //입력정보 확인화면에 있는 체크박스에 위임동의 체크여부 할당하는 코드 
         $('#check-agree-1-btn').change(function(){
             if($(this).is(':checked')){
                 $('#check-agree-1ex-btn').prop( "checked", true );
@@ -276,7 +295,7 @@
             }
         });
 
-        //정보저장동의 체크
+        //입력정보 확인화면에 있는 체크박스에 정보저장동의 체크여부 할당하는 코드
         $('#check-agree-2-btn').change(function(){
             if($(this).is(':checked')){
                 $('#check-agree-2ex-btn').prop( "checked", true );
@@ -286,9 +305,14 @@
         });
         /*하단 다음 버튼 클릭시 화면 띄우는 코드*/
         $('.type1-bottom-btn').click(function(){
-            $('.re-check-wrap').css('display', 'block');
-            $('html').scrollTop(0);
-            $('.formP5>.step-wizard,.formP5>.appBar,.formP5>.title, .formP5>.content').css('display','none');
+            if($('#check-agree-1-btn').is(':checked')){
+                $('.re-check-wrap').css('display', 'block');
+                $('html').scrollTop(0);
+                $('.formP5>.step-wizard,.formP5>.appBar,.formP5>.title, .formP5>.content').css('display','none');
+            }else{
+                btn_popup();
+            }
+            
         });
 
         /*하단 이전 버튼 클릭 시*/
@@ -298,34 +322,27 @@
         });
 
         /*인풋 value값 할당하는 코드*/
-        $('input:radio[name=person]').change(function(){
+        $('input:radio[name=person], input:radio[name=receiveAddr],input[type=text],input:radio[name=disease],input:radio[name=disease2]').change(function(){
             var radioValue1 = $('input:radio[name=person]:checked').val();
-            $('input:radio[name=rePerson][value='+radioValue1+']').prop('checked', true);
-        });
-
-        $('input:radio[name=receiveAddr]').change(function(){
             var radioValue2 = $('input:radio[name=receiveAddr]:checked').val();
-            $('input:radio[name=reAdr][value='+radioValue2+']').prop('checked', true);
-        });
-        $('input[type=text]').keyup(function(){
             var textValue = $('form input[type=text]').val();
-            $('.input-text-change').text(textValue);
-        });
-
-        $('input:radio[name=disease]').change(function(){
             var radioValue3 = $('input:radio[name=disease]:checked').val();
-            $('input:radio[name=reDisease][value='+radioValue3+']').prop('checked', true);
-        });
-        
-        $('input:radio[name=disease2]').change(function(){
             var radioValue4 = $('input:radio[name=disease2]:checked').val();
+
+            $('input:radio[name=rePerson][value='+radioValue1+']').prop('checked', true);
+            $('input:radio[name=reAdr][value='+radioValue2+']').prop('checked', true);
+            $('.input-text-change').text(textValue);
+            $('input:radio[name=reDisease][value='+radioValue3+']').prop('checked', true);
             $('input:radio[name=reDisease2][value='+radioValue4+']').prop('checked', true);
+
         });
 
-        let btnButton = document.getElementsByClassName('btn-bottom')[0];
-        btnButton.style.backgroundColor="#2CB7A4";
-        btnButton.style.color="#fff";
     
+        function btn_popup(){
+            alert('필수값을 모두 다 입력 해주세요');
+        }
+
     </script>
+
 </body>
 </html>

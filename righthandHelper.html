@@ -7,8 +7,30 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/master.css">
     <link rel="stylesheet" href="./css/righthandHelper.css">
+    <script src="./js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function(){
+             //모달창 바깥영역클릭시 사라지게
+            $(document).on("click",function(e){
+                if($(".popup_wrap").is(e.target)){
+                    popclose();
+                }
+            });
+
+            /*팝업창 사라지는 코드 | 함수 선언*/
+            function popclose(){
+                $('.popup_content').animate({
+                    bottom:-100 + '%'
+                },300,function(){
+                    $('.popup_wrap').fadeOut(200);
+                });
+                $("body").removeClass('notScroll');
+            }
+        })
+
+    </script>
 </head>
-<body>
+<body class="rightHandHelper">
     <div class="appBar">
         <ul>
             <li class="prev"></li>
@@ -64,15 +86,51 @@
                             <label for="service-radio-5">복지용구안내</label>
                         </li>
                     </ul>
-                    <div class="service-check-wrap">
-                        <input type="checkbox" id="service-check">
-                        <label for="service-check">
-                            <span>기타</span>
-                        </label>
+                    <div class="check-btn-wrap">
+                        <div class="check-btn-inner">
+                            <input type="checkbox" id="service-check">
+                            <label for="service-check">기타</label>
+                            <p>기타</p>
+                        </div>
+                        <textarea name="기타" id="etc" cols="30" rows="6" placeholder="필요하신 서비스를 적어주세요!"></textarea>
+                    </div>
+                    <div class="bottom-btn-wrap">
+                        <button class="type3-bottom-btn" type="button">
+                            오른손 도우미 신청하기
+                        </button>
+                        <button class="type4-bottom-btn" type="button">
+                            메인화면으로 이동
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <div class="popup_wrap">
+        <div class="popup_content">
+            <div class="header">
+                <p>신청이 완료되었습니다!</p>
+            </div>
+            <button class="cpl-btn-bottom">확인</button>
+        </div>
+    </div>
+    <script>
+        $('#service-check').change(function(){
+            if($(this).is(':checked')){
+                $('#etc').slideDown(500);
+            }else{
+                $('#etc').slideUp(500);
+            }
+        });
+
+        //팝업창 나오는 코드
+        $('.type3-bottom-btn').click(function(){
+            $('.popup_wrap').fadeIn(200);
+            $('.popup_content').animate({
+                bottom:0+"%"
+            });
+            $("body").addClass('notScroll');
+        });
+    </script>
 </body>
 </html>
