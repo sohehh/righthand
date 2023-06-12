@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장기요양 등급 예측</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/ratingPred.css">
+    <script src="./js/jquery-1.11.1.min.js"></script>
+</head>
+<body class="ratingPred-qna04"> 
+    <div class="appBar">
+        <ul>
+            <li class="prev"></li>
+            <li>요양비용 계산</li>
+            <li class="home"></li>
+        </ul>
+    </div>
+    <!-- 진행단계를 알 수 있는 ui -->
+    <div class="step-wizard">
+        <ul class="step-wizard-list">
+            <li class="step-wizard-item">
+                <span class="progress-count">1</span>
+                <span class="progress-label"> 신체<br>기능</span>
+            </li>
+            <li class="step-wizard-item current-item">
+                <span class="progress-count">2</span>
+                <span class="progress-label">인지<br>기능</span>
+            </li>
+            <li class="step-wizard-item">
+                <span class="progress-count">3</span>
+                <span class="progress-label">행동<br>변화</span>
+            </li>
+            <li class="step-wizard-item">
+                <span class="progress-count">4</span>
+                <span class="progress-label">간호<br>처치</span>
+            </li>
+            <li class="step-wizard-item">
+                <span class="progress-count">4</span>
+                <span class="progress-label">재활</span>
+            </li>
+        </ul>
+    </div>
+    <div class="title">
+        <div class="title-img-wrap">
+            <img src="./img/pred-04.svg" alt="간호처치 아이콘">
+        </div>
+        <div class="title-text-wrap">
+            <p class="pred-title">간호처치 (9문항)</p>
+            <p class="pred-title-sub">수급자의 상태를 바탕으로 문항에 답해주세요
+                해당하는 증상이 없으면 “아니다”로 
+                선택해주세요.</p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="qna-wrap">
+            <form action="">
+                <ul class="qna-list">
+                    <!-- 질문 첫번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">1. 기관지를 절개하여 인공기도를 확보하는 간호처치를 받고 있다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/4-01.jpg" alt="기관지 절개 간호 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna1" id="qna1-answer1">
+                                <label for="qna1-answer1">그렇다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna1" id="qna1-answer2">
+                                <label for="qna1-answer2">아니다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna1" id="qna1-answer3">
+                                <label for="qna1-answer3">해당없음</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 두번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">2. 인위적으로 가래 등의 분비물을 제거하기 위해 카테터 등을 통해 기도 유지를 하고 있다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/4-02.jpg" alt="흡인 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna2" id="qna2-answer1">
+                                <label for="qna2-answer1">그렇다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna2" id="qna2-answer2">
+                                <label for="qna2-answer2">아니다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna2" id="qna2-answer3">
+                                <label for="qna2-answer3">해당없음</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 세번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">3. 산소공급장치를 통해 산소를 공급 받고 있다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/4-03.jpg" alt="산소요법 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna3" id="qna3-answer1">
+                                <label for="qna3-answer1">그렇다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna3" id="qna3-answer2">
+                                <label for="qna3-answer2">아니다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna3" id="qna3-answer3">
+                                <label for="qna3-answer3">해당없음</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 네번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">4. 목구멍 또는 콧구멍등 관을 넣어 식사 대신 영양분을 공급받고 있다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/4-04.jpg" alt="경관영양 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna4" id="qna4-answer1">
+                                <label for="qna4-answer1">그렇다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna4" id="qna4-answer2">
+                                <label for="qna4-answer2">아니다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna4" id="qna4-answer3">
+                                <label for="qna4-answer3">해당없음</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 디섯번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">5. 주기적으로 드레싱 및 체위변경을 하고 있다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/4-05.jpg" alt="욕창간호 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna5" id="qna5-answer1">
+                                <label for="qna5-answer1">그렇다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna5" id="qna5-answer2">
+                                <label for="qna5-answer2">아니다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna5" id="qna5-answer3">
+                                <label for="qna5-answer3">해당없음</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 여섯번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">6. 암 통증을 줄이기 위해 약물을 복용하고 있다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/4-06.jpg" alt="암성통증간호 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna6" id="qna6-answer1">
+                                <label for="qna6-answer1">그렇다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna6" id="qna6-answer2">
+                                <label for="qna6-answer2">아니다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna6" id="qna6-answer3">
+                                <label for="qna6-answer3">해당없음</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 일곱번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">7. 스스로 소변 활동이 어려워 인위적으로 방광을 비우거나 관리받고 있다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/4-07.jpg" alt="도뇨관리 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna7" id="qna7-answer1">
+                                <label for="qna7-answer1">그렇다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna7" id="qna7-answer2">
+                                <label for="qna7-answer2">아니다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna7" id="qna7-answer3">
+                                <label for="qna7-answer3">해당없음</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 여덟번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">8. 스스로 배설물 처리가 어려워 인공항문등을 통해 대변처리 및 관리받고 있다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/4-08.jpg" alt="장루간호 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna8" id="qna8-answer1">
+                                <label for="qna8-answer1">그렇다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna8" id="qna8-answer2">
+                                <label for="qna8-answer2">아니다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna8" id="qna8-answer3">
+                                <label for="qna8-answer3">해당없음</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 아홉번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">9. 혈액 투석이 필요한 상태다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/4-09.jpg" alt="투석간호 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna9" id="qna9-answer1">
+                                <label for="qna9-answer1">그렇다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna9" id="qna9-answer2">
+                                <label for="qna9-answer2">아니다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna9" id="qna9-answer3">
+                                <label for="qna9-answer3">해당없음</label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="bottom-btn-wrap">
+                    <button class="type1-bottom-btn" type="button">다음
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        // 모든 질문에 답변을 선택했을때 버튼이 활성화되는 코드
+        $('input[name=qna1],input[name=qna2],input[name=qna3],input[name=qna4],input[name=qna5],input[name=qna6],input[name=qna7],input[name=qna8],input[name=qna9]').change(function(){
+            if( ($('input[name=qna1]').is(':checked')) && ($('input[name=qna2]').is(':checked')) && ($('input[name=qna3]').is(':checked'))  && ($('input[name=qna4]').is(':checked')) && ($('input[name=qna5]').is(':checked')) && ($('input[name=qna6]').is(':checked')) && ($('input[name=qna7]').is(':checked')) && ($('input[name=qna8]').is(':checked')) && ($('input[name=qna9]').is(':checked'))){
+                $('.type1-bottom-btn').css({color:'white',backgroundColor:'#2cb7a4'});
+                bottomBtn.style.backgroundColor='#2CB7A4';
+            }else{
+                $('.type1-bottom-btn').css({color:'#B7B7B7',backgroundColor:'#EFEFEF'});
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+/* step~ 진행단계 ui style */
+.ratingPred-qna01 .step-wizard-item:nth-child(n+2):nth-child(-n+5)::after{
+    background-color: #3A9286;
+}
+.ratingPred-qna01 .step-wizard-item:nth-child(1) .progress-count::after{
+    background-color: #2CB7A4;
+    width: 15px;
+    height: 15px;
+    border:2px solid #fff;
+}
+.ratingPred-qna01 .step-wizard-item:nth-child(n+2):nth-child(-n+5) .progress-count::after{
+    background-color: #2CB7A4;
+    width: 15px;
+    height: 15px;
+    border:2px solid #3A9286;
+}
+.ratingPred-qna01 .step-wizard-item:nth-child(n+2):nth-child(-n+5) .progress-label{
+    color:#3A9286;
+}
+
+/* qna02 진행단계 ui style */
+.ratingPred-qna02 .step-wizard-item:nth-child(n+3):nth-child(-n+5)::after{
+    background-color: #3A9286;
+}
+.ratingPred-qna02 .step-wizard-item:nth-child(2) .progress-count::after{
+    background-color: #2CB7A4;
+    width: 15px;
+    height: 15px;
+    border:2px solid #fff;
+}
+.ratingPred-qna02 .step-wizard-item:nth-child(n+3):nth-child(-n+5) .progress-count::after{
+    background-color: #2CB7A4;
+    width: 15px;
+    height: 15px;
+    border:2px solid #3A9286;
+}
+.ratingPred-qna02 .step-wizard-item:nth-child(n+3):nth-child(-n+5) .progress-label{
+    color:#3A9286;
+}
+
+/* qna03 진행단계 ui style */
+.ratingPred-qna03 .step-wizard-item:nth-child(n+4):nth-child(-n+5)::after{
+    background-color: #3A9286;
+}
+.ratingPred-qna03 .step-wizard-item:nth-child(3) .progress-count::after{
+    background-color: #2CB7A4;
+    width: 15px;
+    height: 15px;
+    border:2px solid #fff;
+}
+.ratingPred-qna03 .step-wizard-item:nth-child(n+4):nth-child(-n+5) .progress-count::after{
+    background-color: #2CB7A4;
+    width: 15px;
+    height: 15px;
+    border:2px solid #3A9286;
+}
+.ratingPred-qna03 .step-wizard-item:nth-child(n+4):nth-child(-n+5) .progress-label{
+    color:#3A9286;
+}
+
+/* qna04 진행단계 ui style */
+.ratingPred-qna04 .step-wizard-item:nth-child(n+5):nth-child(-n+5)::after{
+    background-color: #3A9286;
+}
+.ratingPred-qna04 .step-wizard-item:nth-child(4) .progress-count::after{
+    background-color: #2CB7A4;
+    width: 15px;
+    height: 15px;
+    border:2px solid #fff;
+}
+.ratingPred-qna04 .step-wizard-item:nth-child(n+5):nth-child(-n+5) .progress-count::after{
+    background-color: #2CB7A4;
+    width: 15px;
+    height: 15px;
+    border:2px solid #3A9286;
+}
+.ratingPred-qna04 .step-wizard-item:nth-child(n+5):nth-child(-n+5) .progress-label{
+    color:#3A9286;
+}
+
+/* qna05 진행단계 ui style */
+.ratingPred-qna05 .step-wizard-item:nth-child(5) .progress-count::after{
+    background-color: #2CB7A4;
+    width: 15px;
+    height: 15px;
+    border:2px solid #fff;
+}
+
+.title{
+    display: flex;
+    padding:25px 20px;
+}
+.title-text-wrap{
+    margin-left: 10px;
+}
+.pred-title{
+    margin-top: 3px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 149%;
+}
+.pred-title-sub{
+    font-size: 13px;
+}
+.qna-wrap{
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+}
+.qna-cpnt{
+    padding:30px 20px;
+    border-bottom: 7px solid #F1F1F1;
+}
+.qna-title{
+    text-align: center;
+    line-height: 145%;
+}
+.qna-img-wrap{
+    margin:auto auto;
+    margin-top: 30px;
+    width: 139px;
+    height: auto;
+}
+.qna-img-wrap img{
+    width: 100%;
+
+}
+.qna-select-list{
+    margin-top: 20px;
+}
+
+.simple-qna-title{
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 145%;
+}
+.simple-qna-list{
+    margin-top: 20px;
+}

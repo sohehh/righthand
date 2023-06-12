@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장기요양 등급 예측</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/ratingPred.css">
+    <script src="./js/jquery-1.11.1.min.js"></script>
+</head>
+<body class="ratingPred-qna01"> 
+    <div class="appBar">
+        <ul>
+            <li class="prev"></li>
+            <li>요양비용 계산</li>
+            <li class="home"></li>
+        </ul>
+    </div>
+    <!-- 진행단계를 알 수 있는 ui -->
+    <div class="step-wizard">
+        <ul class="step-wizard-list">
+            <li class="step-wizard-item">
+                <span class="progress-count">1</span>
+                <span class="progress-label"> 신체<br>기능</span>
+            </li>
+            <li class="step-wizard-item current-item">
+                <span class="progress-count">2</span>
+                <span class="progress-label">인지<br>기능</span>
+            </li>
+            <li class="step-wizard-item">
+                <span class="progress-count">3</span>
+                <span class="progress-label">행동<br>변화</span>
+            </li>
+            <li class="step-wizard-item">
+                <span class="progress-count">4</span>
+                <span class="progress-label">간호<br>처치</span>
+            </li>
+            <li class="step-wizard-item">
+                <span class="progress-count">4</span>
+                <span class="progress-label">재활</span>
+            </li>
+        </ul>
+    </div>
+    <div class="title">
+        <div class="title-img-wrap">
+            <img src="./img/pred-01.svg" alt="신체기능 아이콘">
+        </div>
+        <div class="title-text-wrap">
+            <p class="pred-title">신체기능 (12문항)</p>
+            <p class="pred-title-sub">수급자의 상태를 바탕으로 문항에 답해주세요</p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="qna-wrap">
+            <form action="">
+                <ul class="qna-list">
+                    <!-- 질문 첫번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">1. 혼자서 옷입고 벗기가 가능하다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/01.gif" alt="옷입는 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna1" id="qna1-answer1">
+                                <label for="qna1-answer1">가능하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna1" id="qna1-answer2">
+                                <label for="qna1-answer2">부분적으로 도움이 필요하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna1" id="qna1-answer3">
+                                <label for="qna1-answer3">도움없인 불가능하다</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 두번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">2. 혼자서 세수하기가 가능하다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/02.gif" alt="세수하는 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna2" id="qna2-answer1">
+                                <label for="qna2-answer1">가능하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna2" id="qna2-answer2">
+                                <label for="qna2-answer2">부분적으로 도움이 필요하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna2" id="qna2-answer3">
+                                <label for="qna2-answer3">도움없인 불가능하다</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 세번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">3. 혼자서 양치질하기가 가능하다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/03.gif" alt="양치하는 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna3" id="qna3-answer1">
+                                <label for="qna3-answer1">가능하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna3" id="qna3-answer2">
+                                <label for="qna3-answer2">부분적으로 도움이 필요하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna3" id="qna3-answer3">
+                                <label for="qna3-answer3">도움없인 불가능하다</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 네번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">4. 혼자서 목욕하기가 가능하다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/04.gif" alt="목욕하는 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna4" id="qna4-answer1">
+                                <label for="qna4-answer1">가능하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna4" id="qna4-answer2">
+                                <label for="qna4-answer2">부분적으로 도움이 필요하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna4" id="qna4-answer3">
+                                <label for="qna4-answer3">도움없인 불가능하다</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 디섯번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">5. 혼자서 식사하기가 가능하다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/05.gif" alt="식사하는 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna5" id="qna5-answer1">
+                                <label for="qna5-answer1">가능하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna5" id="qna5-answer2">
+                                <label for="qna5-answer2">부분적으로 도움이 필요하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna5" id="qna5-answer3">
+                                <label for="qna5-answer3">도움없인 불가능하다</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 여섯번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">6. 혼자서 체위변경이 가능하다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/06.gif" alt="체위변경하는 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna6" id="qna6-answer1">
+                                <label for="qna6-answer1">가능하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna6" id="qna6-answer2">
+                                <label for="qna6-answer2">부분적으로 도움이 필요하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna6" id="qna6-answer3">
+                                <label for="qna6-answer3">도움없인 불가능하다</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 일곱번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">7. 혼자서 일어서서 앉기가 가능하다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/07.gif" alt="일어서서 앉는 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna7" id="qna7-answer1">
+                                <label for="qna7-answer1">가능하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna7" id="qna7-answer2">
+                                <label for="qna7-answer2">부분적으로 도움이 필요하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna7" id="qna7-answer3">
+                                <label for="qna7-answer3">도움없인 불가능하다</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 여덟번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">8. 혼자서 자리를 옮겨 앉기가 가능하다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/08.gif" alt="자리 옮겨 앉는 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna8" id="qna8-answer1">
+                                <label for="qna8-answer1">가능하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna8" id="qna8-answer2">
+                                <label for="qna8-answer2">부분적으로 도움이 필요하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna8" id="qna8-answer3">
+                                <label for="qna8-answer3">도움없인 불가능하다</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 아홉번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">9. 혼자서 이동이 가능하다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/09.gif" alt="이동하는 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna9" id="qna9-answer1">
+                                <label for="qna9-answer1">가능하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna9" id="qna9-answer2">
+                                <label for="qna9-answer2">부분적으로 도움이 필요하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna9" id="qna9-answer3">
+                                <label for="qna9-answer3">도움없인 불가능하다</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 열번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">10. 혼자서 화장실 사용이 가능하다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/10.gif" alt="화장실 사용하는 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna10" id="qna10-answer1">
+                                <label for="qna10-answer1">가능하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna10" id="qna10-answer2">
+                                <label for="qna10-answer2">부분적으로 도움이 필요하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna10" id="qna10-answer3">
+                                <label for="qna10-answer3">도움없인 불가능하다</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 열한번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">11. 대변 조절이 가능하다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/11.gif" alt="대변 조절하는 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna11" id="qna11-answer1">
+                                <label for="qna11-answer1">가능하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna11" id="qna11-answer2">
+                                <label for="qna11-answer2">부분적으로 도움이 필요하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna11" id="qna11-answer3">
+                                <label for="qna11-answer3">도움없인 불가능하다</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 질문 열두번째 -->
+                    <li class="qna-cpnt">
+                        <h4 class="qna-title">12. 소변 조절이 가능하다</h4>
+                        <div class="qna-img-wrap">
+                            <img src="./img/12.gif" alt="소변 조절하는 이미지">
+                        </div>
+                        <ul class="qna-select-list">
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna12" id="qna12-answer1">
+                                <label for="qna12-answer1">가능하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna12" id="qna12-answer2">
+                                <label for="qna12-answer2">부분적으로 도움이 필요하다</label>
+                            </li>
+                            <li class="type1-radio-cpnt">
+                                <input type="radio" name="qna12" id="qna12-answer3">
+                                <label for="qna12-answer3">도움없인 불가능하다</label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="bottom-btn-wrap">
+                    <button class="type1-bottom-btn" type="button">다음
+                    </button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+    <script>
+        // 모든 질문에 답변을 선택했을때 버튼이 활성화되는 코드
+        $('input[name=qna1],input[name=qna2],input[name=qna3],input[name=qna4],input[name=qna5],input[name=qna6],input[name=qna7],input[name=qna8],input[name=qna9],input[name=qna10],input[name=qna11],input[name=qna12]').change(function(){
+            if( ($('input[name=qna1]').is(':checked')) && ($('input[name=qna2]').is(':checked')) && ($('input[name=qna3]').is(':checked'))  && ($('input[name=qna4]').is(':checked')) && ($('input[name=qna5]').is(':checked')) && ($('input[name=qna6]').is(':checked')) && ($('input[name=qna7]').is(':checked')) && ($('input[name=qna8]').is(':checked')) && ($('input[name=qna9]').is(':checked')) && ($('input[name=qna10]').is(':checked')) && ($('input[name=qna11]').is(':checked')) && ($('input[name=qna12]').is(':checked'))){
+                $('.type1-bottom-btn').css({color:'white',backgroundColor:'#2cb7a4'});
+                bottomBtn.style.backgroundColor='#2CB7A4';
+            }else{
+                $('.type1-bottom-btn').css({color:'#B7B7B7',backgroundColor:'#EFEFEF'});
+            }
+        });
+    </script>
+</body>
+</html>

@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/master.css">
     <link rel="stylesheet" href="./css/form01.css">
+    <script src="./js/jquery-1.11.1.min.js"></script>
+    <script>
+        /*팝업창 사라지는 코드 | 함수 선언*/
+        function popclose(){
+                $('.popup_content').animate({
+                    bottom:-100 + '%'
+                },300,function(){
+                    $('.popup_wrap').fadeOut(200);
+                });
+                $("body").removeClass('notScroll');
+            }
+    </script>
 </head>
 <body class="formP1">
     <div class="appBar">
@@ -23,5 +35,45 @@
             <li class="apply-cpnt"><a href="ctfRegister.html">인정서 등록하기</a></li>
         </ul>
     </div>
+    <!--간단예상등급 테스트를 진행하지 않았을때 나올 팝업화면-->
+    <div class="popup_wrap">
+        <div class="popup_content">
+            <div class="header">
+                <p>간단예상 등급 테스트를 <br> 먼저 진행해주세요</p>
+            </div>
+            <div class="popup-btn-wrap">
+                <button class="type2-bottom-btn" type="button">취소
+                </button>
+                <button class="type2-bottom-btn" type="button">이동하기
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--간단예상등급 테스트 결과 장기요양 등급 신청 조건에 맞지 않을때 나올 팝업화면-->
+    <div class="popup_wrap">
+        <div class="popup_content">
+            <div class="header">
+                <p>등급테스트를 다시 하시겠습니까?</p>
+            </div>
+            <div class="popup-btn-wrap">
+                <button class="type2-bottom-btn" type="button">취소
+                </button>
+                <button class="type2-bottom-btn" type="button">이동하기
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 팝업창 나오는 코드
+        function popupshow(){
+            $('.popup_wrap').fadeIn(200);
+            $('.popup_content').animate({
+                bottom:0+"%"
+            });
+            $("body").addClass('notScroll');
+        }
+        popupshow();
+        
+    </script>
 </body>
 </html>
