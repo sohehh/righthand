@@ -11,11 +11,6 @@
     <script src="./js/jquery-1.11.1.min.js"></script>
     <script>
         $(function(){
-            $("#file1").on('change',function(){
-                $(this).siblings('.upload-name').val("신분증 촬영 완료");
-                $(this).siblings('.upload-name').css('color','#000');
-            });
-
              //모달창 바깥영역클릭시 사라지게
             $(document).on("click",function(e){
                 if($(".popup_wrap").is(e.target)){
