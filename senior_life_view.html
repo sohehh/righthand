@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자유게시판 게시글</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <script src="./js/jquery-1.11.1.min.js"></script>
+
+</head>
+<body >
+  <div class="appBar">
+      <ul>
+          <li class="prev"></li>
+          <li>자유게시판 게시글</li>
+          <li class="home"></li>
+      </ul>
+  </div>
+
+ <div class="inner bd-view">
+    <div class="dis-flex bdv-info">
+      <div class="f-item img">
+        <img src="./img/hos.png" alt="병원이미지">
+      </div>
+      <div class="f-item member">
+        <strong>홍길동님</strong>
+        <span>2023-03-03</span>
+      </div>
+      <div class="f-item like">좋아요 10</div>
+    </div>
+
+    <div class="cnt">
+      <h3 class="tt">당뇨 환자의 식사요법</h3>
+      <div claSS="txt">첫째, 일정한 시간에 개인에게 알맞은 양의 식사를 균형있게, 규칙적으로 섭취해요.
+적절하고 규칙적인 음식 섭취는 혈당 조절에 도움이 되는 반면, 결식과 폭식은 고혈당의 원인이 되므로 주의해야 해요.
+
+둘째, 설탕, 꿀, 아이스크림과 같은 단순당 식품은 혈당을 급격하게 상승시키므로 섭취를 주의해야 해요.
+반면에 잡곡밥, 잡곡빵, 감자, 고구마와 같은 복합당 식품은 혈당을 비교적 천천히 상승시켜, 나에게 적합한 양만큼은 섭취할 수 있어요.
+      </div>
+      <div class="img">
+        <img src="./img/test_img02.jpg" alt="첨부한 이미지">
+      </div>
+      <div class="bd-btn-area">
+        <button type="button" class="btn-like-off">좋아요</button>
+        <button type="button" class="btn-report">신고하기</button>
+      </div>
+    </div>
+    <!-- ..cnt -->
+
+   </div>
+   <!-- //bd-view -->
+
+  <div class="review_list">
+    <div class="count">
+      댓글 10
+    </div>
+    <ul>
+      <li class="bdv-info">
+        <div class="dis-flex bdv-info">
+          <div class="f-item img">
+            <img src="./img/hos.png" alt="병원이미지">
+          </div>
+          <div class="f-item member">
+            <strong>홍길동님</strong>
+            <span>도움이 됐습니다! 감사합니다.</span>
+          </div>
+          <div class="f-item like">
+            <button type="button" class="btn-like-off">좋아요</button>
+            <button type="button" class="btn-report">신고하기</button>
+          </div>
+        </div>
+      </li>
+
+      <li class="bdv-info">
+        <div class="dis-flex bdv-info">
+          <div class="f-item img">
+            <img src="./img/hos.png" alt="병원이미지">
+          </div>
+          <div class="f-item member">
+            <strong>김OO</strong>
+            <span>도움이 됐습니다! 감사합니다.</span>
+          </div>
+          <div class="f-item like">
+            <button type="button" class="btn-like-off">좋아요</button>
+            <button type="button" class="btn-report">신고하기</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+    <!-- //review_list -->
+
+  <div class="review-write">
+    <form action="">
+      <input type="text" name="reply" value="" placeholder="댓글을 입력하세요">
+      <button type="button">등록</button>
+    </form>
+  </div>
+
+
+
+<script>
+      //게시글 좋아요 클릭 메서드
+      $('.bd-btn-area .btn-like-off').click(function(){
+        if($(this).hasClass('btn-like-off')){
+            $(this).removeClass('btn-like-off');
+            $(this).addClass('btn-like-on');
+        }else if($(this).hasClass('btn-like-on')){
+          $(this).removeClass('btn-like-on');
+            $(this).addClass('btn-like-off');
+        }
+      });
+
+      //댓글 좋아요 클릭 메서드
+      $('.like .btn-like-off').click(function(){
+        if($(this).hasClass('btn-like-off')){
+            $(this).removeClass('btn-like-off');
+            $(this).addClass('btn-like-on');
+        }else if($(this).hasClass('btn-like-on')){
+          $(this).removeClass('btn-like-on');
+            $(this).addClass('btn-like-off');
+        }
+      });
+
+      //댓글입력시 등록버튼 text 색변경
+      $('.review-write input').keyup(function(){
+        $('.review-write button').css({'color':'#2CB7A4'});
+      });
+</script>
+</body>
+</html>

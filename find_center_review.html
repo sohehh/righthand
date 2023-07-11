@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신청서 작성 - 기타 정보 입력</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <script src="./js/jquery-1.11.1.min.js"></script>
+
+</head>
+<body>
+    <div class="appBar">
+        <ul>
+            <li class="prev"></li>
+            <li>후기 남기기</li>
+            <li class="home"></li>
+        </ul>
+    </div>
+
+    <div class="inner fn-center-re-write">
+        <div class="tt">서비스는 어떠셨나요?</div>
+        <div class="star-area rate">
+          <input type="radio" id="rating5" name="rating" class="ra-star" value="5"><label for="rating5" title="5점"></label>
+          <input type="radio" id="rating4" name="rating"  class="ra-star" value="4"><label for="rating4" title="4점"></label>
+          <input type="radio" id="rating3" name="rating"  class="ra-star" value="3"><label for="rating3" title="3점"></label>
+          <input type="radio" id="rating2" name="rating"  class="ra-star" value="2"><label for="rating2" title="2점"></label>
+          <input type="radio" id="rating1" name="rating"  class="ra-star" value="1"><label for="rating1" title="1점"></label>
+        </div>
+
+        <div class="tt">후기를 작성해 주세요</div>
+        <div>
+          <textarea name="review" class="text-rev" rows="8" cols="80" placeholder="아래에 해당하는 후기는 숨김 처리될 수 있어요&#13;&#10;-시설과 관련 없는 내용의 후기-욕설, 음란성 정보, 유해한 정보 등 불쾌함을 주는 후기&#13;&#10;-비방/비하/차별 발언, 모욕, 명예훼손 등 인격권을 침해하는 후기&#13;&#10;-비방적, 악의적 고의로 판단되는 후기&#13;&#10;-기타 관련 법령, 이용약관, 운영정책을 위반하는 후기"></textarea>
+        </div>
+    </div>
+
+    <div class="bottom-btn-wrap">
+      <button class="type1-bottom-btn" type="button">후기 등록하기
+      </button>
+    </div>
+
+    <div class="popup-wrap pu01">
+        <div class="popup-content" >
+            <div class="pu-text01">
+              작성한 후기를 등록할까요?
+            </div>
+            <div class="btn-area">
+              <button class="type2-bottom-btn btnNo" type="button">아니요</button>
+              <button class="type2-bottom-btn btnYes" type="button">예</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-wrap pu02">
+        <div class="popup-content" >
+            <div class="pu-text01">
+              후기 등록이 완료되었습니다!
+            </div>
+            <div class="btn-area">
+              <button class="btn01" type="button">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+      //텍스트아리아에 입력값이 있으면 true, 아니면 false를 할당
+      var btnAc;
+      var starAc;
+      //텍스트아리아에 입력값이 있을때 하단버튼의 색을 바꾸고(활성화 ui), btnAc에 true를 할당
+      $('.text-rev').keyup(function(){
+        
+        if($(this).val().length>0){
+          btnAc = true;
+          $('.type1-bottom-btn').css({color:'white',backgroundColor:'#2cb7a4'});
+        }else{
+          btnAc = false;
+          $('.type1-bottom-btn').css({color:'#B7B7B7',backgroundColor:'#EFEFEF'});
+        }
+        });
+
+        //별점 라디오에 체크가 되었을때 starAc에 true를 할당
+      $('.ra-star').change(function(){
+        if($(this).is(':checked')){
+          starAc = true;
+        }else{
+          starAc = false;
+        }
+      });
+
+
+      //팝업창 나오는 코드
+      $('.type1-bottom-btn').click(function(){
+        //텍스트아리아와 별점둘다 입력값, 체크가 되었을때 팝업창(후기 등록)을 띄움
+        if(btnAc && starAc){
+          $('.pu01').fadeIn(200);
+          $('.pu01 > .popup-content').animate({
+              bottom:0+"%"
+          });
+          $("body").addClass('notScroll');
+        }else{
+          alert('별점과 후기를 작성해 주세요');
+        } 
+      });
+
+      //후기등록 팝업창에서 예를 눌렀을때 팝업창 나오는 코드
+      $('.btnYes').click(function(){
+        $('.pu01').hide();
+        $('.pu02').fadeIn(200);
+          $('.pu02 > .popup-content').animate({
+              bottom:0+"%"
+          });
+          $("body").addClass('notScroll');
+      });
+
+      /*팝업창 사라지는 코드 | 함수 선언*/
+      function popclose(){
+            $('.popup_content').animate({
+                bottom:-100 + '%'
+            },300,function(){
+                $('.popup_wrap').fadeOut(200);
+            });
+            $("body").removeClass('notScroll');
+        }
+
+      
+    </script>
+
+
+</body>
+</html>

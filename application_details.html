@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신청내역</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/application-details.css">
+    <script src="./js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function(){
+             //모달창 바깥영역클릭시 사라지게
+            $(document).on("click",function(e){
+                if($(".popup_wrap").is(e.target)){
+                    popclose();
+                }
+            });
+
+            /*팝업창 사라지는 코드 | 함수 선언*/
+            function popclose(){
+                $('.popup_content').animate({
+                    bottom:-100 + '%'
+                },300,function(){
+                    $('.popup_wrap').fadeOut(200);
+                });
+                $("body").removeClass('notScroll');
+            }
+        })
+
+    </script>
+</head>
+<body>
+    <div class="appBar">
+        <ul>
+            <li class="prev"></li>
+            <li>홍길동님 신청 내역</li>
+            <li class="home"></li>
+        </ul>
+    </div>
+
+    <div class="application-details accordion">
+        <div class="acd-box">
+            <a href="#none" class="acd-tt-btn">수급자 입력 정보</a>
+            <div class="acd-cnt">
+                <div class="user1-input-wrap">
+                    <form action="">
+                        <ul class="user1-input-list">
+                            <li class="user1-input-cpnt">
+                                <h4 class="user1-input-label essential">이름</h4>
+                                <div class="user1-input-inner">
+                                    <label for="name1" class="skip">이름</label>
+                                    <input id="name1" class="inp-name" type="text" name="이름" size="10" placeholder="이름을 입력해 주세요 (최대 8자)">
+                                </div>
+                            </li>
+                            <li class="user1-input-cpnt">
+                                <h4 class="user1-input-label essential">주민등록번호</h4>
+                                <div class="user1-input-inner">
+                                    <label class="skip" for="id-info1-1">주민등록번호 앞자리</label>
+                                    <input type="text" size="7" maxlength="6" placeholder="생년월일 6자리" id="id-info1-1" class="id-01">
+                                    <p>-</p>
+                                    <label class="skip" for="id-info2-1">주민등록번호 뒷자리</label>
+                                    <input type="text" size="7" maxlength="7" placeholder="뒤 7자리" id="id-info2-1" class="id-01">
+                                </div>
+                            </li>
+                            <li class="user1-input-cpnt">
+                                <h4 class="user1-input-label essential">주민등록지</h4>
+                                <div class="user1-input-inner">
+                                    <label class="skip" for="address-kakao1">주소 검색</label>
+                                    <input type="text" id="address-kakao1" class="address1" name="address" placeholder="주소를 검색하세요"/>
+                                    <label class="skip" for="address-kakao1-sub">주소 입력</label>
+                                    <input type="text" id="address-kakao1-sub"  class="address1"name="address-detail1" placeholder="상세주소를 입력하세요"/>
+                                </div>
+                            </li>
+                            <li class="user1-input-cpnt">
+                                <h4 class="user1-input-label essential">실제거주지</h4>
+                                <div class="user1-input-inner">
+                                    <label class="skip" for="address-kakao2">주소 검색</label>
+                                    <input type="text" id="address-kakao2" class="address2" name="address" placeholder="주소를 검색하세요" />
+                                    <label class="skip" for="address-kakao2-sub">주소 입력</label>
+                                    <input type="text" id="address-kakao2-sub" class="address2"name="address-detail2" placeholder="상세주소를 입력하세요"/>
+                                </div>
+                            </li>
+                            <li class="user1-input-cpnt">
+                                <h4 class="user1-input-label essential">전화번호</h4>
+                                <div class="user1-input-inner">
+                                    <label class="skip" for="call-number-1">전화번호</label>
+                                    <input type="text" name="call-number" id="call-number-1" class="inp-callnb" maxlength="11" placeholder="연락처를 '-' 없이 입력해 주세요">
+                                </div>
+                            </li>
+                        </ul>
+                        <h3 class="file-title">파일 첨부</h3>
+                        <ul class="user1-input-list">
+                            <li class="user1-input-cpnt">
+                                <h4 class="user1-input-label essential">신분증</h4>
+                                <div class="user1-input-inner">
+                                    <p class="input-file-text">사진 촬영을 해주세요</p>
+                                </div>
+                            </li>
+                            <li class="user1-input-cpnt">
+                                <h4 class="user1-input-label option">의사소견서</h4>
+                                <div class="user1-input-inner">
+                                    <p class="input-file-text">의사소견서 파일을 업로드 해주세요</p>
+                                </div>
+                            </li>
+                            <li class="user1-input-cpnt">
+                                <h4 class="user1-input-label option">노인성 질병을 확인할 수 있는 진단서</h4>
+                                <div class="user1-input-inner">
+                                    <p class="input-file-text">증명서류 파일을 업로드 해주세요</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+      <!-- //수급자 입력 정보 -->
+
+        <div class="acd-box">
+            <a href="#none" class="acd-tt-btn ">보호자 입력 정보</a>
+            <div class="acd-cnt">
+
+                <div class="user2-input-wrap">
+                    <form action="">
+                        <ul class="user2-input-list">
+                            <li class="user2-input-cpnt">
+                                <h4 class="user2-input-label essential">이름</h4>
+                                <div class="user2-input-inner">
+                                    <label for="name2" class="skip">이름</label>
+                                    <input id="name2" class="inp-name" type="text" name="이름" size="10" placeholder="이름을 입력해 주세요 (최대 8자)">
+                                </div>
+                            </li>
+                            <li class="user2-input-cpnt">
+                                <h4 class="user2-input-label essential">주민등록번호</h4>
+                                <div class="user2-input-inner">
+                                    <label class="skip" for="id-info1-2">주민등록번호 앞자리</label>
+                                    <input type="text" size="7" maxlength="6" placeholder="생년월일 6자리" id="id-info1-2" class="id-01">
+                                    <p>-</p>
+                                    <label class="skip" for="id-info2-2">주민등록번호 뒷자리</label>
+                                    <input type="text" size="7" maxlength="7" placeholder="뒤 7자리" id="id-info2-2" class="id-01">
+                                </div>
+                            </li>
+                            <li class="user2-input-cpnt">
+                                <h4 class="user2-input-label option">관계</h4>
+                                <div class="user2-input-inner">
+                                    <p class="relation-text">관계를 선택해주세요</p>
+                                </div>
+                            </li>
+                            <li class="user2-input-cpnt">
+                                <h4 class="user2-input-label essential">전화번호</h4>
+                                <div class="user2-input-inner">
+                                    <label class="skip" for="call-number">전화번호</label>
+                                    <input type="text" name="call-number-2" id="call-number-2" class="inp-callnb" maxlength="11" placeholder="연락처를 '-' 없이 입력해 주세요">
+                                </div>
+                            </li>
+                        </ul>
+                        <h3 class="file-title">파일 첨부</h3>
+                        <ul class="user2-input-list">
+                            <li class="user2-input-cpnt">
+                                <h4 class="user2-input-label essential">신분증</h4>
+                                <div class="user2-input-inner">
+                                    <p class="input-file-text">사진 촬영을 해주세요</p>
+                                </div>
+                            </li>
+                        </ul> 
+                    </form>
+                </div>
+
+            </div>
+        </div>
+      <!-- //보호자 입력 정보 -->
+
+        <div class="acd-box">
+            <a href="#none" class="acd-tt-btn ">기타 입력 정보</a>
+            <div class="acd-cnt formP5">
+
+                <div class="user3-input-wrap">
+                    <form action="">
+                        <h3 class="mail-title">우편물 수령지</h3>
+                        <ul class="user3-input-list">
+                            <li class="user3-input-cpnt">
+                                <h4 class="user3-input-label ">수령인</h4>
+                                <div class="user3-input-inner">
+                                    <label>
+                                        <input type="radio" name="person" value="수급자" checked>
+                                        <span>수급자(신청인)</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="person" value="보호자">
+                                        <span>보호자</span>
+                                    </label>
+                                    
+                                </div>
+                            </li>
+                            <li class="user3-input-cpnt">
+                                <h4 class="user3-input-label ">수령지</h4>
+                                <div class="user3-input-inner">
+                                    <label>
+                                        <input type="radio" name="receiveAddr" value="주민등록지" checked>
+                                        <span>주민 등록지</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="receiveAddr" value="실제거주지">
+                                        <span>실제 거주지</span>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="user3-input-list">
+                            <li class="user3-input-cpnt">
+                                <h4 class="user3-input-label ">변경신청시 사유 ( 장기요양등급 변경 신청서 작성 시 )</h4>
+                                <div class="user3-input-inner">
+                                    <p class="reason-text">변경 사유를 선택해 주세요</p>
+                                </div>
+                            </li>
+                            <li class="user3-input-cpnt">
+                                <h4 class="user3-input-label ">수급자(신청인) 전염성 질환 보유 여부</h4>
+                                <div class="user3-input-inner">
+                                    <label>
+                                        <input type="radio" name="disease" value="예" >
+                                        <span>예</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="disease" value="아니오" checked>
+                                        <span>아니오</span>
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="user3-input-cpnt">
+                                <h4 class="user3-input-label ">정신 질환 보유 여부</h4>
+                                <div class="user3-input-inner">
+                                    <label>
+                                        <input type="radio" name="disease2" value="예" >
+                                        <span>예</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="disease2" value="아니오" checked>
+                                        <span>아니오</span>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+      <!-- //기타 입력 정보 -->
+
+    </div>
+    <div class="popup_wrap">
+        <div class="popup_content">
+            <div class="header">
+                <p>정보제공 미동의 고객입니다!</p>
+            </div>
+            <button class="cpl-btn-bottom">확인</button>
+        </div>
+    </div>
+<script>
+$(document).ready(function() {
+var accordion_tab = $('.accordion .acd-tt-btn'),
+    accordion_content = $('.accordion .acd-cnt');
+	//accordion p tag click
+	accordion_tab.on('click', function(e){
+		//tab link 비활성화
+		e.preventDefault();
+		//활성화 된 class 제거
+		accordion_tab.removeClass('active');
+        accordion_tab.removeClass('acd-tt-arrow');
+		//accordion div 내용 숨기기
+		accordion_content.slideUp('normal');
+		//tab이 숨겨져 있으면 활성화 시키고 div 내용 펼치기
+		if($(this).next().is(':hidden') == true) {
+            $(this).addClass('acd-tt-arrow');
+			$(this).addClass('active');
+			$(this).next().slideDown('normal');
+		}
+});
+});
+
+//팝업창 나오는 코드 | 함수 선언
+function popupShow() {
+    $('.popup_wrap').fadeIn(200);
+    $('.popup_content').animate({
+        bottom:0+"%"
+    });
+    $("body").addClass('notScroll');
+}
+
+popupShow();
+</script>
+
+
+</body>
+</html>

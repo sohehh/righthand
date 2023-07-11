@@ -150,3 +150,115 @@
     font-size: 11px;
     font-weight: 700;
 }
+
+/*formP5 popup style*/
+.popup_wrap{
+    width: 100%;
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom: 0;
+    display: none;
+    z-index: 200;
+    background: rgba(0,0,0,0.7);
+    
+}
+.popup_content{
+    
+    padding:0 20px;
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:-100%;
+    background-color: white;
+    border-radius: 30px 30px 0 0;
+}
+
+.popup_content .header{
+    padding:25px 0 22px 0;
+    width: 100vw;
+    margin-left: -20px;
+    text-indent: 20px;
+    border-bottom: 3px solid #F5F5F5;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+.popup_content .header .close{
+    margin-right: 35px;
+    width: 15px;
+    height: auto;
+    background: url('../img/close.svg')no-repeat;
+    cursor: pointer;
+    
+}
+
+
+/*팝업 하단 한개 버튼 style*/
+.rea-btn-bottom{
+    background-color: #2CB7A4;
+    width: 100vw;
+    display: block;
+    line-height: 55px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: -20px;
+    border:none;
+    box-sizing: border-box;
+}
+
+
+.reason-text{
+    width: 100%;
+    background: url(../img/arrow-down.svg)no-repeat right 10px bottom 12px;
+    display: inline-block;
+    padding: 10px 0;
+    text-indent: 10px;
+    border: none;
+    border-bottom: 1px solid #707070;
+    font-size: 13px;
+}
+.reason-text + textarea[name="reason-etc-text"]{
+    width: 100%;
+    margin-top: 10px;
+    display: block;
+    display: none;
+    border-radius: 10px;
+    border:1.5px solid #cecece;
+    padding:10px;
+    resize: none;
+}
+.reason-text + textarea[name="reason-etc-text"]::placeholder{
+    color:#B5B5B5;
+}
+
+/*formP5 popup radio style*/
+.formP5 .popup_wrap .radioWrap{
+    font-weight: 500;
+}
+.formP5 .popup_wrap input[type=radio]{
+    display: none;
+}
+.formP5 .popup_wrap .form_radio_btn label{
+    display: block;
+    padding:25px 20px 25px 0;
+    border-radius: 10px;
+    background:white url(../img/check.svg)no-repeat center right 29px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.formP5 .popup_wrap input[type=radio]:checked + label{
+    border-bottom:2px solid #F5F5F5 ;
+    background:white url(../img/check-orange.svg)no-repeat center right 10px / 20px auto;
+}
+.formP5 .popup_wrap input[type=radio] + label{
+    border-bottom:2px solid #F5F5F5 ;
+    background:white url(../img/check-grayBig.svg)no-repeat center right 10px / 20px auto;
+}
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수급자 등록</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <script src="./js/jquery-1.11.1.min.js"></script>
+
+
+</head>
+<body>
+    <div class="appBar">
+        <ul>
+            <li class="prev"></li>
+            <li>수급자 등록</li>
+            <li class="home"></li>
+        </ul>
+    </div>
+
+    <h3 class="title">장기요양급여를 받고자하는<br> 수급자(신청인)의 기본정보를<br> 입력해주세요</h3>
+    <div class="content">
+        <form action="">
+            <p class="inputWrap">
+                이름<br><input type="text" name="name" size="10" placeholder="이름을 입력해 주세요 (최대 8자)" id="name" >
+            </p>
+            <p class="inputWrap">생년월일
+                <br>
+                <input type="text" name="dateBirth" size="10" placeholder="생년월일 8자리" id="dateBirth" >
+            </p>
+            <p class="inputWrap">전화번호<br>
+                <input type="text" name="callNumber" id="callNumber" maxlength="11" placeholder="연락처를 '-' 없이 입력해 주세요">
+            </p>
+            <p class="inputWrap">주소<br>
+                <input type="text" class="search" id="address-kakao1" name="address" placeholder="주소를 검색하세요" />
+                <input type="text" id="address-kakao1Sub" class="search-sub" name="address-detail1" placeholder="상세주소를 입력하세요"/>
+            </p>
+            <p class="inputWrap">성별<br>
+                <label class="btn-radio in-gender"><input type="radio" name="Gender" value="" checked>
+                    <span><img src="./img/img_man.svg" alt="남자">
+                    남자</span></label>
+                <label class="btn-radio in-gender"><input type="radio" name="Gender" value="" >
+                    <span><img src="./img/img_woman.svg" alt="여자">
+                    여자</span></label>
+            </p>
+
+
+            <div class="btn-area-bottom">
+                <button disabled="true" class="btn02 readonly" type="button">등록</button>
+            </div>
+        </form>
+    </div>
+    
+    
+    <!-- 카카오 지도 api 연동 -->
+    <!-- <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+        window.onload = function(){
+            var inp_search = document.getElementsByClassName("search")[0];
+            inp_search.addEventListener("click", function(){ //주소입력칸을 클릭하면
+                //카카오 지도 발생
+                new daum.Postcode({
+                    oncomplete: function(data) { //선택시 입력값 세팅
+                        inp_search.value = data.address; // 주소 넣기
+                        document.getElementsByClassName("search-sub")[0].focus(); //상세입력 포커싱
+                    }
+                }).open();
+            });
+        }
+    </script> -->
+
+</body>
+</html>
