@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no" name="viewport" />
     <title>신청서 작성 - 수급자 정보 입력</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/master.css">
@@ -102,8 +103,11 @@
                     </li>
                     <li class="user1-input-cpnt">
                         <h4 class="user1-input-label option">의사소견서</h4>
-                        <div class="user1-input-inner">
-                            <p class="input-file-text">의사소견서 파일을 업로드 해주세요</p>
+                        <div class="user1-input-inner delete-inner-wrap">
+                            <div class="delete-wrap delete-wrap-style01">
+                                <p class="input-file-text">의사소견서 파일을 업로드 해주세요</p>
+                                <span class="file-delete file-delete-btn01">삭제</span>
+                            </div>
                             <div class="doc-btn-wrap">
                                 <div class="hosp-list-btn"><a href="./onlinepage.html">병원 리스트</a></div>
                                 <label for="doc-file">첨부하기</label>
@@ -113,8 +117,11 @@
                     </li>
                     <li class="user1-input-cpnt">
                         <h4 class="user1-input-label option">노인성 질병을 확인할 수 있는 진단서</h4>
-                        <div class="user1-input-inner">
-                            <p class="input-file-text">증명서류 파일을 업로드 해주세요</p>
+                        <div class="user1-input-inner delete-inner-wrap">
+                            <div class="delete-wrap delete-wrap-style01">
+                                <p class="input-file-text">증명서류 파일을 업로드 해주세요</p>
+                                <span class="file-delete file-delete-btn02">삭제</span>
+                            </div>
                             <div class="mdc-btn-wrap">
                                 <label for="mdc-file">첨부하기</label>
                                 <input type="file" class="skip" id="mdc-file">
@@ -347,14 +354,22 @@
     <script>
         /*파일 업로드시 text,css style 변경*/
         $("#doc-file").on('change',function(){
-            $(this).parent().siblings('.input-file-text').text("파일 업로드 완료");
+            $(this).parent().siblings().children('.input-file-text').text("파일 업로드 완료");
             $('.input-text-doc').text("파일 업로드 완료");
-            $(this).parent().siblings('.input-file-text').css('color','#000');
+            $(this).parent().siblings().children('.input-file-text').css({
+                color:'#000',width:'calc(100% - 55px)'
+            });
+
+            $('.file-delete-btn01').css('display','inline-block');
         });
+
         $("#mdc-file").on('change',function(){
-            $(this).parent().siblings('.input-file-text').text("파일 업로드 완료");
+            $(this).parent().siblings().children('.input-file-text').text("파일 업로드 완료");
             $('.input-text-mdc').text("파일 업로드 완료");
-            $(this).parent().siblings('.input-file-text').css('color','#000');
+            $(this).parent().siblings().children('.input-file-text').css({
+                color:'#000',width:'calc(100% - 55px)'
+            });
+            $('.file-delete-btn02').css('display','inline-block');
         });
 
         // 신분증 촬영하기 버튼 클릭시
@@ -409,7 +424,32 @@
         function btn_popup(){
             alert('필수값을 모두 다 입력 해주세요');
         }
+
+        // 삭제 버튼 클릭시 의사소견서 파일 삭제 코드
+        $('.file-delete-btn01').click(function(){
+            $(this).parent().siblings().children('input[type=file]').val("");
+            $(this).siblings('.input-file-text').text("의사소견서 파일을 업로드 해주세요");
+            $('.input-text-doc').text("미 등록");
+            $(this).siblings('.input-file-text').css({
+                color:'#BFBFBF',width:'calc(100%)'
+            });
+            $(this).css('display','none');
+        });
+
+        // 삭제 버튼 클릭시 진단서 파일 삭제 코드
+        $('.file-delete-btn02').click(function(){
+            $(this).parent().siblings().children('input[type=file]').val("");
+            $(this).siblings('.input-file-text').text("증명서류 파일을 업로드 해주세요");
+            $('.input-text-mdc').text("미 등록");
+            $(this).siblings('.input-file-text').css({
+                color:'#BFBFBF',width:'calc(100%)'
+            });
+            $(this).css('display','none');
+        });
+
+
     </script>
+    
     
 </body>
 </html>

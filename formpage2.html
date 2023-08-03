@@ -8,7 +8,38 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/master.css">
     <link rel="stylesheet" href="./css/form02.css">
+    <script src="./js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function(){
+             //모달창 바깥영역클릭시 사라지게
+            $(document).on("click",function(e){
+                if($(".popup_wrap").is(e.target)){
+                    popclose();
+                }
+            });
 
+            /*팝업창 사라지는 코드 | 함수 선언*/
+            function popclose(){
+                $('.popup_content').animate({
+                    bottom:-100 + '%'
+                },300,function(){
+                    $('.popup_wrap').fadeOut(200);
+                });
+                $("body").removeClass('notScroll');
+            }
+
+            //팝업창 나오는 코드
+            function popupShow() {
+                $('.popup_wrap').fadeIn(200);
+                $('.popup_content').animate({
+                    bottom:0+"%"
+                });
+                $("body").addClass('notScroll');
+            }
+            popupShow();
+        })
+
+    </script>
 </head>
 <body class="formP2">
     <!--앱바(툴바)-->
@@ -64,7 +95,14 @@
                 </div> 
             </form>
         </div>
-        
+    </div>
+    <div class="popup_wrap">
+        <div class="popup_content">
+            <div class="header">
+                <p>이미 신청하셨습니다<br>관리자에게 문의 해주세요</p>
+            </div>
+            <button class="cpl-btn-bottom">확인</button>
+        </div>
     </div>
 </body>
 </html>

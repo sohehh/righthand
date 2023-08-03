@@ -46,10 +46,14 @@
     width: 100%;
 }
 .user2-input-inner input[class=id]{
-    width: calc(50% - 8px);
+    width: calc(50% - 10px);
 }
 .user2-input-inner input[class=id] + p{
     display: inline-block;
+    width: 20px;
+    text-align: center;
+    margin-left: -5px;
+    margin-right: -5px;
 }
 .user2-input-inner .relation-text{
     width: 100%;

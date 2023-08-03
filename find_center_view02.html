@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>센터 상세정보</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <script src="./js/jquery-1.11.1.min.js"></script>
+
+</head>
+<body>
+    <div class="appBar">
+        <ul>
+            <li class="prev"></li>
+            <li>센터 상세정보</li>
+            <li class="home"></li>
+        </ul>
+    </div>
+
+    <div class="imgarea">
+      <!-- <img src="" alt="센터이미지" height=273px> -->
+      <span class="ready-img">센터 이미지</span>
+    </div>
+
+    <div class="inner center-cnt">
+        <div class="tt"><strong>실버요양원</strong><span>주야간보호</span></div>
+        <div class="addr">경기도 시흥시 대은로 103번길 7 신화프라자 4층</div>
+        <div class="tel"><a href="tel:031-313-1234"> 031-313-1234</a></div>
+        <div>
+            <span class="star"><span class="star-text">4</span></span>
+            <span class="reivew">10개  후기</span>
+        </div>
+    </div>
+
+    <!-- //center-info -->
+    <div class="inner">
+      <p class="noCenter-tt">가입되지 않은 병원입니다</p>
+    </div>
+    <hr class="hr02">
+    <div class="inner center-info01">
+      <h3 class="tt">위치 정보</h3>
+      <div class="rbox01">
+
+      </div>
+    </div>
+
+    <div class="btn-arrea-updown">
+      <button type="button"><img class="btn-top" alt="위로이동 아이콘" src="./img/ic_up.svg"></button>
+      <button type="button"><img class="btn-bottom" alt="아래로이동 아이콘" src="./img/ic_down.svg"></button>
+    </div>
+
+
+    <div class="popup-wrap">
+        <div class="popup-content" >
+            <div class="pu-text01">
+              <strong>센터를 수락하셨습니다!</strong>
+              <span>센터 담당자가 연락 드릴거에요!</span>
+            </div>
+            <button class="btn01" type="button">선택하기</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //팝업창 나오는 코드
+        $('.btn01').click(function(){
+            $('.popup-wrap').fadeIn(200);
+            $('.popup-content').animate({
+                bottom:0+"%"
+            });
+            $("body").addClass('notScroll');
+        });
+
+        //탭바 주야간보호 선택시 tab-content-wrap안에 있는 첫번째 div를 보이게 하고, 방문요양을 선택했을때는 두번째 div를 보이게한다
+        $('.tt_tab_cpnt').click(function(){
+          $('.tt_tab_cpnt').removeClass('tt_tab_active');
+          $('.center-info').removeClass('center-info-active');
+          var idx = $(this).index();
+
+          $(this).addClass('tt_tab_active');
+          $('.tab-content-wrap > .center-info:nth-child('+(idx+1)+')').addClass('center-info-active');
+        });
+
+        //스크롤이동 맨위로
+        $('.btn-top').click(function(){
+          $('html, body').animate({scrollTop:0},500);
+        });
+        //스크롤이동 맨위로
+        $('.btn-bottom').click(function(){
+          $('html, body').animate({scrollTop:$(document).height()},500);
+        });
+
+        //리뷰클릭시 후기컨텐츠로 스크롤 이동
+        $('.reivew').click(function(){
+          var reviewTop = $('.center-reivew').offset().top;
+          $('html, body').animate({scrollTop:reviewTop},500);
+        });
+    </script>
+
+
+</body>
+</html>

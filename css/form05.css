@@ -1,3 +1,4 @@
+
 /*formP5 progressbar style*/
 .formP5 .step-wizard-item:nth-child(4) .progress-count::after{
     background-color: #2CB7A4;
@@ -262,3 +263,110 @@
     background:white url(../img/check-grayBig.svg)no-repeat center right 10px / 20px auto;
 }
 
+/*progress layout style*/
+.progress-wrap {
+    position: fixed;
+    z-index: 500;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+.progress-content {
+    position: absolute;
+    width: 60%;
+    max-width: 220px;
+    padding: 20px 30px;
+    background: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 14px;
+}
+.scaling-wrap {
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 70px;
+    overflow: hidden;
+    width: 100%;
+}
+.progress-text {
+    margin-top: 20px;
+    font-weight: 500;
+    line-height: 25px;
+    color: #808080;
+    text-align: center;
+    word-break: keep-all;
+}
+
+/*progressbar style*/
+@keyframes scaling-circle {
+    0%, 30%, 50%, 100% {
+      transform: rotate(calc(var(--angle) * 1deg)) translate(0, calc(var(--radius) * 1px)) scale(1);
+    }
+    40% {
+      transform: rotate(calc(var(--angle) * 1deg)) translate(0, calc(var(--radius) * 1px)) scale(0);
+    }
+}
+.scaling-circle {
+--radius: 25;
+--size: 10;
+height: calc(var(--size) * 1px);
+width: calc(var(--size) * 1px);
+position: absolute;
+z-index: 1000;
+}
+
+.scaling-circle div {
+height: 100%;
+width: 100%;
+position: absolute;
+border-radius: 100%;
+background: #92c6bf;
+animation: scaling-circle 1s calc(var(--delay) * 1.2s) infinite ease;
+transform: rotate(calc(var(--angle) * 1deg)) translate(0, calc(var(--radius) * 1px));
+}
+
+.scaling-circle div:nth-child(1) {
+--angle: 45;
+--delay: 0.1;
+}
+
+.scaling-circle div:nth-child(2) {
+--angle: 90;
+--delay: 0.2;
+}
+
+.scaling-circle div:nth-child(3) {
+--angle: 135;
+--delay: 0.3;
+}
+
+.scaling-circle div:nth-child(4) {
+--angle: 180;
+--delay: 0.4;
+}
+
+.scaling-circle div:nth-child(5) {
+--angle: 225;
+--delay: 0.5;
+}
+
+.scaling-circle div:nth-child(6) {
+--angle: 270;
+--delay: 0.6;
+}
+
+.scaling-circle div:nth-child(7) {
+--angle: 315;
+--delay: 0.7;
+}
+
+.scaling-circle div:nth-child(8) {
+--angle: 360;
+--delay: 0.8;
+}

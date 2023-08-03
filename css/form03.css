@@ -48,10 +48,14 @@
     width: 100%;
 }
 .user1-input-inner input[class=id]{
-    width: calc(50% - 8px);
+    width: calc(50% - 10px);
 }
 .user1-input-inner input[class=id] + p{
     display: inline-block;
+    width: 20px;
+    text-align: center;
+    margin-left: -5px;
+    margin-right: -5px;
 }
 
 .user1-input-inner input[id=address-kakao1],.user1-input-inner input[id=address-kakao2]{
@@ -84,10 +88,10 @@
     margin-top: 5px;
     display: inline-block;
     float:right;
-    width: 88px;
+    width: auto;
     font-size: 13px;
     font-weight: 500;
-    padding: 8px 10px 8px 30px;
+    padding: 8px 10px 8px 32px;
     color: #fff;
     background: #2CB7A4 url('../img/camera.svg')no-repeat center left 10px / 15px auto;
     border-radius: 20px;
@@ -99,7 +103,7 @@
     margin-top: -34px;
 }
 .hosp-list-btn{
-    width: 88px;
+    width: auto;
     border:1px solid #2CB7A4;
     color:#2CB7A4;
     font-weight: 500;
@@ -111,10 +115,10 @@
 .doc-btn-wrap label[for=doc-file]{
     margin-top: 7px;
     float:right;
-    width: 88px;
+    width: auto;
     font-size: 13px;
     font-weight: 500;
-    padding: 8px 10px 8px 30px;
+    padding: 8px 10px 8px 32px;
     background: #2CB7A4 url('../img/fileAdd.svg')no-repeat center left 10px / 15px auto;
     color:white;
     border-radius: 20px;
@@ -126,10 +130,10 @@
 }
 label[for=mdc-file]{
     display: inline-block;
-    width: 88px;
+    width: auto;
     font-size: 13px;
     font-weight: 500;
-    padding: 8px 10px 8px 30px;
+    padding: 8px 10px 8px 32px;
     background: #2CB7A4 url('../img/fileAdd.svg')no-repeat center left 10px / 15px auto;
     color:white;
     border-radius: 20px;
@@ -214,5 +218,33 @@ label[for=mdc-file]{
     font-weight: 500;
     text-decoration: underline;
 }
+.delete-inner-wrap {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+.delete-wrap {
+    display: flex;
+    border-bottom: 1px solid #707070;
+    position: relative;
+}
+.delete-wrap .input-file-text {
+    width: calc(100%);
+    border-bottom: none;
+}
+.file-delete {
+    position: absolute;
+    right: 2px;
+    bottom: 6.5px;
+    display: none;
+    padding: 8px 11px;
+    border-radius: 999px;
+    border: 1px solid #D1D1D1;
+    background: #FFF;
+    font-size: 13px;
+    font-weight: 500;
+}
 
-
+.delete-wrap-style01 {
+    width: calc(100% - 105.5px);
+}
