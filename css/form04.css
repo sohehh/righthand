@@ -266,9 +266,9 @@
     color: black;
 }
 .user2-input-cpnt .check-btn-wrap input[type=checkbox] + label::before {
-    width: 24px;
-    height: 24px;
-    background-size: 15px 12px;
+    width: 22px;
+    height: 22px;
+    background-size: 13px 10px;
 }
 .label-inTxt {
     font-size: 15px;
