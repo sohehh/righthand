@@ -85,6 +85,7 @@
     margin:10px;
     line-height: 145%;
     font-size: 14px;
+    word-break:break-all;
 }
 .delete-btn{
     padding:9px 12px;

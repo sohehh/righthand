@@ -91,11 +91,6 @@ input, button, textarea{
     padding:20px 20px 125px 20px;
     position: relative;
 }
-.ctFixed{
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-}
 
 /*신청서 작성 progressbar 기본 style*/
 .step-wizard{

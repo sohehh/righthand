@@ -261,3 +261,13 @@
     background:white url(../img/check-grayBig.svg)no-repeat center right 10px / 20px auto;
 }
 
+/* check btn CSS */
+.user2-input-cpnt .check-btn-wrap input[type=checkbox] + label {
+    color: black;
+}
+.label-inTxt {
+    font-size: 15px;
+    font-weight: 500;
+    padding-left: 7px;
+}
+

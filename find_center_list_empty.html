@@ -9,15 +9,7 @@
     <link rel="stylesheet" href="./css/master.css">
     <link rel="stylesheet" href="./css/layout.css">
     <script src="./js/jquery-1.11.1.min.js"></script>
-    <script>
-        // js
-        function setScreenSize() {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
-        setScreenSize();
-        window.addEventListener('resize', setScreenSize);
-    </script>
+
 </head>
 <body >
     <div class="appBar">
@@ -27,7 +19,7 @@
             <li class="home"></li>
         </ul>
     </div>
-    <div class="content ctFixed">
+    <div class="content">
         <form action="">
         <ul class="selectWrap">
             <li class="sel1">시·도</li>
@@ -41,12 +33,18 @@
             </div>
         </div>
         </form>
-        <!-- //center_list_empty -->
-        <div class="center_list_empty">
-            <img src="./img/ic_logo.svg" alt="오른손 로고">
-            <p>검색 조건에 맞는 병원이 없습니다</p>
-        </div>
+
+        <ul class="center_list ctFixed">
+            <li class="center_list-empty">
+                <img src="./img/ic_logo.svg" alt="오른손 로고">
+                <p>검색 조건에 맞는 병원이 없습니다</p>
+            </li>
+
+        </ul>
+        <!-- //center_list -->
     </div>
+
+
 
     <div class="popup_wrap pu01">
         <div class="popup_content">
@@ -200,8 +198,6 @@
             });
             $("body").removeClass('notScroll');
         });
-
-
     </script>
 </body>
 </html>
